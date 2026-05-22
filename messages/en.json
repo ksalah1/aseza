@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "title": "Company Formation in the Aqaba Special Economic Zone (ASEZA) | Professional Registration Services",
+    "description": "We register and incorporate your company in Jordan's Aqaba Special Economic Zone quickly and efficiently — end-to-end handling, legal advisory, and transparent fees starting from 950 JOD."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "process": "How It Works",
+    "benefits": "Why Aqaba",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Start Registration"
+  },
+  "hero": {
+    "badge": "Company formation experts in the Aqaba zone",
+    "title": "Establish Your Company in the Aqaba Special Economic Zone with Confidence",
+    "subtitle": "We guide you through every step of registering your company with the Aqaba Special Economic Zone Authority (ASEZA) — fast turnaround, transparent fees, and full regulatory compliance.",
+    "ctaPrimary": "Book Free Consultation",
+    "ctaSecondary": "Learn the Process",
+    "trustItems": [
+      "50,000+ companies registered in Aqaba",
+      "A clear, end-to-end process",
+      "Just 950 JOD"
+    ]
+  },
+  "pain": {
+    "title": "Are You Facing These Challenges?",
+    "subtitle": "Many founders stall before they even begin, held back by avoidable administrative hurdles.",
+    "items": [
+      {
+        "title": "Tangled government procedures",
+        "description": "Multiple authorities to visit and requirements that shift from one activity to another."
+      },
+      {
+        "title": "Wasted time and effort",
+        "description": "Weeks lost shuttling between offices instead of focusing on your business."
+      },
+      {
+        "title": "Unclear fees and costs",
+        "description": "Vague estimates and financial surprises that derail your planning from day one."
+      },
+      {
+        "title": "Risk of legal mistakes",
+        "description": "A small error in the paperwork can delay your license or void the application."
+      }
+    ]
+  },
+  "solution": {
+    "title": "The Solution: We Know the Process End to End",
+    "subtitle": "We take on the complexity and hand you a company that's ready to operate.",
+    "items": [
+      {
+        "title": "Specialized Aqaba expertise",
+        "description": "We know the zone authority's requirements precisely and work with them daily for our clients."
+      },
+      {
+        "title": "Fully managed, start to finish",
+        "description": "We handle every step from the first consultation to license delivery — effortlessly for you."
+      },
+      {
+        "title": "Complete fee transparency",
+        "description": "One clear fee and ongoing updates that keep you informed at every stage."
+      }
+    ]
+  },
+  "process": {
+    "title": "How Does It Work?",
+    "subtitle": "Six clear steps that take you from first consultation to license in hand.",
+    "readMore": "Read the full process",
+    "steps": [
+      {
+        "title": "Initial consultation",
+        "description": "We study your activity and goals and define your needs precisely."
+      },
+      {
+        "title": "Choose the legal structure",
+        "description": "We select the most suitable legal entity for your business with you."
+      },
+      {
+        "title": "Prepare documents",
+        "description": "We prepare and review all paperwork and the articles of association for you."
+      },
+      {
+        "title": "Submit the application",
+        "description": "We submit the application to the Aqaba Special Economic Zone Authority."
+      },
+      {
+        "title": "Track approvals",
+        "description": "We follow the file closely until the official approvals are issued."
+      },
+      {
+        "title": "Receive your license",
+        "description": "We hand you your company license, ready to start operating immediately."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Why Choose Us?",
+    "subtitle": "Speed, expertise, transparency, and full support — all in a single service.",
+    "items": [
+      {
+        "title": "Fast turnaround",
+        "description": "We complete most cases within a few business days once documents are ready."
+      },
+      {
+        "title": "Specialized expertise",
+        "description": "A legal team that knows Aqaba zone regulations closely and handles them daily."
+      },
+      {
+        "title": "Transparent fees",
+        "description": "Clear fees known up front, with no hidden costs or surprises."
+      },
+      {
+        "title": "End-to-end support",
+        "description": "We're with you before and after formation, from first question to launch."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "A Clear, All-Inclusive Setup Package",
+    "subtitle": "One known fee — no surprises and no hidden costs.",
+    "planName": "Complete Formation Package",
+    "price": "950",
+    "currency": "JOD",
+    "period": "one all-inclusive fee",
+    "includedTitle": "What's included",
+    "notIncludedTitle": "Not included",
+    "features": [
+      "Company registration with the Aqaba Special Economic Zone Authority",
+      "Preparation of the articles and memorandum of association",
+      "Full legal advisory throughout the formation period",
+      "Follow-up on all procedures until license delivery",
+      "Post-formation support for a smooth launch"
+    ],
+    "cta": "Get Started",
+    "note": "Official government fees are charged separately and vary by activity type and capital."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quick answers to what our clients ask most.",
+    "readAll": "Read all questions",
+    "items": [
+      {
+        "question": "How long does company formation take?",
+        "answer": "Most cases are completed within 5 to 10 business days once the required documents are in place."
+      },
+      {
+        "question": "Can foreigners own a company fully?",
+        "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most economic activities."
+      },
+      {
+        "question": "What documents are required?",
+        "answer": "We provide a precise list based on your activity — typically passports or IDs, partner details, and an activity description."
+      },
+      {
+        "question": "Do the fees include government charges?",
+        "answer": "The package fee covers our services in full; official government fees are charged separately and fully transparently."
+      },
+      {
+        "question": "Do you offer post-formation services?",
+        "answer": "Yes. We support bank account opening, professional licensing, and accounting services as needed."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Establish Your Company in Aqaba?",
+    "subtitle": "Book a free consultation today and let us handle the rest of the details for you.",
+    "button": "Book Your Free Consultation",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "contact": {
+    "meta": {
+      "title": "Book a Free Consultation | ASEZA.co",
+      "description": "Book a free consultation to establish your company in the Aqaba Special Economic Zone, or reach us directly on WhatsApp. We respond within 24 hours."
+    },
+    "title": "Book a Free Consultation",
+    "subtitle": "Tell us about your project and our team will get back to you. The consultation is completely free with no commitment.",
+    "form": {
+      "name": "Full name",
+      "company": "Company name (optional)",
+      "businessType": "Business type",
+      "businessTypePlaceholder": "Select a business type",
+      "businessTypes": [
+        { "value": "llc", "label": "Limited Liability Company" },
+        { "value": "one-person", "label": "One-Person Company" },
+        { "value": "branch", "label": "Foreign Company Branch" },
+        { "value": "representative", "label": "Representative Office" },
+        { "value": "other", "label": "Other / Not sure" }
+      ],
+      "phone": "Phone number (WhatsApp)",
+      "email": "Email address",
+      "message": "Your message (optional)",
+      "submit": "Send Request",
+      "sending": "Sending…",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "success": "Thank you! We've received your request and will be in touch within 24 hours.",
+      "error": "We couldn't send your request. Please try again or reach us on WhatsApp."
+    },
+    "whatsappButton": "Contact us on WhatsApp",
+    "or": "or",
+    "responseTime": "We respond within 24 hours",
+    "trust": [
+      "The consultation is completely free",
+      "No commitment whatsoever"
+    ]
+  },
+  "faqPage": {
+    "meta": {
+      "title": "FAQ on Company Registration in Aqaba | ASEZA.co",
+      "description": "Thorough answers to the most common questions about company registration in the Aqaba Special Economic Zone: registration, costs, documents, timeline, and post-registration."
+    },
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about setting up your company in Aqaba, organized by topic.",
+    "groups": [
+      {
+        "category": "Registration",
+        "items": [
+          {
+            "question": "How do I start the registration process?",
+            "answer": "Get in touch to book a free consultation, where we study your activity and determine the most suitable legal structure, then handle the rest of the procedures for you until you receive your license."
+          },
+          {
+            "question": "Can foreigners fully own the company?",
+            "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most activities without needing a local partner."
+          },
+          {
+            "question": "Do I have to attend in person?",
+            "answer": "In most cases we handle the procedures by proxy on your behalf; some steps may require your signature or a notarized authorization."
+          }
+        ]
+      },
+      {
+        "category": "Costs",
+        "items": [
+          {
+            "question": "How much does the service cost?",
+            "answer": "One clear fee of 950 JOD covering consultation, document preparation, application submission, and follow-up until you receive your license."
+          },
+          {
+            "question": "Are government fees included in the 950 JOD?",
+            "answer": "No. Official government fees are charged separately and vary by activity type and capital; we provide a precise estimate in advance."
+          },
+          {
+            "question": "Are there any hidden fees?",
+            "answer": "None at all. We clarify exactly what is and isn't included before we begin — no surprises."
+          }
+        ]
+      },
+      {
+        "category": "Documents",
+        "items": [
+          {
+            "question": "What documents are required for registration?",
+            "answer": "Typically partner ID or passport copies, an activity description, proposed company names, and proof of premises; we provide a precise list tailored to your activity."
+          },
+          {
+            "question": "Do I need to translate foreign documents?",
+            "answer": "Yes. Documents issued outside Jordan require attestation and certified translation, which we recommend completing early to avoid delays."
+          },
+          {
+            "question": "What if a document is missing?",
+            "answer": "We review your file in full before submission and guide you to complete anything missing, minimizing the chance of notes or delays."
+          }
+        ]
+      },
+      {
+        "category": "Timeline",
+        "items": [
+          {
+            "question": "How long does the registration process take?",
+            "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+          },
+          {
+            "question": "What speeds up the procedures?",
+            "answer": "Preparing documents accurately and providing them early is the fastest route; we always work to complete each step as quickly as possible."
+          },
+          {
+            "question": "When can I start operating?",
+            "answer": "As soon as you receive your license, your company is legally ready to begin work, and we guide you through the post-formation steps."
+          }
+        ]
+      },
+      {
+        "category": "Post-Registration",
+        "items": [
+          {
+            "question": "Do you help with opening a bank account?",
+            "answer": "Yes. We guide and assist you with the company bank account opening procedures after you receive your license."
+          },
+          {
+            "question": "Do you provide accounting services?",
+            "answer": "Yes. We offer support with accounting and tax services as needed to help run your company smoothly."
+          },
+          {
+            "question": "What about specialized professional licenses?",
+            "answer": "We help you complete any sector or professional licenses your activity requires after formation."
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Your trusted partner for company formation in the Aqaba Special Economic Zone.",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact",
+    "followUs": "Follow Us",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone & WhatsApp",
+    "hoursLabel": "Office Hours",
+    "hours": "Sunday – Thursday, 9 AM – 5 PM",
+    "links": {
+      "home": "Home",
+      "services": "Company Formation",
+      "process": "How It Works",
+      "pricing": "Pricing",
+      "about": "About Us",
+      "blog": "Blog",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    },
+    "rights": "© 2026 ASEZA.co — All rights reserved."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles and practical guides on company formation in the Aqaba Special Economic Zone.",
+    "allCategory": "All",
+    "categories": {
+      "registration": "Registration",
+      "company-types": "Company Types",
+      "documents": "Documents",
+      "compliance": "Compliance"
+    },
+    "readingTime": "min read",
+    "empty": "No posts in this category yet.",
+    "relatedTitle": "Related posts",
+    "backToBlog": "Back to the blog",
+    "sidebar": {
+      "title": "Ready to Get Started?",
+      "description": "Book a free consultation and let us handle your Aqaba company registration.",
+      "button": "Book a Free Consultation"
+    }
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Company Registration Service in Aqaba | ASEZA.co",
+      "description": "A complete company registration service in the Aqaba Special Economic Zone for a clear fee of 950 JOD — covering consultation, document preparation, and follow-up until your license is in hand."
+    },
+    "hero": {
+      "title": "Company Registration Service in the Aqaba Special Economic Zone",
+      "subtitle": "We handle the entire formation of your Aqaba company end to end — with a clear, transparent fee and precise follow-up until you receive your license."
+    },
+    "pricing": {
+      "title": "What Does the 950 JOD Package Include?",
+      "subtitle": "One all-inclusive fee for our services, with a full breakdown of what you get.",
+      "includedTitle": "Included in the fee",
+      "included": [
+        "Initial consultation to determine the right legal structure",
+        "Company name reservation and availability check",
+        "Preparation of the articles and memorandum of association",
+        "Completing and submitting the registration application to the zone authority",
+        "Following up on official approvals every step of the way",
+        "Collecting your registration certificate and license on your behalf",
+        "Legal advisory throughout the formation period",
+        "Post-formation support for a smooth launch"
+      ],
+      "notIncludedTitle": "Not included",
+      "notIncluded": [
+        "Official government fees of the Aqaba zone authority",
+        "Capital and registration fees that vary by activity",
+        "Professional licensing fees specific to certain sectors",
+        "Attestation and translation fees for foreign documents"
+      ],
+      "note": "Government fees are charged separately and fully transparently, and vary by activity type and capital; we provide a precise estimate before we begin."
+    },
+    "comparison": {
+      "title": "On Your Own, or With Us?",
+      "subtitle": "The difference between going through the procedures yourself and letting us handle them.",
+      "factorLabel": "Factor",
+      "diyLabel": "DIY (on your own)",
+      "withUsLabel": "With Us",
+      "rows": [
+        {
+          "factor": "Time",
+          "diy": "Weeks of running around and waiting",
+          "withUs": "Just a few days"
+        },
+        {
+          "factor": "Accuracy",
+          "diy": "Risk of errors in documents",
+          "withUs": "Expert-reviewed documents"
+        },
+        {
+          "factor": "Stress",
+          "diy": "Exhausting follow-up with several bodies",
+          "withUs": "Complete peace of mind"
+        },
+        {
+          "factor": "Success rate",
+          "diy": "Not guaranteed, may need redoing",
+          "withUs": "High on the first attempt"
+        },
+        {
+          "factor": "Cost",
+          "diy": "Hidden, scattered, unpredictable",
+          "withUs": "One clear fee"
+        }
+      ]
+    },
+    "businessTypes": {
+      "title": "Business Types We Register",
+      "subtitle": "We help you choose the entity that best fits your activity and goals.",
+      "items": [
+        {
+          "name": "Limited Liability Company",
+          "description": "The most common choice for small and medium businesses, with liability limited to capital."
+        },
+        {
+          "name": "One-Person LLC",
+          "description": "An independent entity with a single owner — ideal for the solo entrepreneur."
+        },
+        {
+          "name": "Foreign Company Branch",
+          "description": "Registering a branch of an existing company based outside Jordan to operate in Aqaba."
+        },
+        {
+          "name": "Representative Office",
+          "description": "An official presence for marketing and coordination without direct commercial activity."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Expected Timeline",
+      "subtitle": "From the first consultation to receiving your license.",
+      "items": [
+        {
+          "period": "Week 1",
+          "title": "Consultation & preparation",
+          "description": "We define the legal structure and begin preparing documents and reserving the name."
+        },
+        {
+          "period": "Week 2",
+          "title": "Application submission",
+          "description": "We submit the complete application to the Aqaba Special Economic Zone Authority."
+        },
+        {
+          "period": "Weeks 3–4",
+          "title": "Review & approvals",
+          "description": "We follow the authority's review and address any notes immediately."
+        },
+        {
+          "period": "Weeks 4–6",
+          "title": "License delivery",
+          "description": "Final approval is issued and we hand you your license, ready to go."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions About the Service",
+      "items": [
+        {
+          "question": "Is the 950 JOD fee final?",
+          "answer": "The fee covers all of our services; official government fees remain separate and we explain them up front."
+        },
+        {
+          "question": "Do I need to attend in person?",
+          "answer": "In most cases we handle procedures by proxy; some steps may require your signature or a notarized authorization."
+        },
+        {
+          "question": "What if the application is rejected?",
+          "answer": "We review documents carefully before submission to minimize rejection risk, and address any notes until approval is granted."
+        },
+        {
+          "question": "Do you help after formation?",
+          "answer": "Yes — we support bank account opening, professional licensing, and accounting services as needed."
+        }
+      ]
+    }
+  },
+  "processPage": {
+    "meta": {
+      "title": "Your Company Registration Process in Aqaba | ASEZA.co",
+      "description": "A detailed, step-by-step explanation of the company registration process in the Aqaba Special Economic Zone, including the documents required and the timeline for each stage."
+    },
+    "hero": {
+      "title": "Your Aqaba Company Registration Process, End to End",
+      "subtitle": "A detailed guide to every step — with the documents required and the expected time — so you know exactly what happens and when."
+    },
+    "documentsLabel": "Documents required at this stage",
+    "timelineLabel": "Expected time",
+    "steps": [
+      {
+        "title": "Initial consultation",
+        "description": "We start with a session to understand your activity, your goals, and your expected scope of work. We discuss the available options and answer your initial questions, leaving with a clear plan for the formation path that suits you.",
+        "documents": [],
+        "timeline": "Day 1"
+      },
+      {
+        "title": "Choose the legal structure",
+        "description": "Based on your activity, number of partners, and ownership shares, we select the most suitable legal entity with you — whether a limited liability company, a one-person company, or otherwise — and define the capital and trade name.",
+        "documents": [
+          "Passport or ID copies for all partners",
+          "Proposed ownership shares between partners",
+          "Three proposed company names, in order of preference"
+        ],
+        "timeline": "Days 2–3"
+      },
+      {
+        "title": "Prepare documents",
+        "description": "We draft all required legal documents precisely and in line with the zone authority's regulations, and review them with you before finalizing to ensure they're free of any errors that could delay the application.",
+        "documents": [
+          "Articles and memorandum of association (we prepare these)",
+          "Proof of the company's address in Aqaba",
+          "A detailed description of the business activity"
+        ],
+        "timeline": "Days 4–6"
+      },
+      {
+        "title": "Submit the application",
+        "description": "We submit the complete application with all attachments to the Aqaba Special Economic Zone Authority, pay the official fees, and obtain a tracking number for the file.",
+        "documents": [
+          "Signed registration application form",
+          "Notarized authorization, if required"
+        ],
+        "timeline": "Week 2"
+      },
+      {
+        "title": "Track approvals",
+        "description": "We follow the file's progress with the relevant bodies step by step, address any notes or additional requests as soon as they arrive, and keep you continuously updated on your application.",
+        "documents": [],
+        "timeline": "Weeks 3–4"
+      },
+      {
+        "title": "Receive your license",
+        "description": "Once final approval is issued, we collect the registration certificate and license and hand them to you ready to use, guiding you through post-formation steps such as opening a bank account.",
+        "documents": [],
+        "timeline": "Weeks 4–6"
+      }
+    ],
+    "checklist": {
+      "title": "Get the Full Document Checklist",
+      "description": "Download a checklist of every document required so you're ready before we begin.",
+      "button": "Download the Checklist"
+    },
+    "faq": {
+      "title": "Questions About the Process",
+      "items": [
+        {
+          "question": "How long does the whole process take?",
+          "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+        },
+        {
+          "question": "What do I need to get started?",
+          "answer": "To begin, ID or passport copies and a clear idea of your activity are enough — we guide you on the rest."
+        },
+        {
+          "question": "Can the procedures be sped up?",
+          "answer": "Preparing documents accurately and providing them early is the fastest route; we always work to complete each step as quickly as possible."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+
+const SITE_URL = siteConfig.url;
+// Placeholder social-share image (1200×630). Replace with a real asset.
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
+export interface PageMetaOptions {
+  locale: string;
+  /** Path after the locale, with a leading slash. Use "" for the homepage. */
+  path: string;
+  title: string;
+  description: string;
+  /** "website" (default) or "article" for blog posts. */
+  type?: "website" | "article";
+  /** ISO publish date — only used for articles. */
+  publishedTime?: string;
+}
+
+/**
+ * Build consistent per-page metadata: canonical URL, hreflang alternates,
+ * Open Graph (for Meta Ads sharing), and Twitter Card tags.
+ */
+export function buildMetadata({
+  locale,
+  path,
+  title,
+  description,
+  type = "website",
+  publishedTime,
+}: PageMetaOptions): Metadata {
+  const url = `${SITE_URL}/${locale}${path}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        ar: `${SITE_URL}/ar${path}`,
+        en: `${SITE_URL}/en${path}`,
+        "x-default": `${SITE_URL}/ar${path}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "ASEZA.co",
+      locale: locale === "ar" ? "ar_JO" : "en_US",
+      type,
+      ...(publishedTime ? { publishedTime } : {}),
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE],
+    },
+  };
+}
