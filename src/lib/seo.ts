@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, firmName } from "@/lib/site";
 
 const SITE_URL = siteConfig.url;
 // Placeholder social-share image (1200×630). Replace with a real asset.
@@ -30,9 +30,13 @@ export function buildMetadata({
   publishedTime,
 }: PageMetaOptions): Metadata {
   const url = `${SITE_URL}/${locale}${path}`;
+  // Surface the legal entity in every title and link preview so the snippet
+  // itself never reads as the official ASEZA authority.
+  const firm = firmName(locale);
+  const fullTitle = `${title} | ${firm}`;
 
   return {
-    title,
+    title: fullTitle,
     description,
     alternates: {
       canonical: url,
@@ -43,18 +47,18 @@ export function buildMetadata({
       },
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url,
-      siteName: "ASEZA.co",
+      siteName: firm,
       locale: locale === "ar" ? "ar_JO" : "en_US",
       type,
       ...(publishedTime ? { publishedTime } : {}),
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: fullTitle }],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [OG_IMAGE],
     },

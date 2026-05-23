@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
-  { key: "services", href: "/#services" },
+  { key: "services", href: "/services" },
   { key: "process", href: "/#process" },
   { key: "blog", href: "/blog" },
   { key: "faq", href: "/#faq" },
@@ -74,6 +74,7 @@ function WhatsAppButton({ label }: { label: string }) {
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const td = useTranslations("disclaimer");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -99,6 +100,13 @@ export function Navbar() {
         scrolled ? "shadow-md" : "shadow-none",
       )}
     >
+      {/* Persistent non-official disclaimer — visible on every page/viewport. */}
+      <div className="bg-primary">
+        <p className="mx-auto max-w-7xl px-6 py-1.5 text-center text-[11px] leading-tight text-accent-100 sm:text-xs">
+          {td("short")}
+        </p>
+      </div>
+
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6">
         <Logo />
 

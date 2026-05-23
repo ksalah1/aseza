@@ -7,7 +7,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 import { Badge } from "@/components/ui";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, firmName } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 import {
   getPostBySlug,
@@ -37,25 +37,27 @@ export async function generateMetadata({
   if (!post) return {};
 
   const ogImage = `${SITE_URL}/og-image.png`;
+  const firm = firmName(locale);
+  const fullTitle = `${post.title} | ${firm}`;
 
   return {
-    title: `${post.title} | ASEZA.co`,
+    title: fullTitle,
     description: post.excerpt,
     // Slugs aren't 1:1 across locales, so canonical points to self only.
     alternates: { canonical: `${SITE_URL}/${locale}/blog/${slug}` },
     openGraph: {
-      title: post.title,
+      title: fullTitle,
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
       url: `${SITE_URL}/${locale}/blog/${slug}`,
-      siteName: "ASEZA.co",
+      siteName: firm,
       locale: locale === "ar" ? "ar_JO" : "en_US",
-      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: fullTitle }],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: fullTitle,
       description: post.excerpt,
       images: [ogImage],
     },
