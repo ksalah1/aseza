@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Company formation experts in the Aqaba zone",
     "title": "Incorporate your company in Aqaba in 5–10 business days",
-    "subtitle": "Fixed fee of 950 JOD. No surprises.",
+    "subtitle": "A fixed, transparent fee of 950 JOD.",
     "price": "950",
     "currency": "JOD",
     "priceLabel": "Fixed fee",
@@ -32,11 +32,12 @@
   "included": {
     "title": "What you get for 950 JOD",
     "items": [
+      "Review of your activity type to confirm it can be registered in the zone",
       "Single-shareholder limited liability company formation",
       "Drafting of the memorandum and articles of association",
       "Issuance of the registration certificate from the Aqaba Special Economic Zone Authority",
       "Company registration with the Aqaba Chamber of Commerce",
-      "Tax number issuance and sales-tax registration",
+      "Tax number issuance, and follow-up on sales-tax registration if your activity requires it",
       "Follow-up on all procedures with government authorities through to final delivery"
     ],
     "note": "Government fees not included — disclosed at engagement.",
@@ -59,6 +60,16 @@
       {
         "title": "Delivery of registration certificate and official documents"
       }
+    ]
+  },
+  "operating": {
+    "title": "Registration is one thing; operating is another",
+    "body": "Once the company is registered, your business may need additional certificates or approvals depending on the nature of its activity — such as a public-safety certificate, a public-health certificate, environmental approval, or a work-commencement permit. We explain from the outset what applies to your activity so you don't start with incomplete procedures.",
+    "items": [
+      "Public-safety certificate",
+      "Public-health certificate",
+      "Environmental approval",
+      "Work-commencement permit"
     ]
   },
   "aboutAttorney": {
@@ -121,7 +132,7 @@
       },
       {
         "question": "Can foreigners own a company fully?",
-        "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most economic activities."
+        "answer": "Yes. Full foreign ownership is possible for many activities within the Aqaba Special Economic Zone, but some activities are prohibited, restricted, or require special approvals. We review your activity before starting to confirm the right path."
       },
       {
         "question": "What documents are required?",
@@ -216,7 +227,7 @@
           },
           {
             "question": "Can foreigners fully own the company?",
-            "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most activities without needing a local partner."
+            "answer": "Yes. Registering in the zone allows full foreign ownership for many activities without needing a local partner, though some activities are prohibited, restricted, or require special approvals — which we review with you before starting."
           },
           {
             "question": "Do I have to attend in person?",
@@ -271,13 +282,17 @@
           },
           {
             "question": "When can I start operating?",
-            "answer": "As soon as you receive your license, your company is legally ready to begin work, and we guide you through the post-formation steps."
+            "answer": "Receiving your license completes the registration process; depending on your activity, additional operational certificates or approvals may be required before you actually begin. We flag these to you in advance and guide you through the post-formation steps."
           }
         ]
       },
       {
         "category": "Post-Registration",
         "items": [
+          {
+            "question": "Can I start operating right after registration?",
+            "answer": "Once the company is registered, your business may need additional certificates or approvals depending on the nature of its activity — such as a public-safety certificate, a public-health certificate, environmental approval, or a work-commencement permit. We explain from the outset what applies to your activity so you don't start with incomplete procedures."
+          },
           {
             "question": "Do you help with opening a bank account?",
             "answer": "Yes. We guide and assist you with the company bank account opening procedures after you receive your license."

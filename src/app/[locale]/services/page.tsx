@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 import { Accordion, Card, Section } from "@/components/ui";
-import { CTABanner } from "@/components/sections";
+import { CTABanner, OperatingPermits } from "@/components/sections";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -259,6 +259,9 @@ function ServicesContent() {
           ))}
         </ol>
       </Section>
+
+      {/* Registration vs. right to operate */}
+      <OperatingPermits />
 
       {/* FAQ */}
       <Section width="narrow">
