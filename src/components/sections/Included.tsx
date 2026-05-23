@@ -7,7 +7,7 @@ export function Included() {
   const items = t.raw("items") as string[];
 
   return (
-    <Section width="wide">
+    <Section id="services" width="wide" className="scroll-mt-24">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold text-primary md:text-4xl">
           {t("title")}

@@ -15,7 +15,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section width="narrow" background="muted">
+    <Section id="faq" width="narrow" background="muted" className="scroll-mt-24">
       <div className="text-center">
         <h2 className="text-3xl font-bold text-primary md:text-4xl">
           {t("title")}
