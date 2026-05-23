@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Clock, Mail, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, whatsappLink } from "@/lib/site";
+import { siteConfig, phoneDisplay, phoneLink } from "@/lib/site";
 import type { ComponentType, SVGProps } from "react";
 
 const QUICK_LINKS = [
@@ -123,13 +123,11 @@ export function Footer() {
                 aria-hidden
               />
               <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={phoneLink()}
                 dir="ltr"
-                className="text-primary-200 transition-colors hover:text-accent"
+                className="whitespace-nowrap text-primary-200 transition-colors hover:text-accent"
               >
-                {siteConfig.phone}
+                {phoneDisplay()}
               </a>
             </li>
             <li className="flex items-start gap-3">

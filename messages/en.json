@@ -22,7 +22,8 @@
     "currency": "JOD",
     "priceLabel": "Fixed fee",
     "ctaPrimary": "Contact via WhatsApp",
-    "contactLink": "Or fill out the contact form"
+    "contactLink": "Or fill out the contact form",
+    "trust": "Fixed, transparent fees — no surprises on the invoice"
   },
   "included": {
     "title": "What you get for 950 JOD",

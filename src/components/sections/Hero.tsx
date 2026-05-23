@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { MessageCircle, Sparkles } from "lucide-react";
+import { CheckCircle, MessageCircle, Sparkles } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 
 export function Hero() {
@@ -40,7 +40,12 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <p className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-200">
+          <CheckCircle className="size-4 text-accent" aria-hidden />
+          {t("trust")}
+        </p>
+
+        <div className="mt-8 flex justify-center">
           <a
             href={whatsappLink()}
             target="_blank"
