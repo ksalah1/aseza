@@ -1,10 +1,9 @@
 import { useTranslations } from "next-intl";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { MessageCircle, Sparkles } from "lucide-react";
+import { whatsappLink } from "@/lib/site";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const trustItems = t.raw("trustItems") as string[];
 
   return (
     <section className="relative overflow-hidden bg-primary text-background">
@@ -26,31 +25,32 @@ export function Hero() {
           {t("subtitle")}
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-lg font-semibold text-primary transition-colors hover:bg-accent-300 sm:w-auto"
-          >
-            {t("ctaPrimary")}
-            <ArrowRight className="size-5 flip-rtl" aria-hidden />
-          </Link>
-          <Link
-            href="/process"
-            className="inline-flex w-full items-center justify-center rounded-lg border border-background/30 px-8 py-3.5 text-lg font-semibold text-background transition-colors hover:bg-background/10 sm:w-auto"
-          >
-            {t("ctaSecondary")}
-          </Link>
+        {/* Prominent fixed price */}
+        <div className="mt-10 inline-flex flex-col items-center rounded-2xl border border-accent/40 bg-accent/10 px-8 py-5">
+          <div className="flex items-baseline gap-2">
+            <span className="text-6xl font-bold text-accent md:text-7xl">
+              {t("price")}
+            </span>
+            <span className="text-lg font-medium text-accent-200">
+              {t("currency")}
+            </span>
+          </div>
+          <span className="mt-1 text-sm font-medium uppercase tracking-wide text-accent-200">
+            {t("priceLabel")}
+          </span>
         </div>
 
-        {/* Trust bar */}
-        <ul className="mx-auto mt-12 flex max-w-3xl flex-col items-center justify-center gap-x-8 gap-y-3 text-sm text-primary-100 sm:flex-row sm:flex-wrap">
-          {trustItems.map((item) => (
-            <li key={item} className="inline-flex items-center gap-2">
-              <Check className="size-4 shrink-0 text-accent" aria-hidden />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-8 py-3.5 text-lg font-semibold text-white transition-colors hover:bg-[#1DA851] sm:w-auto"
+          >
+            <MessageCircle className="size-5" aria-hidden />
+            {t("ctaPrimary")}
+          </a>
+        </div>
       </div>
     </section>
   );

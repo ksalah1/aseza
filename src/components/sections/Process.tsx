@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
 
-type Step = { title: string; description: string };
+type Step = { title: string };
 
 export function Process() {
   const t = useTranslations("process");
@@ -18,25 +18,20 @@ export function Process() {
         <p className="mt-4 text-lg text-primary-500">{t("subtitle")}</p>
       </div>
 
-      <ol className="relative mx-auto mt-14 grid max-w-6xl gap-y-10 md:grid-cols-6 md:gap-x-4">
+      <ol className="relative mx-auto mt-14 grid max-w-5xl gap-y-10 md:grid-cols-4 md:gap-x-4">
         {/* Connecting line (desktop only) */}
         <span
           className="absolute start-5 top-5 hidden h-[calc(100%-2.5rem)] w-px bg-accent/30 md:inset-x-0 md:top-5 md:h-px md:w-full"
           aria-hidden
         />
         {steps.map((step, i) => (
-          <li key={step.title} className="relative flex gap-4 md:flex-col md:gap-3">
+          <li key={step.title} className="relative flex items-center gap-4 md:flex-col md:items-start md:gap-3">
             <span className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-base font-bold text-primary ring-4 ring-background">
               {i + 1}
             </span>
-            <div className="md:pe-2">
-              <h3 className="text-base font-semibold text-primary">
-                {step.title}
-              </h3>
-              <p className="mt-1 text-sm leading-relaxed text-primary-500">
-                {step.description}
-              </p>
-            </div>
+            <h3 className="text-base font-semibold text-primary md:pe-2">
+              {step.title}
+            </h3>
           </li>
         ))}
       </ol>
