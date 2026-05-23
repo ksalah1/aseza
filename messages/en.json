@@ -54,6 +54,20 @@
       }
     ]
   },
+  "aboutAttorney": {
+    "_todo": "TODO: replace with real value from Nour — fill the [PLACEHOLDER] credentials (bar number, years of practice) before launch",
+    "heading": "Meet Attorney Nour Barakat",
+    "nameTitle": "Nour Barakat, Attorney at Law",
+    "bio": "A licensed Jordanian attorney specializing in company incorporation and corporate advisory for businesses operating in the Aqaba Special Economic Zone. Full transparency on fees and process, with personal follow-through on every file from filing to delivery.",
+    "credentials": [
+      "Member, Jordanian Bar Association",
+      "Bar No.: [PLACEHOLDER — to be filled in]",
+      "[PLACEHOLDER] years of practice",
+      "ASEZA corporate law specialist"
+    ],
+    "imageAlt": "Photo of Attorney Nour Barakat",
+    "cta": "Contact Attorney Nour directly"
+  },
   "pricing": {
     "title": "Clear, all-in-one incorporation package",
     "subtitle": "One known fee — no surprises and no hidden costs.",
