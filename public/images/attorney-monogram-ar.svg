@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="شعار ن.ب">
+  <rect width="800" height="1000" fill="#0F2A4A"/>
+  <text x="400" y="470" text-anchor="middle" dominant-baseline="central" direction="rtl" font-family="'Segoe UI', Tahoma, 'Noto Naskh Arabic', sans-serif" font-size="280" font-weight="700" fill="#C9A84C">ن.ب</text>
+  <rect x="330" y="650" width="140" height="6" rx="3" fill="#C9A84C"/>
+</svg>

@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
@@ -8,6 +8,7 @@ const HEADING_ID = "about-attorney-heading";
 
 export function AboutAttorney() {
   const t = useTranslations("aboutAttorney");
+  const locale = useLocale();
   const credentials = t.raw("credentials") as string[];
 
   return (
@@ -17,15 +18,14 @@ export function AboutAttorney() {
           (left in LTR, right in RTL) with no hardcoded left/right. */}
       <div className="grid items-center gap-10 md:grid-cols-[minmax(0,400px)_1fr] md:gap-14">
         <div className="mx-auto w-full max-w-[400px]">
-          {/* TODO: replace placeholder with real professional headshot */}
           <Image
-            src="/images/nour-barakat.jpg"
+            src={`/images/attorney-monogram-${locale}.svg`}
             alt={t("imageAlt")}
             width={800}
             height={1000}
             priority={false}
             sizes="(min-width: 768px) 400px, 100vw"
-            className="w-full rounded-2xl border border-primary-100 object-cover shadow-sm"
+            className="w-full rounded-2xl border border-primary-100 shadow-sm"
           />
         </div>
 

@@ -9,7 +9,7 @@ import {
   FAQ,
 } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, firmName } from "@/lib/site";
 
 async function buildLegalServiceSchema(locale: string) {
   const t = await getTranslations({ locale, namespace: "meta" });
@@ -18,7 +18,8 @@ async function buildLegalServiceSchema(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: isAr ? "نور بركات للمحاماة" : "Nour Barakat Law Firm",
+    name: firmName(locale),
+    legalName: siteConfig.firm.legalName,
     description: t("description"),
     url: `${siteConfig.url}/${locale}`,
     inLanguage: locale,
@@ -33,6 +34,11 @@ async function buildLegalServiceSchema(locale: string) {
       "@type": "Attorney",
       name: isAr ? "نور بركات" : "Nour Barakat",
       jobTitle: isAr ? "محامية" : "Attorney at Law",
+      memberOf: {
+        "@type": "Organization",
+        name: "Jordanian Bar Association",
+        identifier: "16872",
+      },
     },
     offers: {
       "@type": "Offer",
@@ -42,18 +48,15 @@ async function buildLegalServiceSchema(locale: string) {
         ? "باقة تأسيس شاملة برسوم ثابتة قدرها 950 ديناراً أردنياً."
         : "All-inclusive incorporation package for a fixed fee of 950 JOD.",
     },
-    telephone: siteConfig.phone,
-    // TODO: confirm the firm's real street address before launch.
+    telephone: siteConfig.phoneTel,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Amman",
-      addressCountry: "JO",
+      streetAddress: siteConfig.address.streetEn,
+      addressLocality: siteConfig.address.locality,
+      addressRegion: siteConfig.address.region,
+      addressCountry: siteConfig.address.country,
     },
-    sameAs: [
-      siteConfig.social.facebook,
-      siteConfig.social.instagram,
-      siteConfig.social.linkedin,
-    ],
+    sameAs: [siteConfig.firm.parentUrl],
   };
 }
 

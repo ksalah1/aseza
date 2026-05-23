@@ -23,7 +23,7 @@
     "priceLabel": "Fixed fee",
     "ctaPrimary": "Contact via WhatsApp",
     "contactLink": "Or fill out the contact form",
-    "trust": "Fixed, transparent fees — no surprises on the invoice"
+    "trust": "Licensed attorney, Jordanian Bar Association No. 16872 — over 15 years of practice"
   },
   "included": {
     "title": "What you get for 950 JOD",
@@ -57,17 +57,16 @@
     ]
   },
   "aboutAttorney": {
-    "_todo": "TODO: replace with real value from Nour — fill the [PLACEHOLDER] credentials (bar number, years of practice) before launch",
     "heading": "Meet Attorney Nour Barakat",
     "nameTitle": "Nour Barakat, Attorney at Law",
-    "bio": "A licensed Jordanian attorney specializing in company incorporation and corporate advisory for businesses operating in the Aqaba Special Economic Zone. Full transparency on fees and process, with personal follow-through on every file from filing to delivery.",
+    "bio": "A licensed Jordanian attorney, member of the Jordanian Bar Association (No. 16872), with over 15 years of practice in Jordanian civil law. Combines experience in commercial and corporate matters with corporate advisory services, delivered with full transparency and professionalism on every file.",
     "credentials": [
       "Member, Jordanian Bar Association",
-      "Bar No.: [PLACEHOLDER — to be filled in]",
-      "[PLACEHOLDER] years of practice",
+      "Bar No.: 16872",
+      "Over 15 years of experience",
       "ASEZA corporate law specialist"
     ],
-    "imageAlt": "Photo of Attorney Nour Barakat",
+    "imageAlt": "Monogram of Attorney Nour Barakat",
     "cta": "Contact Attorney Nour directly"
   },
   "contactForm": {
@@ -290,6 +289,8 @@
     "quickLinksTitle": "Quick Links",
     "contactTitle": "Contact",
     "followUs": "Follow Us",
+    "legalEntity": "A service of Barakat Law Firm — Amman, Jordan",
+    "mainSite": "Main firm website",
     "emailLabel": "Email",
     "phoneLabel": "Phone & WhatsApp",
     "hoursLabel": "Office Hours",

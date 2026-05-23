@@ -1,7 +1,12 @@
-import { useTranslations } from "next-intl";
-import { Clock, Mail, Phone } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, phoneDisplay, phoneLink } from "@/lib/site";
+import {
+  siteConfig,
+  addressDisplay,
+  phoneDisplay,
+  phoneLink,
+} from "@/lib/site";
 import type { ComponentType, SVGProps } from "react";
 
 const QUICK_LINKS = [
@@ -50,6 +55,7 @@ const SOCIAL: {
 
 export function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
 
   return (
     <footer className="bg-primary text-primary-100">
@@ -137,15 +143,36 @@ export function Footer() {
               />
               <span className="text-primary-200">{t("hours")}</span>
             </li>
+            <li className="flex items-start gap-3">
+              <MapPin
+                className="mt-0.5 size-4 shrink-0 text-accent"
+                aria-hidden
+              />
+              <span className="text-primary-200">{addressDisplay(locale)}</span>
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom bar — copyright in both languages */}
+      {/* Bottom bar — legal-entity disclosure, parent firm link, copyright */}
       <div className="border-t border-primary-600">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-primary-300 sm:flex-row">
-          <span dir="rtl">© 2026 ASEZA.co — جميع الحقوق محفوظة.</span>
-          <span dir="ltr">© 2026 ASEZA.co — All rights reserved.</span>
+        <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-primary-300">
+          <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
+            <span>{t("legalEntity")}</span>
+            <a
+              href={siteConfig.firm.parentUrl}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
+            >
+              {t("mainSite")}
+              <ExternalLink className="size-3.5" aria-hidden />
+            </a>
+          </div>
+          <div className="mt-3 flex flex-col items-center justify-between gap-2 border-t border-primary-700/60 pt-3 sm:flex-row">
+            <span dir="rtl">© 2026 ASEZA.co — جميع الحقوق محفوظة.</span>
+            <span dir="ltr">© 2026 ASEZA.co — All rights reserved.</span>
+          </div>
         </div>
       </div>
     </footer>
