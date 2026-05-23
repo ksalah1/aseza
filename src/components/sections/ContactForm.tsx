@@ -8,10 +8,7 @@ import { Section } from "@/components/ui";
 import { whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-// No custom contact API in this pass — submit via Formspree (matches the
-// existing /contact form). TODO: replace with the firm's real Formspree
-// form ID before launch.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoezrjg";
 
 const HEADING_ID = "contact-heading";
 
