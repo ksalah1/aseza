@@ -1,11 +1,10 @@
 import { useTranslations } from "next-intl";
-import { Check, Info } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { Info, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
+import { whatsappLink } from "@/lib/site";
 
 export function Pricing() {
   const t = useTranslations("pricing");
-  const features = t.raw("features") as string[];
 
   return (
     <Section id="pricing" background="default">
@@ -32,24 +31,19 @@ export function Pricing() {
         <p className="mt-8 text-sm font-semibold text-primary">
           {t("includedTitle")}
         </p>
-        <ul className="mt-4 space-y-3">
-          {features.map((feature) => (
-            <li
-              key={feature}
-              className="flex items-start gap-3 text-primary-600"
-            >
-              <Check className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
+        <p className="mt-3 leading-relaxed text-primary-600">
+          {t("includedRef")}
+        </p>
 
-        <Link
-          href="/contact"
-          className="mt-8 block rounded-lg bg-primary px-6 py-3.5 text-center text-lg font-semibold text-background transition-colors hover:bg-accent hover:text-primary"
+        <a
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3.5 text-center text-lg font-semibold text-white transition-colors hover:bg-[#1DA851]"
         >
+          <MessageCircle className="size-5" aria-hidden />
           {t("cta")}
-        </Link>
+        </a>
 
         {/* What's NOT included */}
         <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-primary-400">

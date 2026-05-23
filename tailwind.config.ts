@@ -35,8 +35,8 @@ export default {
       },
       fontFamily: {
         // Wired to the CSS variables set by next/font in the locale layout.
-        arabic: ["var(--font-arabic)", "Noto Sans Arabic", "sans-serif"],
-        latin: ["var(--font-latin)", "Plus Jakarta Sans", "sans-serif"],
+        arabic: ["var(--font-arabic)", "IBM Plex Sans Arabic", "sans-serif"],
+        latin: ["var(--font-latin)", "Inter", "sans-serif"],
       },
     },
   },

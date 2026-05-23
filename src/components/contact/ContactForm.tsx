@@ -6,8 +6,7 @@ import { useTranslations } from "next-intl";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Replace with your real Formspree form ID.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoezrjg";
 
 type BusinessType = { value: string; label: string };
 

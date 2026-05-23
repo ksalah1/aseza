@@ -16,125 +16,91 @@
   },
   "hero": {
     "badge": "Company formation experts in the Aqaba zone",
-    "title": "Establish Your Company in the Aqaba Special Economic Zone with Confidence",
-    "subtitle": "We guide you through every step of registering your company with the Aqaba Special Economic Zone Authority (ASEZA) — fast turnaround, transparent fees, and full regulatory compliance.",
-    "ctaPrimary": "Book Free Consultation",
-    "ctaSecondary": "Learn the Process",
-    "trustItems": [
-      "50,000+ companies registered in Aqaba",
-      "A clear, end-to-end process",
-      "Just 950 JOD"
-    ]
+    "title": "Incorporate your company in Aqaba in 5–10 business days",
+    "subtitle": "Fixed fee of 950 JOD. No surprises.",
+    "price": "950",
+    "currency": "JOD",
+    "priceLabel": "Fixed fee",
+    "ctaPrimary": "Contact via WhatsApp",
+    "contactLink": "Or fill out the contact form",
+    "trust": "Licensed attorney, Jordanian Bar Association No. 16872 — over 15 years of practice"
   },
-  "pain": {
-    "title": "Are You Facing These Challenges?",
-    "subtitle": "Many founders stall before they even begin, held back by avoidable administrative hurdles.",
+  "included": {
+    "title": "What you get for 950 JOD",
     "items": [
-      {
-        "title": "Tangled government procedures",
-        "description": "Multiple authorities to visit and requirements that shift from one activity to another."
-      },
-      {
-        "title": "Wasted time and effort",
-        "description": "Weeks lost shuttling between offices instead of focusing on your business."
-      },
-      {
-        "title": "Unclear fees and costs",
-        "description": "Vague estimates and financial surprises that derail your planning from day one."
-      },
-      {
-        "title": "Risk of legal mistakes",
-        "description": "A small error in the paperwork can delay your license or void the application."
-      }
-    ]
-  },
-  "solution": {
-    "title": "The Solution: We Know the Process End to End",
-    "subtitle": "We take on the complexity and hand you a company that's ready to operate.",
-    "items": [
-      {
-        "title": "Specialized Aqaba expertise",
-        "description": "We know the zone authority's requirements precisely and work with them daily for our clients."
-      },
-      {
-        "title": "Fully managed, start to finish",
-        "description": "We handle every step from the first consultation to license delivery — effortlessly for you."
-      },
-      {
-        "title": "Complete fee transparency",
-        "description": "One clear fee and ongoing updates that keep you informed at every stage."
-      }
-    ]
+      "Single-shareholder limited liability company formation",
+      "Drafting of the memorandum and articles of association",
+      "Issuance of the registration certificate from the Aqaba Special Economic Zone Authority",
+      "Company registration with the Aqaba Chamber of Commerce",
+      "Tax number issuance and sales-tax registration",
+      "Follow-up on all procedures with government authorities through to final delivery"
+    ],
+    "note": "Government fees not included — disclosed at engagement."
   },
   "process": {
-    "title": "How Does It Work?",
-    "subtitle": "Six clear steps that take you from first consultation to license in hand.",
+    "title": "How it works",
+    "subtitle": "Four clear steps from first contact to registration certificate in hand.",
     "readMore": "Read the full process",
     "steps": [
       {
-        "title": "Initial consultation",
-        "description": "We study your activity and goals and define your needs precisely."
+        "title": "Free WhatsApp consultation"
       },
       {
-        "title": "Choose the legal structure",
-        "description": "We select the most suitable legal entity for your business with you."
+        "title": "Document prep & signing of power of attorney"
       },
       {
-        "title": "Prepare documents",
-        "description": "We prepare and review all paperwork and the articles of association for you."
+        "title": "Filing and follow-up with government authorities"
       },
       {
-        "title": "Submit the application",
-        "description": "We submit the application to the Aqaba Special Economic Zone Authority."
-      },
-      {
-        "title": "Track approvals",
-        "description": "We follow the file closely until the official approvals are issued."
-      },
-      {
-        "title": "Receive your license",
-        "description": "We hand you your company license, ready to start operating immediately."
+        "title": "Delivery of registration certificate and official documents"
       }
     ]
   },
-  "benefits": {
-    "title": "Why Choose Us?",
-    "subtitle": "Speed, expertise, transparency, and full support — all in a single service.",
-    "items": [
-      {
-        "title": "Fast turnaround",
-        "description": "We complete most cases within a few business days once documents are ready."
-      },
-      {
-        "title": "Specialized expertise",
-        "description": "A legal team that knows Aqaba zone regulations closely and handles them daily."
-      },
-      {
-        "title": "Transparent fees",
-        "description": "Clear fees known up front, with no hidden costs or surprises."
-      },
-      {
-        "title": "End-to-end support",
-        "description": "We're with you before and after formation, from first question to launch."
-      }
-    ]
+  "aboutAttorney": {
+    "heading": "Meet Attorney Nour Barakat",
+    "nameTitle": "Nour Barakat, Attorney at Law",
+    "bio": "A licensed Jordanian attorney, member of the Jordanian Bar Association (No. 16872), with over 15 years of practice in Jordanian civil law. Combines experience in commercial and corporate matters with corporate advisory services, delivered with full transparency and professionalism on every file.",
+    "credentials": [
+      "Member, Jordanian Bar Association",
+      "Bar No.: 16872",
+      "Over 15 years of experience",
+      "ASEZA corporate law specialist"
+    ],
+    "imageAlt": "Monogram of Attorney Nour Barakat",
+    "cta": "Contact Attorney Nour directly"
+  },
+  "contactForm": {
+    "heading": "Get in touch — we reply within one business day",
+    "subhead": "Leave your details and Attorney Nour Barakat's office will reach out.",
+    "fields": {
+      "name": "Full name",
+      "phone": "WhatsApp or phone number",
+      "email": "Email (optional)",
+      "message": "Additional details (optional)"
+    },
+    "submit": "Send request",
+    "sending": "Sending…",
+    "errors": {
+      "nameRequired": "Please enter your full name.",
+      "phoneRequired": "Please enter a phone or WhatsApp number.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageMax": "Please keep your message under 1000 characters."
+    },
+    "success": "Thanks for reaching out. Attorney Nour's office will reply within one business day.",
+    "errorMessage": "We couldn't send your request. Please try via WhatsApp.",
+    "whatsapp": "Or contact directly via WhatsApp"
   },
   "pricing": {
-    "title": "A Clear, All-Inclusive Setup Package",
+    "title": "Clear, all-in-one incorporation package",
     "subtitle": "One known fee — no surprises and no hidden costs.",
     "planName": "Complete Formation Package",
     "price": "950",
     "currency": "JOD",
     "period": "one all-inclusive fee",
     "includedTitle": "What's included",
+    "includedRef": "The package covers everything listed in “What you get” above.",
     "notIncludedTitle": "Not included",
-    "features": [
-      "Company registration with the Aqaba Special Economic Zone Authority",
-      "Preparation of the articles and memorandum of association",
-      "Full legal advisory throughout the formation period",
-      "Follow-up on all procedures until license delivery",
-      "Post-formation support for a smooth launch"
-    ],
     "cta": "Get Started",
     "note": "Official government fees are charged separately and vary by activity type and capital."
   },
@@ -184,11 +150,26 @@
       "businessType": "Business type",
       "businessTypePlaceholder": "Select a business type",
       "businessTypes": [
-        { "value": "llc", "label": "Limited Liability Company" },
-        { "value": "one-person", "label": "One-Person Company" },
-        { "value": "branch", "label": "Foreign Company Branch" },
-        { "value": "representative", "label": "Representative Office" },
-        { "value": "other", "label": "Other / Not sure" }
+        {
+          "value": "llc",
+          "label": "Limited Liability Company"
+        },
+        {
+          "value": "one-person",
+          "label": "One-Person Company"
+        },
+        {
+          "value": "branch",
+          "label": "Foreign Company Branch"
+        },
+        {
+          "value": "representative",
+          "label": "Representative Office"
+        },
+        {
+          "value": "other",
+          "label": "Other / Not sure"
+        }
       ],
       "phone": "Phone number (WhatsApp)",
       "email": "Email address",
@@ -272,7 +253,7 @@
         "items": [
           {
             "question": "How long does the registration process take?",
-            "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+            "answer": "Usually within 5–10 business days, depending on the activity type and how complete the documents are."
           },
           {
             "question": "What speeds up the procedures?",
@@ -308,6 +289,8 @@
     "quickLinksTitle": "Quick Links",
     "contactTitle": "Contact",
     "followUs": "Follow Us",
+    "legalEntity": "A service of Barakat Law Firm — Amman, Jordan",
+    "mainSite": "Main firm website",
     "emailLabel": "Email",
     "phoneLabel": "Phone & WhatsApp",
     "hoursLabel": "Office Hours",
@@ -439,22 +422,22 @@
       "subtitle": "From the first consultation to receiving your license.",
       "items": [
         {
-          "period": "Week 1",
+          "period": "Days 1–2",
           "title": "Consultation & preparation",
           "description": "We define the legal structure and begin preparing documents and reserving the name."
         },
         {
-          "period": "Week 2",
+          "period": "Days 3–4",
           "title": "Application submission",
           "description": "We submit the complete application to the Aqaba Special Economic Zone Authority."
         },
         {
-          "period": "Weeks 3–4",
+          "period": "Days 5–8",
           "title": "Review & approvals",
           "description": "We follow the authority's review and address any notes immediately."
         },
         {
-          "period": "Weeks 4–6",
+          "period": "Days 9–10",
           "title": "License delivery",
           "description": "Final approval is issued and we hand you your license, ready to go."
         }
@@ -508,7 +491,7 @@
           "Proposed ownership shares between partners",
           "Three proposed company names, in order of preference"
         ],
-        "timeline": "Days 2–3"
+        "timeline": "Day 2"
       },
       {
         "title": "Prepare documents",
@@ -518,7 +501,7 @@
           "Proof of the company's address in Aqaba",
           "A detailed description of the business activity"
         ],
-        "timeline": "Days 4–6"
+        "timeline": "Days 3–4"
       },
       {
         "title": "Submit the application",
@@ -527,19 +510,19 @@
           "Signed registration application form",
           "Notarized authorization, if required"
         ],
-        "timeline": "Week 2"
+        "timeline": "Day 5"
       },
       {
         "title": "Track approvals",
         "description": "We follow the file's progress with the relevant bodies step by step, address any notes or additional requests as soon as they arrive, and keep you continuously updated on your application.",
         "documents": [],
-        "timeline": "Weeks 3–4"
+        "timeline": "Days 6–8"
       },
       {
         "title": "Receive your license",
         "description": "Once final approval is issued, we collect the registration certificate and license and hand them to you ready to use, guiding you through post-formation steps such as opening a bank account.",
         "documents": [],
-        "timeline": "Weeks 4–6"
+        "timeline": "Days 9–10"
       }
     ],
     "checklist": {
@@ -552,7 +535,7 @@
       "items": [
         {
           "question": "How long does the whole process take?",
-          "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+          "answer": "Usually within 5–10 business days, depending on the activity type and how complete the documents are."
         },
         {
           "question": "What do I need to get started?",
