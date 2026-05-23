@@ -2,6 +2,7 @@ export { Hero } from "./Hero";
 export { Included } from "./Included";
 export { Process } from "./Process";
 export { OperatingPermits } from "./OperatingPermits";
+export { SuitableFor } from "./SuitableFor";
 export { AboutAttorney } from "./AboutAttorney";
 export { ContactForm } from "./ContactForm";
 export { Pricing } from "./Pricing";

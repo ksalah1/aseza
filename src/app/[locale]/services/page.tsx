@@ -13,6 +13,7 @@ import {
 import type { ComponentType, SVGProps } from "react";
 import { Accordion, Card, Section } from "@/components/ui";
 import { CTABanner, OperatingPermits } from "@/components/sections";
+import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -34,6 +35,8 @@ type ComparisonRow = { factor: string; diy: string; withUs: string };
 type BusinessType = { name: string; description: string };
 type TimelineItem = { period: string; title: string; description: string };
 type FaqItem = { question: string; answer: string };
+type FeeFactor = { title: string; description: string };
+type Activity = { title: string; description: string; caveat: string };
 
 const TYPE_ICONS: ComponentType<SVGProps<SVGSVGElement>>[] = [
   Building2,
@@ -57,6 +60,8 @@ function ServicesContent() {
   const included = t.raw("pricing.included") as string[];
   const notIncluded = t.raw("pricing.notIncluded") as string[];
   const rows = t.raw("comparison.rows") as ComparisonRow[];
+  const feeFactors = t.raw("govFees.factors") as FeeFactor[];
+  const activities = t.raw("activities.items") as Activity[];
   const types = t.raw("businessTypes.items") as BusinessType[];
   const timeline = t.raw("timeline.items") as TimelineItem[];
   const faqs = t.raw("faq.items") as FaqItem[];
@@ -194,6 +199,73 @@ function ServicesContent() {
               ))}
             </tbody>
           </table>
+        </div>
+      </Section>
+
+      {/* What affects government fees */}
+      <Section width="wide">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-primary md:text-4xl">
+            {t("govFees.title")}
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-primary-500">
+            {t("govFees.lead")}
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
+          {feeFactors.map((factor) => (
+            <Card key={factor.title}>
+              <h3 className="font-semibold text-primary">{factor.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-primary-500">
+                {factor.description}
+              </p>
+            </Card>
+          ))}
+        </div>
+
+        <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-primary-600">
+          {t("govFees.closing")}
+        </p>
+      </Section>
+
+      {/* Common activities */}
+      <Section width="wide" background="muted">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-primary md:text-4xl">
+            {t("activities.title")}
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-primary-500">
+            {t("activities.lead")}
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {activities.map((activity) => (
+            <Card key={activity.title} hoverable>
+              <h3 className="text-lg font-semibold text-primary">
+                {activity.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-primary-500">
+                {activity.description}
+              </p>
+              <p className="mt-3 text-sm italic leading-relaxed text-primary-400">
+                {activity.caveat}
+              </p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="leading-relaxed text-primary-600">
+            {t("activities.closing")}
+          </p>
+          <Link
+            href="/contact"
+            className="mt-5 inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-background"
+          >
+            {t("activities.closingCta")}
+          </Link>
         </div>
       </Section>
 
