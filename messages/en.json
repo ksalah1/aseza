@@ -164,9 +164,16 @@
     "form": {
       "name": "Full name",
       "company": "Company name (optional)",
-      "businessType": "Business type",
-      "businessTypePlaceholder": "Select a business type",
+      "activity": "Intended activity",
+      "activityPlaceholder": "e.g. import/export, general trading, logistics services, consulting...",
+      "businessType": "Expected legal form",
+      "businessTypeHelper": "If you're not sure, choose \"Unspecified\" and we'll recommend the right form.",
+      "businessTypePlaceholder": "Select a legal form",
       "businessTypes": [
+        {
+          "value": "unspecified",
+          "label": "Unspecified"
+        },
         {
           "value": "llc",
           "label": "Limited Liability Company"
@@ -189,12 +196,13 @@
         }
       ],
       "phone": "Phone number (WhatsApp)",
-      "email": "Email address",
+      "email": "Email address (optional)",
       "message": "Your message (optional)",
       "submit": "Send Request",
       "sending": "Sending…",
       "required": "This field is required",
       "invalidEmail": "Please enter a valid email address",
+      "privacy": "Your information is used only to contact you about your company-formation request.",
       "success": "Thank you! We've received your request and will be in touch within 24 hours.",
       "error": "We couldn't send your request. Please try again or reach us on WhatsApp."
     },
@@ -409,9 +417,9 @@
           "withUs": "Complete peace of mind"
         },
         {
-          "factor": "Success rate",
-          "diy": "Not guaranteed, may need redoing",
-          "withUs": "High on the first attempt"
+          "factor": "Handling notes",
+          "diy": "Procedures may repeat when notes arise",
+          "withUs": "We address any authority notes and follow through to completion"
         },
         {
           "factor": "Cost",
@@ -544,6 +552,12 @@
         "timeline": "Days 6–8"
       },
       {
+        "title": "Check additional approvals by activity",
+        "description": "We review whether your activity requires additional approvals such as public safety, public health, or environmental approval, and clarify the path before you begin operating.",
+        "documents": [],
+        "timeline": "In parallel"
+      },
+      {
         "title": "Receive your license",
         "description": "Once final approval is issued, we collect the registration certificate and license and hand them to you ready to use, guiding you through post-formation steps such as opening a bank account.",
         "documents": [],
@@ -554,6 +568,24 @@
       "title": "Get the Full Document Checklist",
       "description": "Download a checklist of every document required so you're ready before we begin.",
       "button": "Download the Checklist"
+    },
+    "checklistForm": {
+      "title": "Get the document checklist",
+      "description": "Leave your details and we'll send you the checklist via WhatsApp.",
+      "name": "Name",
+      "whatsapp": "WhatsApp number",
+      "email": "Email (optional)",
+      "activity": "Intended activity (optional)",
+      "activityPlaceholder": "import/export, general trading, services, consulting...",
+      "submit": "Send Request",
+      "sending": "Sending…",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "success": "We've received your request. We'll send you the document checklist via WhatsApp during business hours.",
+      "error": "We couldn't send your request. Please try again or reach us directly on WhatsApp.",
+      "whatsappFallback": "Contact us on WhatsApp",
+      "privacy": "Your information is used only to contact you about your request.",
+      "close": "Close"
     },
     "faq": {
       "title": "Questions About the Process",

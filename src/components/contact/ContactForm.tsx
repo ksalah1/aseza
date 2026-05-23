@@ -13,6 +13,7 @@ type BusinessType = { value: string; label: string };
 interface FormValues {
   name: string;
   company: string;
+  activity: string;
   businessType: string;
   phone: string;
   email: string;
@@ -107,7 +108,24 @@ export function ContactForm() {
         />
       </div>
 
-      {/* Business type */}
+      {/* Intended activity — drives the legal-form recommendation, so it comes first */}
+      <div>
+        <label htmlFor="activity" className="mb-1.5 block text-sm font-medium text-primary">
+          {t("form.activity")}
+        </label>
+        <input
+          id="activity"
+          type="text"
+          placeholder={t("form.activityPlaceholder")}
+          className={cn(fieldClass, errors.activity && "border-red-400")}
+          {...register("activity", { required: true })}
+        />
+        {errors.activity && (
+          <p className="mt-1 text-sm text-red-500">{t("form.required")}</p>
+        )}
+      </div>
+
+      {/* Expected legal form */}
       <div>
         <label htmlFor="businessType" className="mb-1.5 block text-sm font-medium text-primary">
           {t("form.businessType")}
@@ -127,6 +145,9 @@ export function ContactForm() {
             </option>
           ))}
         </select>
+        <p className="mt-1.5 text-xs text-primary-400">
+          {t("form.businessTypeHelper")}
+        </p>
         {errors.businessType && (
           <p className="mt-1 text-sm text-red-500">{t("form.required")}</p>
         )}
@@ -160,16 +181,12 @@ export function ContactForm() {
           dir="ltr"
           className={cn(fieldClass, "text-start", errors.email && "border-red-400")}
           {...register("email", {
-            required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            validate: (v) =>
+              !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || "invalid",
           })}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-500">
-            {errors.email.type === "pattern"
-              ? t("form.invalidEmail")
-              : t("form.required")}
-          </p>
+          <p className="mt-1 text-sm text-red-500">{t("form.invalidEmail")}</p>
         )}
       </div>
 
@@ -202,6 +219,10 @@ export function ContactForm() {
         )}
         {status === "submitting" ? t("form.sending") : t("form.submit")}
       </button>
+
+      <p className="text-center text-xs text-primary-400">
+        {t("form.privacy")}
+      </p>
     </form>
   );
 }
