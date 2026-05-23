@@ -6,7 +6,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { Noto_Sans_Arabic, Plus_Jakarta_Sans } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -18,14 +18,16 @@ import "../globals.css";
 
 const SITE_URL = siteConfig.url;
 
-const notoArabic = Noto_Sans_Arabic({
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
+  weight: ["400", "700"],
   variable: "--font-arabic",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "700"],
   variable: "--font-latin",
   display: "swap",
 });
@@ -126,7 +128,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
-      className={cn(notoArabic.variable, jakarta.variable)}
+      className={cn(ibmPlexSansArabic.variable, inter.variable)}
     >
       <body className={locale === "ar" ? "font-arabic" : "font-latin"}>
         <NextIntlClientProvider messages={messages}>
