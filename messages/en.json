@@ -16,7 +16,7 @@
   },
   "hero": {
     "badge": "Company formation experts in the Aqaba zone",
-    "title": "Incorporate your company in Aqaba in 4–6 business days",
+    "title": "Incorporate your company in Aqaba in 5–10 business days",
     "subtitle": "Fixed fee of 950 JOD. No surprises.",
     "price": "950",
     "currency": "JOD",
@@ -216,7 +216,7 @@
         "items": [
           {
             "question": "How long does the registration process take?",
-            "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+            "answer": "Usually within 5–10 business days, depending on the activity type and how complete the documents are."
           },
           {
             "question": "What speeds up the procedures?",
@@ -383,22 +383,22 @@
       "subtitle": "From the first consultation to receiving your license.",
       "items": [
         {
-          "period": "Week 1",
+          "period": "Days 1–2",
           "title": "Consultation & preparation",
           "description": "We define the legal structure and begin preparing documents and reserving the name."
         },
         {
-          "period": "Week 2",
+          "period": "Days 3–4",
           "title": "Application submission",
           "description": "We submit the complete application to the Aqaba Special Economic Zone Authority."
         },
         {
-          "period": "Weeks 3–4",
+          "period": "Days 5–8",
           "title": "Review & approvals",
           "description": "We follow the authority's review and address any notes immediately."
         },
         {
-          "period": "Weeks 4–6",
+          "period": "Days 9–10",
           "title": "License delivery",
           "description": "Final approval is issued and we hand you your license, ready to go."
         }
@@ -452,7 +452,7 @@
           "Proposed ownership shares between partners",
           "Three proposed company names, in order of preference"
         ],
-        "timeline": "Days 2–3"
+        "timeline": "Day 2"
       },
       {
         "title": "Prepare documents",
@@ -462,7 +462,7 @@
           "Proof of the company's address in Aqaba",
           "A detailed description of the business activity"
         ],
-        "timeline": "Days 4–6"
+        "timeline": "Days 3–4"
       },
       {
         "title": "Submit the application",
@@ -471,19 +471,19 @@
           "Signed registration application form",
           "Notarized authorization, if required"
         ],
-        "timeline": "Week 2"
+        "timeline": "Day 5"
       },
       {
         "title": "Track approvals",
         "description": "We follow the file's progress with the relevant bodies step by step, address any notes or additional requests as soon as they arrive, and keep you continuously updated on your application.",
         "documents": [],
-        "timeline": "Weeks 3–4"
+        "timeline": "Days 6–8"
       },
       {
         "title": "Receive your license",
         "description": "Once final approval is issued, we collect the registration certificate and license and hand them to you ready to use, guiding you through post-formation steps such as opening a bank account.",
         "documents": [],
-        "timeline": "Weeks 4–6"
+        "timeline": "Days 9–10"
       }
     ],
     "checklist": {
@@ -496,7 +496,7 @@
       "items": [
         {
           "question": "How long does the whole process take?",
-          "answer": "Usually between two and six weeks, depending on the activity type and how complete the documents are."
+          "answer": "Usually within 5–10 business days, depending on the activity type and how complete the documents are."
         },
         {
           "question": "What do I need to get started?",
