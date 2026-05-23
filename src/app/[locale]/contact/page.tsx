@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
-import { Check, Clock, MessageCircle } from "lucide-react";
+import { Check, Clock, Info, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { whatsappLink } from "@/lib/site";
@@ -34,6 +34,7 @@ export default async function ContactPage({
 
 function ContactContent() {
   const t = useTranslations("contact");
+  const td = useTranslations("disclaimer");
   const trust = t.raw("trust") as string[];
 
   return (
@@ -44,6 +45,11 @@ function ContactContent() {
         </h1>
         <p className="mt-4 text-lg text-primary-500">{t("subtitle")}</p>
       </header>
+
+      <p className="mx-auto mt-8 flex max-w-2xl items-start gap-2.5 rounded-xl border border-primary-100 bg-primary-50 p-4 text-sm leading-relaxed text-primary-600">
+        <Info className="mt-0.5 size-4 shrink-0 text-accent-600" aria-hidden />
+        <span>{td("long")}</span>
+      </p>
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         {/* Form */}

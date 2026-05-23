@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
-import { Info, MessageCircle } from "lucide-react";
+import { ArrowRight, Info, MessageCircle } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
 import { whatsappLink } from "@/lib/site";
 
@@ -55,6 +56,16 @@ export function Pricing() {
             {t("note")}
           </span>
         </p>
+      </div>
+
+      <div className="mt-10 text-center">
+        <Link
+          href="/services"
+          className="inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-background"
+        >
+          {t("detailsCta")}
+          <ArrowRight className="size-4 flip-rtl" aria-hidden />
+        </Link>
       </div>
     </Section>
   );

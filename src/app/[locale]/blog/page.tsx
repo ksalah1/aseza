@@ -15,7 +15,7 @@ export async function generateMetadata({
   return buildMetadata({
     locale,
     path: "/blog",
-    title: `${t("title")} | ASEZA.co`,
+    title: t("title"),
     description: t("subtitle"),
   });
 }

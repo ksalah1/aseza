@@ -1,7 +1,11 @@
 {
   "meta": {
-    "title": "Company Formation in the Aqaba Special Economic Zone (ASEZA) | Professional Registration Services",
-    "description": "We register and incorporate your company in Jordan's Aqaba Special Economic Zone quickly and efficiently — end-to-end handling, legal advisory, and transparent fees starting from 950 JOD."
+    "title": "Company Formation in the Aqaba Special Economic Zone",
+    "description": "A private legal service by Barakat Law Firm for company formation in Jordan's Aqaba Special Economic Zone — end-to-end handling, legal advisory, and transparent fees starting from 950 JOD."
+  },
+  "disclaimer": {
+    "short": "A private legal service by Barakat Law Firm — not the official website of the Aqaba Special Economic Zone Authority.",
+    "long": "aseza.co is a private legal service provided by Barakat Law Firm, and is not the official website of the Aqaba Special Economic Zone Authority."
   },
   "nav": {
     "home": "Home",
@@ -17,7 +21,7 @@
   "hero": {
     "badge": "Company formation experts in the Aqaba zone",
     "title": "Incorporate your company in Aqaba in 5–10 business days",
-    "subtitle": "Fixed fee of 950 JOD. No surprises.",
+    "subtitle": "A fixed, transparent fee of 950 JOD.",
     "price": "950",
     "currency": "JOD",
     "priceLabel": "Fixed fee",
@@ -28,14 +32,16 @@
   "included": {
     "title": "What you get for 950 JOD",
     "items": [
+      "Review of your activity type to confirm it can be registered in the zone",
       "Single-shareholder limited liability company formation",
       "Drafting of the memorandum and articles of association",
       "Issuance of the registration certificate from the Aqaba Special Economic Zone Authority",
       "Company registration with the Aqaba Chamber of Commerce",
-      "Tax number issuance and sales-tax registration",
+      "Tax number issuance, and follow-up on sales-tax registration if your activity requires it",
       "Follow-up on all procedures with government authorities through to final delivery"
     ],
-    "note": "Government fees not included — disclosed at engagement."
+    "note": "Government fees not included — disclosed at engagement.",
+    "detailsCta": "Full package details"
   },
   "process": {
     "title": "How it works",
@@ -54,6 +60,16 @@
       {
         "title": "Delivery of registration certificate and official documents"
       }
+    ]
+  },
+  "operating": {
+    "title": "Registration is one thing; operating is another",
+    "body": "Once the company is registered, your business may need additional certificates or approvals depending on the nature of its activity — such as a public-safety certificate, a public-health certificate, environmental approval, or a work-commencement permit. We explain from the outset what applies to your activity so you don't start with incomplete procedures.",
+    "items": [
+      "Public-safety certificate",
+      "Public-health certificate",
+      "Environmental approval",
+      "Work-commencement permit"
     ]
   },
   "aboutAttorney": {
@@ -102,7 +118,8 @@
     "includedRef": "The package covers everything listed in “What you get” above.",
     "notIncludedTitle": "Not included",
     "cta": "Get Started",
-    "note": "Official government fees are charged separately and vary by activity type and capital."
+    "note": "Official government fees are charged separately and vary by activity type and capital.",
+    "detailsCta": "Full package details"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -115,7 +132,7 @@
       },
       {
         "question": "Can foreigners own a company fully?",
-        "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most economic activities."
+        "answer": "Yes. Full foreign ownership is possible for many activities within the Aqaba Special Economic Zone, but some activities are prohibited, restricted, or require special approvals. We review your activity before starting to confirm the right path."
       },
       {
         "question": "What documents are required?",
@@ -139,7 +156,7 @@
   },
   "contact": {
     "meta": {
-      "title": "Book a Free Consultation | ASEZA.co",
+      "title": "Book a Free Consultation",
       "description": "Book a free consultation to establish your company in the Aqaba Special Economic Zone, or reach us directly on WhatsApp. We respond within 24 hours."
     },
     "title": "Book a Free Consultation",
@@ -191,7 +208,7 @@
   },
   "faqPage": {
     "meta": {
-      "title": "FAQ on Company Registration in Aqaba | ASEZA.co",
+      "title": "FAQ on Company Registration in Aqaba",
       "description": "Thorough answers to the most common questions about company registration in the Aqaba Special Economic Zone: registration, costs, documents, timeline, and post-registration."
     },
     "title": "Frequently Asked Questions",
@@ -201,12 +218,16 @@
         "category": "Registration",
         "items": [
           {
+            "question": "Is aseza.co the official website of the Aqaba Special Economic Zone Authority?",
+            "answer": "aseza.co is a private legal service provided by Barakat Law Firm, and is not the official website of the Aqaba Special Economic Zone Authority. We are a private law firm offering company formation services in the zone — not a government entity."
+          },
+          {
             "question": "How do I start the registration process?",
             "answer": "Get in touch to book a free consultation, where we study your activity and determine the most suitable legal structure, then handle the rest of the procedures for you until you receive your license."
           },
           {
             "question": "Can foreigners fully own the company?",
-            "answer": "Yes. The Aqaba Special Economic Zone allows full foreign ownership across most activities without needing a local partner."
+            "answer": "Yes. Registering in the zone allows full foreign ownership for many activities without needing a local partner, though some activities are prohibited, restricted, or require special approvals — which we review with you before starting."
           },
           {
             "question": "Do I have to attend in person?",
@@ -261,13 +282,17 @@
           },
           {
             "question": "When can I start operating?",
-            "answer": "As soon as you receive your license, your company is legally ready to begin work, and we guide you through the post-formation steps."
+            "answer": "Receiving your license completes the registration process; depending on your activity, additional operational certificates or approvals may be required before you actually begin. We flag these to you in advance and guide you through the post-formation steps."
           }
         ]
       },
       {
         "category": "Post-Registration",
         "items": [
+          {
+            "question": "Can I start operating right after registration?",
+            "answer": "Once the company is registered, your business may need additional certificates or approvals depending on the nature of its activity — such as a public-safety certificate, a public-health certificate, environmental approval, or a work-commencement permit. We explain from the outset what applies to your activity so you don't start with incomplete procedures."
+          },
           {
             "question": "Do you help with opening a bank account?",
             "answer": "Yes. We guide and assist you with the company bank account opening procedures after you receive your license."
@@ -289,7 +314,7 @@
     "quickLinksTitle": "Quick Links",
     "contactTitle": "Contact",
     "followUs": "Follow Us",
-    "legalEntity": "A service of Barakat Law Firm — Amman, Jordan",
+    "legalEntity": "aseza.co is a private legal service provided by Barakat Law Firm, and is not the official website of the Aqaba Special Economic Zone Authority.",
     "mainSite": "Main firm website",
     "emailLabel": "Email",
     "phoneLabel": "Phone & WhatsApp",
@@ -331,7 +356,7 @@
   },
   "servicesPage": {
     "meta": {
-      "title": "Company Registration Service in Aqaba | ASEZA.co",
+      "title": "Company Registration Service in Aqaba",
       "description": "A complete company registration service in the Aqaba Special Economic Zone for a clear fee of 950 JOD — covering consultation, document preparation, and follow-up until your license is in hand."
     },
     "hero": {
@@ -467,7 +492,7 @@
   },
   "processPage": {
     "meta": {
-      "title": "Your Company Registration Process in Aqaba | ASEZA.co",
+      "title": "Your Company Registration Process in Aqaba",
       "description": "A detailed, step-by-step explanation of the company registration process in the Aqaba Special Economic Zone, including the documents required and the timeline for each stage."
     },
     "hero": {

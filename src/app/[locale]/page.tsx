@@ -3,6 +3,7 @@ import {
   Hero,
   Included,
   Process,
+  OperatingPermits,
   AboutAttorney,
   ContactForm,
   Pricing,
@@ -75,6 +76,7 @@ export default async function HomePage({
       <Hero />
       <Included />
       <Process />
+      <OperatingPermits />
       <AboutAttorney />
       <ContactForm />
       <Pricing />

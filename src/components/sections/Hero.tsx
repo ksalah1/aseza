@@ -4,6 +4,7 @@ import { whatsappLink } from "@/lib/site";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const td = useTranslations("disclaimer");
 
   return (
     <section className="relative overflow-hidden bg-primary text-background">
@@ -43,6 +44,10 @@ export function Hero() {
         <p className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-200">
           <CheckCircle className="size-4 text-accent" aria-hidden />
           {t("trust")}
+        </p>
+
+        <p className="mx-auto mt-3 max-w-xl text-xs italic leading-relaxed text-primary-300">
+          {td("short")}
         </p>
 
         <div className="mt-8 flex justify-center">
