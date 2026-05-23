@@ -4,6 +4,7 @@ import {
   Included,
   Process,
   AboutAttorney,
+  ContactForm,
   Pricing,
   FAQ,
 } from "@/components/sections";
@@ -22,6 +23,7 @@ export default async function HomePage({
       <Included />
       <Process />
       <AboutAttorney />
+      <ContactForm />
       <Pricing />
       <FAQ />
     </>

@@ -7,9 +7,9 @@ export const siteConfig = {
   url: "https://aseza.co",
   email: "info@aseza.co",
   // Display phone in international format.
-  phone: "+962 7 9000 0000",
+  phone: "+962 7 8555 9253",
   // Digits only, with country code — used to build wa.me links.
-  whatsapp: "962790000000",
+  whatsapp: "962785559253",
   social: {
     facebook: "https://facebook.com/aseza.co",
     instagram: "https://instagram.com/aseza.co",

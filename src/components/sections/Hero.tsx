@@ -51,6 +51,15 @@ export function Hero() {
             {t("ctaPrimary")}
           </a>
         </div>
+
+        <p className="mt-4">
+          <a
+            href="#contact"
+            className="text-sm font-medium text-primary-100 underline-offset-4 transition-colors hover:text-accent hover:underline"
+          >
+            {t("contactLink")}
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -21,7 +21,8 @@
     "price": "950",
     "currency": "JOD",
     "priceLabel": "Fixed fee",
-    "ctaPrimary": "Contact via WhatsApp"
+    "ctaPrimary": "Contact via WhatsApp",
+    "contactLink": "Or fill out the contact form"
   },
   "included": {
     "title": "What you get for 950 JOD",
@@ -67,6 +68,28 @@
     ],
     "imageAlt": "Photo of Attorney Nour Barakat",
     "cta": "Contact Attorney Nour directly"
+  },
+  "contactForm": {
+    "heading": "Get in touch — we reply within one business day",
+    "subhead": "Leave your details and Attorney Nour Barakat's office will reach out.",
+    "fields": {
+      "name": "Full name",
+      "phone": "WhatsApp or phone number",
+      "email": "Email (optional)",
+      "message": "Additional details (optional)"
+    },
+    "submit": "Send request",
+    "sending": "Sending…",
+    "errors": {
+      "nameRequired": "Please enter your full name.",
+      "phoneRequired": "Please enter a phone or WhatsApp number.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageMax": "Please keep your message under 1000 characters."
+    },
+    "success": "Thanks for reaching out. Attorney Nour's office will reply within one business day.",
+    "errorMessage": "We couldn't send your request. Please try via WhatsApp.",
+    "whatsapp": "Or contact directly via WhatsApp"
   },
   "pricing": {
     "title": "Clear, all-in-one incorporation package",
