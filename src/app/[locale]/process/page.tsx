@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
-import { CalendarClock, Check, Download, FileText } from "lucide-react";
-import { Accordion, Button, Section } from "@/components/ui";
+import { CalendarClock, Check, FileText } from "lucide-react";
+import { Accordion, Section } from "@/components/ui";
 import { CTABanner } from "@/components/sections";
+import { ChecklistDownload } from "@/components/process/ChecklistDownload";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -129,13 +130,7 @@ function ProcessContent() {
             </h2>
             <p className="mt-2 text-primary-500">{t("checklist.description")}</p>
           </div>
-          <Button
-            size="lg"
-            icon={<Download className="size-5" />}
-            className="shrink-0"
-          >
-            {t("checklist.button")}
-          </Button>
+          <ChecklistDownload />
         </div>
       </Section>
 
