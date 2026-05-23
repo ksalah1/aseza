@@ -72,6 +72,26 @@
       "Work-commencement permit"
     ]
   },
+  "fit": {
+    "title": "Who is this for?",
+    "lead": "This package is built for straightforward company formations, and we tell you from the outset whether it fits your case.",
+    "forTitle": "Who is this for?",
+    "forItems": [
+      "Entrepreneurs and investors who want to establish a company in the Aqaba Special Economic Zone",
+      "Businesses in common commercial activities such as general trading, import/export, and services",
+      "Foreign investors seeking full ownership in permitted activities",
+      "Companies looking to benefit from the Aqaba Special Economic Zone's special tax regime"
+    ],
+    "consultTitle": "We recommend specialized consultation for:",
+    "consultItems": [
+      "Restricted or prohibited activities, or those needing special sovereign approvals",
+      "Regulated sectors such as banking, insurance, and financial services",
+      "Large industrial activities that require a detailed environmental study",
+      "Restructuring or merger cases for existing companies"
+    ],
+    "closing": "Not sure how your activity is classified? Get in touch before you start — the initial review is free.",
+    "closingCta": "Contact us"
+  },
   "aboutAttorney": {
     "heading": "Meet Attorney Nour Barakat",
     "nameTitle": "Nour Barakat, Attorney at Law",
@@ -238,8 +258,38 @@
             "answer": "Yes. Registering in the zone allows full foreign ownership for many activities without needing a local partner, though some activities are prohibited, restricted, or require special approvals — which we review with you before starting."
           },
           {
-            "question": "Do I have to attend in person?",
-            "answer": "In most cases we handle the procedures by proxy on your behalf; some steps may require your signature or a notarized authorization."
+            "question": "What's the difference between registering the company and registering the establishment with the authority?",
+            "answer": "Registering the company creates the legal entity and gives it legal personality. Registering the establishment with the Aqaba Special Economic Zone Authority is the step that grants it \"registered establishment\" status in the zone and qualifies it for the zone's special regime. The two are separate, complementary steps, and we handle both within the package."
+          }
+        ]
+      },
+      {
+        "category": "Premises & Location",
+        "items": [
+          {
+            "question": "Does the office have to be inside the Aqaba Special Economic Zone?",
+            "answer": "Yes. A company registered in the Aqaba Special Economic Zone must have a registered address inside the zone. However, the company's operations don't all have to run from inside the zone, and in some cases virtual or shared offices can be used. We explain the available options based on your activity type."
+          },
+          {
+            "question": "Can registration be completed from Amman or by proxy?",
+            "answer": "Yes. You can authorize our firm to complete all registration procedures without needing to travel to Aqaba. We handle communication with the authority, document submission, and follow-up on your behalf under a notarized legal power of attorney."
+          },
+          {
+            "question": "Do I need an actual warehouse or office?",
+            "answer": "It depends on the nature of the activity. Commercial and service activities may suffice with a registered address and no physical warehouse, especially for back-to-back trading. Activities that require actual storage or logistics operations need physical facilities. We clarify the requirements for your case."
+          }
+        ]
+      },
+      {
+        "category": "Activity & Approvals",
+        "items": [
+          {
+            "question": "Does an import/export trading activity need special approvals?",
+            "answer": "It depends on the nature of the goods. General trading activities don't need additional approvals in most cases, but certain goods — such as chemicals, food, pharmaceuticals, or regulated products — require additional sector approvals. We review the nature of the goods with you before starting."
+          },
+          {
+            "question": "What happens if the activity is restricted or needs an additional approval?",
+            "answer": "We explain this to you from the outset during the initial review. If the activity is possible with additional approvals, we guide you to the required path and the appropriate points of contact. If the activity is prohibited or needs restructuring, we recommend specialized consultation before starting — we don't begin formation procedures for an activity we know won't be approved."
           }
         ]
       },
@@ -251,8 +301,12 @@
             "answer": "One clear fee of 950 JOD covering consultation, document preparation, application submission, and follow-up until you receive your license."
           },
           {
-            "question": "Are government fees included in the 950 JOD?",
-            "answer": "No. Official government fees are charged separately and vary by activity type and capital; we provide a precise estimate in advance."
+            "question": "What government fees should I expect?",
+            "answer": "Government fees vary by activity, legal form, capital, and required approvals. We provide a full breakdown of the expected fees for your case before work begins, alongside the total quote. Our firm's fees are fixed and clear from the start, and separate from government fees."
+          },
+          {
+            "question": "Does every company need sales-tax registration?",
+            "answer": "No. Sales-tax registration is not mandatory for every company; it depends on the activity type, annual sales volume, and whether sales are inside or outside the zone. We review the tax-registration requirements for your case and recommend the right path."
           },
           {
             "question": "Are there any hidden fees?",
@@ -393,6 +447,66 @@
         "Attestation and translation fees for foreign documents"
       ],
       "note": "Government fees are charged separately and fully transparently, and vary by activity type and capital; we provide a precise estimate before we begin."
+    },
+    "govFees": {
+      "title": "What affects the government fees?",
+      "lead": "Our fees are fixed and clear from the start. Government fees, however, vary from case to case based on several factors, and we give you a full breakdown of the expected fees before work begins.",
+      "factors": [
+        {
+          "title": "Type of commercial activity",
+          "description": "Fees vary by the nature of the activity — commercial, service, industrial, or logistics."
+        },
+        {
+          "title": "Legal form of the company",
+          "description": "Limited liability company, one-person company, or foreign company branch — each form has its own fees."
+        },
+        {
+          "title": "Registered capital",
+          "description": "Some fees are tied to the value of the approved capital."
+        },
+        {
+          "title": "Additional approvals and licenses",
+          "description": "If the activity requires sector approvals such as public health, public safety, or environmental approval, those approvals carry their own separate fees."
+        },
+        {
+          "title": "Number of partners and shareholders",
+          "description": "The ownership structure may affect some administrative fees."
+        }
+      ],
+      "closing": "We send you a full breakdown of the expected government fees for your case after the initial review of your activity."
+    },
+    "activities": {
+      "title": "Common activities we help establish",
+      "lead": "We work with a wide range of commercial activities. Below are some of the most common, noting that each case's eligibility for registration depends on the details of the activity and the approvals required.",
+      "items": [
+        {
+          "title": "Import and export",
+          "description": "Forming companies that import and export goods to and from the Aqaba Special Economic Zone.",
+          "caveat": "We review the nature of the goods and the approvals required before starting."
+        },
+        {
+          "title": "General trading",
+          "description": "General trading and distribution companies inside and outside the economic zone.",
+          "caveat": "We determine with you the products covered and any potential restrictions."
+        },
+        {
+          "title": "Services and consulting",
+          "description": "Service companies of all kinds, from management consulting to professional services.",
+          "caveat": "We review whether the service activity needs an additional professional license."
+        },
+        {
+          "title": "Logistics services",
+          "description": "Shipping, storage, and logistics companies tied to the movement of goods in the zone.",
+          "caveat": "We review warehouse and logistics-licensing requirements based on the type of service."
+        },
+        {
+          "title": "Foreign company branch",
+          "description": "Registering branches of foreign companies wishing to operate in the Aqaba Special Economic Zone.",
+          "caveat": "Branch registration requirements differ from forming a new company — we clarify the right path for your case."
+        }
+      ],
+      "closing": "Your activity not listed here? Get in touch — we work with a variety of activities and review each case individually.",
+      "closingCta": "Contact us"
     },
     "comparison": {
       "title": "On Your Own, or With Us?",

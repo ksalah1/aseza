@@ -4,6 +4,7 @@ import {
   Included,
   Process,
   OperatingPermits,
+  SuitableFor,
   AboutAttorney,
   ContactForm,
   Pricing,
@@ -77,6 +78,7 @@ export default async function HomePage({
       <Included />
       <Process />
       <OperatingPermits />
+      <SuitableFor />
       <AboutAttorney />
       <ContactForm />
       <Pricing />
