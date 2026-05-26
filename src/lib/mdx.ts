@@ -11,8 +11,12 @@ export { BLOG_CATEGORIES, type BlogCategory } from "./blog-categories";
 export interface PostMeta {
   slug: string;
   title: string;
-  /** ISO date string. */
+  /** ISO date string (original publish date). */
   date: string;
+  /** ISO date string of the last substantive revision, if the post has been refreshed. */
+  updated?: string;
+  /** Named author byline, if the post attributes one. */
+  author?: string;
   category: string;
   excerpt: string;
   /** Estimated reading time in whole minutes. */
@@ -54,6 +58,8 @@ export function getPostBySlug(slug: string, locale: string): Post | null {
     date: data.date
       ? new Date(data.date).toISOString()
       : new Date().toISOString(),
+    updated: data.updated ? new Date(data.updated).toISOString() : undefined,
+    author: typeof data.author === "string" ? data.author : undefined,
     category: typeof data.category === "string" ? data.category : "registration",
     excerpt: typeof data.excerpt === "string" ? data.excerpt : "",
     readingMinutes: Math.max(1, Math.round(stats.minutes)),

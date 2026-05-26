@@ -406,6 +406,8 @@
       "compliance": "Compliance"
     },
     "readingTime": "min read",
+    "byline": "By",
+    "updatedOn": "Updated",
     "empty": "No posts in this category yet.",
     "relatedTitle": "Related posts",
     "backToBlog": "Back to the blog",
