@@ -26,18 +26,13 @@ export function Hero() {
           {t("subtitle")}
         </p>
 
-        {/* Prominent fixed price */}
+        {/* Value framing — the figure itself lives in the Pricing section */}
         <div className="mt-10 inline-flex flex-col items-center rounded-2xl border border-accent/40 bg-accent/10 px-8 py-5">
-          <div className="flex items-baseline gap-2">
-            <span className="text-6xl font-bold text-accent md:text-7xl">
-              {t("price")}
-            </span>
-            <span className="text-lg font-medium text-accent-200">
-              {t("currency")}
-            </span>
-          </div>
-          <span className="mt-1 text-sm font-medium uppercase tracking-wide text-accent-200">
-            {t("priceLabel")}
+          <span className="text-2xl font-bold text-accent md:text-3xl">
+            {t("valueTitle")}
+          </span>
+          <span className="mt-1 text-sm font-medium text-accent-200">
+            {t("valueSubtitle")}
           </span>
         </div>
 
