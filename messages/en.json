@@ -21,16 +21,15 @@
   "hero": {
     "badge": "Company formation experts in the Aqaba zone",
     "title": "Incorporate your company in Aqaba in 5–10 business days",
-    "subtitle": "A fixed, transparent fee of 950 JOD.",
-    "price": "950",
-    "currency": "JOD",
-    "priceLabel": "Fixed fee",
+    "subtitle": "We handle the entire process of forming your company in the Aqaba Special Economic Zone, through to your license.",
+    "valueTitle": "Fixed, transparent fees",
+    "valueSubtitle": "We share the full quote before any work begins.",
     "ctaPrimary": "Contact via WhatsApp",
     "contactLink": "Or fill out the contact form",
     "trust": "Licensed attorney, Jordanian Bar Association No. 16872 — over 15 years of practice"
   },
   "included": {
-    "title": "What you get for 950 JOD",
+    "title": "What you get in the package",
     "items": [
       "Review of your activity type to confirm it can be registered in the zone",
       "Single-shareholder limited liability company formation",
@@ -594,8 +593,8 @@
       "title": "Questions About the Service",
       "items": [
         {
-          "question": "Is the 950 JOD fee final?",
-          "answer": "The fee covers all of our services; official government fees remain separate and we explain them up front."
+          "question": "Are your fees final?",
+          "answer": "Yes. Our fees are fixed and cover all of our services; official government fees remain separate and we explain them up front."
         },
         {
           "question": "Do I need to attend in person?",
