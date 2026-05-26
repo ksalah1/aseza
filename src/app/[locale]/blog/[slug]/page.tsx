@@ -128,10 +128,12 @@ export default async function PostPage({
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     inLanguage: locale,
     mainEntityOfPage: `${SITE_URL}/${locale}/blog/${slug}`,
-    author: { "@type": "Organization", name: siteConfig.name },
+    author: post.author
+      ? { "@type": "Person", name: post.author }
+      : { "@type": "Organization", name: siteConfig.name },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
@@ -156,13 +158,32 @@ export default async function PostPage({
           <h1 className="mt-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
             {post.title}
           </h1>
-          <div className="mt-4 flex items-center gap-3 text-sm text-primary-400">
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-primary-400">
+            {post.author && (
+              <>
+                <span>
+                  {t("byline")} {post.author}
+                </span>
+                <span aria-hidden>•</span>
+              </>
+            )}
             <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
             <span aria-hidden>•</span>
             <span className="inline-flex items-center gap-1">
               <Clock className="size-4" aria-hidden />
               {post.readingMinutes} {t("readingTime")}
             </span>
+            {post.updated && (
+              <>
+                <span aria-hidden>•</span>
+                <span>
+                  {t("updatedOn")}{" "}
+                  <time dateTime={post.updated}>
+                    {formatDate(post.updated, locale)}
+                  </time>
+                </span>
+              </>
+            )}
           </div>
 
           <div className="mt-8">
