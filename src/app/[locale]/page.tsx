@@ -5,6 +5,7 @@ import {
   Process,
   OperatingPermits,
   SuitableFor,
+  InvestorPositioning,
   AboutAttorney,
   Pricing,
   FAQ,
@@ -74,6 +75,7 @@ export default async function HomePage({
   return (
     <>
       <Hero />
+      <InvestorPositioning />
       <Included />
       <Process />
       <OperatingPermits />
