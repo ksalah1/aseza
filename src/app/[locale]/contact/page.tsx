@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Check, Clock, Info, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
 import { whatsappLink } from "@/lib/site";
@@ -34,6 +34,7 @@ export default async function ContactPage({
 function ContactContent() {
   const t = useTranslations("contact");
   const td = useTranslations("disclaimer");
+  const isAr = useLocale() === "ar";
   const trust = t.raw("trust") as string[];
 
   return (
@@ -68,6 +69,14 @@ function ContactContent() {
               <Clock className="size-4 shrink-0 text-accent" aria-hidden />
               {t("responseTime")}
             </p>
+          </div>
+
+
+
+          <div className="rounded-xl border border-primary-100 bg-white p-4 text-sm text-primary-600">
+            <h3 className="font-semibold text-primary">{isAr ? "سرية الوثائق" : "Document confidentiality"}</h3>
+            <p className="mt-2">{isAr ? "نتعامل مع وثائق الهوية والشركات بسرية، ولا نطلب أصول المستندات أو نسخاً مصدقة إلا عند الحاجة الفعلية للإجراء. سيتم توضيح الوثائق المطلوبة قبل البدء." : "We handle identity and company documents confidentially and only request originals/certified copies when necessary."}</p>
+            <p className="mt-2">{isAr ? "يمكنك إرسال وصف مختصر للنشاط أولاً دون مشاركة وثائق حساسة. نخبرك بعدها ما إذا كانت الوثائق مطلوبة." : "You can first share a brief activity description without sensitive documents; we will then confirm what is needed."}</p>
           </div>
 
           <ul className="space-y-3">

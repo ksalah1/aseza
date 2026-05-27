@@ -10,3 +10,5 @@ export { CTABanner } from "./CTABanner";
 export { InvestorPositioning } from "./InvestorPositioning";
 
 export { AudiencePaths } from "./AudiencePaths";
+
+export { TrustAndTransparency } from "./TrustAndTransparency";
