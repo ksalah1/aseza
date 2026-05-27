@@ -13,6 +13,13 @@ const STATIC_PATHS: { path: string; priority: number }[] = [
   { path: "/blog", priority: 0.7 },
   { path: "/faq", priority: 0.6 },
   { path: "/contact", priority: 0.6 },
+  { path: "/register-business-in-aseza", priority: 0.9 },
+  { path: "/why-aqaba", priority: 0.8 },
+  { path: "/import-export-company-aseza", priority: 0.8 },
+  { path: "/foreign-investors", priority: 0.8 },
+  { path: "/tax-customs-aqaba", priority: 0.8 },
+  { path: "/restricted-prohibited-activities-aseza", priority: 0.8 },
+  { path: "/existing-aseza-companies", priority: 0.8 },
 ];
 
 /** hreflang alternates for a given path across all locales. */
