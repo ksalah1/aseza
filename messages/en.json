@@ -812,7 +812,69 @@
       "cta": "Start your activity review"
     },
     "ctaPrimary": "Check your activity's registration viability on WhatsApp",
-    "ctaSecondary": "See what the package includes"
+    "ctaSecondary": "See what the package includes",
+    "taxNote": "Not all companies are automatically required to register for sales tax. Obligations depend on activity type, goods or services, place of sale or consumption, sales volume, and applicable tax instructions. Sales-tax treatment may differ by goods/services and consumption location, so registration in the zone should not be treated as a blanket sales-tax exemption.",
+    "customsNote": "Goods imported into the Aqaba Special Economic Zone may receive special customs treatment under the law. However, moving goods to the rest of Jordan, selling outside the zone, or dealing with vehicles/special goods may trigger customs duties, taxes, or additional requirements depending on the case.",
+    "activityCheck": {
+      "title": "Is your activity permitted, restricted, or prohibited?",
+      "note": "We therefore always start with activity review before filing, and we do not guarantee acceptance of any activity before the competent authority decision.",
+      "cards": [
+        {
+          "title": "Usually permitted activities",
+          "text": "Commercial, service, industrial, or tourism activities that do not fall under restricted or prohibited lists, subject to case-specific review before filing."
+        },
+        {
+          "title": "Restricted activities",
+          "text": "Some activities require special conditions or approvals, such as legal services, audit, medical services, customs clearance and sea freight, financial services, insurance, tourism and travel, contracting, engineering services, air transport, mining, telecommunications, power generation, and others."
+        },
+        {
+          "title": "Prohibited activities",
+          "text": "Some activities cannot be registered, such as weapons and explosives, radioactive or nuclear materials, environmentally harmful substances, hazardous/narcotic/toxic materials, printing banknotes or stamps, certain active biological/genetic materials, and other activities designated by competent authorities."
+        }
+      ]
+    },
+    "legalAlerts": {
+      "title": "Important legal notices",
+      "items": [
+        "This website is a private legal service and is not the official website of the Aqaba Special Economic Zone Authority.",
+        "Published information is for general guidance and does not replace reviewing official legislation or obtaining legal advice for your specific case.",
+        "We do not guarantee approval of any application or activity; approval depends on the competent authority decision, document completeness, and legal compliance.",
+        "Issuance of a registered-establishment certificate does not necessarily mean all operating licenses or certificates are complete.",
+        "Tax and customs benefits depend on activity nature, income source, goods movement, tax registrations, and applicable regulations/instructions.",
+        "Government fees, annual fees, and any additional charges may change and are confirmed before payment."
+      ]
+    },
+    "officialRefs": {
+      "title": "Key official references",
+      "intro": "For official review, you can refer to the following laws and official portals:",
+      "items": [
+        {
+          "title": "ASEZ Law No. 32 of 2000 (as amended)",
+          "description": "Core legal framework for the zone, authority powers, registration, customs, taxes, and economic activities.",
+          "url": "https://www.aqabazone.com/en"
+        },
+        {
+          "title": "ASEZ Establishments Registration Regulation No. 13 of 2001 (as amended)",
+          "description": "Eligibility, restricted/prohibited activities, registration procedures, obligations, and renewals.",
+          "url": "https://www.aqabazone.com/en"
+        },
+        {
+          "title": "ASEZ Income Tax Regulation No. 53 of 2005 (as amended)",
+          "description": "Rules for calculating registered-establishment income, income sources, and exceptions.",
+          "url": "https://www.aqabazone.com/en"
+        },
+        {
+          "title": "ASEZ Sales Tax on Goods and Services Regulation No. 54 of 2005 (as amended)",
+          "description": "Sales tax and special tax rules for goods and services inside the zone.",
+          "url": "https://www.aqabazone.com/en"
+        },
+        {
+          "title": "ASEZA e-Services Portal",
+          "description": "Practical source for e-services, procedures, and official updates.",
+          "url": "https://eservices.aqabazone.com/"
+        }
+      ]
+    }
   },
   "registerGuide": {
     "meta": {
