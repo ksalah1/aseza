@@ -34,9 +34,8 @@ export default {
         background: "#FAFAF8", // warm white
       },
       fontFamily: {
-        // Wired to the CSS variables set by next/font in the locale layout.
-        arabic: ["var(--font-arabic)", "IBM Plex Sans Arabic", "sans-serif"],
-        latin: ["var(--font-latin)", "Inter", "sans-serif"],
+        arabic: ["IBM Plex Sans Arabic", "Tajawal", "Noto Sans Arabic", "Arial", "sans-serif"],
+        latin: ["Inter", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
     },
   },
