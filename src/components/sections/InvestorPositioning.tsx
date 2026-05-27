@@ -6,14 +6,27 @@ import { whatsappLink } from "@/lib/site";
 
 export function InvestorPositioning() {
   const t = useTranslations("investor");
-  const benefits = t.raw("benefits.cards") as { title: string; text: string }[];
-  const sectors = t.raw("suitable.sectors") as string[];
-  const facts = t.raw("snapshot.items") as string[];
-  const comparison = t.raw("comparison.options") as {
+  const benefitsRaw = t.raw("benefits.cards");
+  const sectorsRaw = t.raw("suitable.sectors");
+  const factsRaw = t.raw("snapshot.items");
+  const comparisonRaw = t.raw("comparison.options");
+  const activityCardsRaw = t.has("activityCheck.cards") ? t.raw("activityCheck.cards") : [];
+  const legalAlertsRaw = t.has("legalAlerts.items") ? t.raw("legalAlerts.items") : [];
+  const officialRefsRaw = t.has("officialRefs.items") ? t.raw("officialRefs.items") : [];
+
+  const benefits = Array.isArray(benefitsRaw) ? (benefitsRaw as { title: string; text: string }[]) : [];
+  const sectors = Array.isArray(sectorsRaw) ? (sectorsRaw as string[]) : [];
+  const facts = Array.isArray(factsRaw) ? (factsRaw as string[]) : [];
+  const comparison = Array.isArray(comparisonRaw) ? (comparisonRaw as {
     title: string;
     bestFor: string;
     limitation: string;
-  }[];
+  }[]) : [];
+  const activityCards = Array.isArray(activityCardsRaw) ? (activityCardsRaw as { title: string; text: string }[]) : [];
+  const legalAlerts = Array.isArray(legalAlertsRaw) ? (legalAlertsRaw as string[]) : [];
+  const officialRefs = Array.isArray(officialRefsRaw)
+    ? (officialRefsRaw as { title: string; description: string; url: string }[])
+    : [];
 
   return (
     <>
@@ -78,6 +91,83 @@ export function InvestorPositioning() {
         </div>
       </Section>
 
+
+      <Section width="wide" background="muted">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-primary md:text-4xl">
+            {t.has("activityCheck.title") ? t("activityCheck.title") : "Activity compliance check"}
+          </h2>
+        </div>
+        <div className="mx-auto mt-8 grid max-w-6xl gap-4 md:grid-cols-3">
+          {activityCards.map((card) => (
+            <Card key={card.title}>
+              <h3 className="text-lg font-semibold text-primary">{card.title}</h3>
+              <p className="mt-3 leading-relaxed text-primary-600">{card.text}</p>
+            </Card>
+          ))}
+        </div>
+        <p className="mx-auto mt-6 max-w-4xl text-center text-sm text-primary-500">
+          {t.has("activityCheck.note")
+            ? t("activityCheck.note")
+            : "We review activity eligibility before filing and do not guarantee approval."}
+        </p>
+      </Section>
+
+      <Section width="wide">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <Card>
+            <h3 className="text-xl font-bold text-primary">ملاحظات ضريبية</h3>
+            <p className="mt-3 leading-relaxed text-primary-600">
+              {t.has("taxNote")
+                ? t("taxNote")
+                : "Tax obligations depend on activity, transaction profile, and applicable instructions."}
+            </p>
+          </Card>
+          <Card>
+            <h3 className="text-xl font-bold text-primary">ملاحظات جمركية</h3>
+            <p className="mt-3 leading-relaxed text-primary-600">
+              {t.has("customsNote")
+                ? t("customsNote")
+                : "Customs treatment depends on goods type, movement, and applicable legal requirements."}
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section width="wide" background="muted">
+        <Card>
+          <h2 className="text-2xl font-bold text-primary md:text-3xl">
+            {t.has("officialRefs.title") ? t("officialRefs.title") : "Official references"}
+          </h2>
+          <p className="mt-3 text-primary-500">
+            {t.has("officialRefs.intro") ? t("officialRefs.intro") : "Review official laws and portals for current rules."}
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {officialRefs.map((ref) => (
+              <a key={ref.title} href={ref.url} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-primary-100 bg-primary-50 p-4 hover:bg-primary-100/40">
+                <h3 className="font-semibold text-primary">{ref.title}</h3>
+                <p className="mt-2 text-sm text-primary-600">{ref.description}</p>
+              </a>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <Section width="wide">
+        <Card>
+          <h2 className="text-2xl font-bold text-primary md:text-3xl">
+            {t.has("legalAlerts.title") ? t("legalAlerts.title") : "Important legal notices"}
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {legalAlerts.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-primary-600">
+                <span className="mt-2 size-1.5 rounded-full bg-accent" aria-hidden />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </Section>
       <Section width="narrow" background="muted">
         <Card className="text-center">
           <h2 className="text-2xl font-bold text-primary md:text-3xl">{t("international.title")}</h2>
