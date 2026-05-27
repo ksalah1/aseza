@@ -18,6 +18,16 @@ const QUICK_LINKS = [
   { key: "contact", href: "/#contact" },
 ] as const;
 
+const INVESTOR_GUIDE_LINKS = [
+  { href: "/investor-paths", ar: "مسارات المستثمرين", en: "Investor Paths" },
+  { href: "/foreign-investors", ar: "مستثمر أجنبي", en: "Foreign Investors" },
+  { href: "/import-export-company-aseza", ar: "استيراد وتصدير", en: "Import/Export" },
+  { href: "/existing-aseza-companies", ar: "الشركات المسجلة حالياً", en: "Existing Companies" },
+  { href: "/investor-paths#industrial", ar: "صناعة ولوجستيات", en: "Industrial & Logistics" },
+  { href: "/investor-paths#tourism", ar: "سياحة وضيافة", en: "Tourism & Hospitality" },
+  { href: "/investor-paths#real-estate", ar: "تطوير عقاري", en: "Real Estate" },
+] as const;
+
 // Brand glyphs aren't shipped by the installed lucide version, so inline them.
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -59,7 +69,7 @@ export function Footer() {
 
   return (
     <footer className="bg-primary text-primary-100">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
         {/* Brand */}
         <div>
           <Link href="/" className="text-2xl font-bold text-background">
@@ -102,6 +112,20 @@ export function Footer() {
                   className="text-primary-200 transition-colors hover:text-accent"
                 >
                   {t(`links.${key}`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Investor Guide */}
+        <nav aria-label={locale === "ar" ? "دليل المستثمر" : "Investor guide"}>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-background">{locale === "ar" ? "دليل المستثمر" : "Investor Guide"}</h2>
+          <ul className="mt-4 space-y-3 text-sm">
+            {INVESTOR_GUIDE_LINKS.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-primary-200 transition-colors hover:text-accent">
+                  {locale === "ar" ? item.ar : item.en}
                 </Link>
               </li>
             ))}

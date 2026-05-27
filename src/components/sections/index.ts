@@ -8,3 +8,5 @@ export { Pricing } from "./Pricing";
 export { FAQ } from "./FAQ";
 export { CTABanner } from "./CTABanner";
 export { InvestorPositioning } from "./InvestorPositioning";
+
+export { AudiencePaths } from "./AudiencePaths";

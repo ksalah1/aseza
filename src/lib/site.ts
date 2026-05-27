@@ -34,6 +34,7 @@ export const siteConfig = {
     country: "JO",
     countryAr: "الأردن",
   },
+  officialAsezaUrl: "https://www.aseza.jo",
   social: {
     facebook: "https://facebook.com/aseza.co",
     instagram: "https://instagram.com/aseza.co",

@@ -9,6 +9,7 @@ import {
   AboutAttorney,
   Pricing,
   FAQ,
+  AudiencePaths,
 } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
 import { siteConfig, firmName } from "@/lib/site";
@@ -76,6 +77,7 @@ export default async function HomePage({
     <>
       <Hero />
       <InvestorPositioning />
+      <AudiencePaths />
       <Included />
       <Process />
       <OperatingPermits />
