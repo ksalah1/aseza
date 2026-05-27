@@ -10,25 +10,25 @@
   "nav": {
     "home": "Home",
     "services": "Services",
-    "process": "How It Works",
+    "process": "Company Registration",
     "benefits": "Why Aqaba",
     "pricing": "Pricing",
     "faq": "FAQ",
-    "blog": "Blog",
+    "blog": "Knowledge Center",
     "contact": "Contact",
     "cta": "Start Registration"
   },
   "hero": {
     "badge": "Private legal service for company registration in the Aqaba Special Economic Zone",
-    "title": "Set up your company in Aqaba with confidence and clarity",
-    "subtitle": "We help investors and entrepreneurs register companies in the Aqaba Special Economic Zone, from activity review and document preparation to procedural follow-up and delivery of official documents.",
+    "title": "Register your company in Aqaba with clarity and confidence",
+    "subtitle": "We help investors review their business activity, prepare documents, submit the registration application, and understand any licensing or post-registration requirements.",
     "valueTitle": "Fixed, transparent fees",
     "valueSubtitle": "We share the full quote before any work begins.",
-    "ctaPrimary": "Check your activity's registration viability on WhatsApp",
+    "ctaPrimary": "Check Your Activity Before Registration",
     "contactLink": "Or fill out the contact form",
     "trust": "Built for investors, entrepreneurs, import/export businesses, and companies registering in Aqaba",
-    "reassurance": "Clear fees before we begin — plus an initial review to confirm whether your activity is permitted or needs additional approvals.",
-    "ctaSecondary": "Why invest in Aqaba?",
+    "reassurance": "Clear fees before we begin, with an initial review to confirm whether your activity is suitable for registration.",
+    "ctaSecondary": "View Registration Steps",
     "trustSignals": [
       "Licensed attorney",
       "Clear fees",
@@ -212,10 +212,10 @@
     ]
   },
   "cta": {
-    "title": "Ready to Establish Your Company in Aqaba?",
-    "subtitle": "Book a free consultation today and let us handle the rest of the details for you.",
-    "button": "Book Your Free Consultation",
-    "whatsapp": "Chat on WhatsApp"
+    "title": "Need to confirm if your activity can be registered?",
+    "subtitle": "Send us a short activity summary. We will explain the first step, required documents, and whether additional approvals may apply.",
+    "button": "Check Your Activity on WhatsApp",
+    "whatsapp": "Ask About Required Documents"
   },
   "contact": {
     "meta": {
