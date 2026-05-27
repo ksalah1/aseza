@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Check, Clock, Info, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
-import { ContactForm } from "@/components/contact/ContactForm";
 import { whatsappLink } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -51,12 +50,7 @@ function ContactContent() {
         <span>{td("long")}</span>
       </p>
 
-      <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-        {/* Form */}
-        <div className="rounded-2xl border border-primary-100 bg-white p-6 md:p-8">
-          <ContactForm />
-        </div>
-
+      <div className="mx-auto mt-12 max-w-5xl">
         {/* Side: WhatsApp + trust signals */}
         <aside className="space-y-6">
           <div className="rounded-2xl border border-primary-100 bg-primary-50 p-6">

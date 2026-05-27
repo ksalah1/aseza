@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { CheckCircle, Download, Loader2, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui";
@@ -10,17 +9,16 @@ import { cn } from "@/lib/utils";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoezrjg";
 
-interface FormValues {
-  name: string;
-  whatsapp: string;
-  email: string;
-  activity: string;
-}
-
 type Status = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
   "w-full rounded-lg border border-primary-200 bg-white px-4 py-3 text-primary outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30";
+
+interface FieldErrors {
+  name?: string;
+  whatsapp?: string;
+  email?: string;
+}
 
 export function ChecklistDownload() {
   const tc = useTranslations("processPage.checklist");
@@ -28,21 +26,28 @@ export function ChecklistDownload() {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
 
+  const [name, setName] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [email, setEmail] = useState("");
+  const [activity, setActivity] = useState("");
+  const [errors, setErrors] = useState<FieldErrors>({});
+
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const headingId = useId();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormValues>();
+  function resetForm() {
+    setName("");
+    setWhatsapp("");
+    setEmail("");
+    setActivity("");
+    setErrors({});
+  }
 
   function close() {
     setOpen(false);
     setStatus("idle");
-    reset();
+    resetForm();
     // Return focus to the trigger button.
     triggerRef.current?.focus();
   }
@@ -91,7 +96,27 @@ export function ChecklistDownload() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  async function onSubmit(values: FormValues) {
+  function validate(): FieldErrors {
+    const errs: FieldErrors = {};
+    if (!name.trim()) errs.name = t("required");
+    if (!whatsapp.trim()) errs.whatsapp = t("required");
+    if (
+      email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+    ) {
+      errs.email = t("invalidEmail");
+    }
+    return errs;
+  }
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
     setStatus("submitting");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -100,7 +125,13 @@ export function ChecklistDownload() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ ...values, source: "checklist_download" }),
+        body: JSON.stringify({
+          name,
+          whatsapp,
+          email,
+          activity,
+          source: "checklist_download",
+        }),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {
@@ -171,7 +202,7 @@ export function ChecklistDownload() {
                 </p>
 
                 <form
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={onSubmit}
                   noValidate
                   className="mt-6 space-y-4"
                 >
@@ -186,12 +217,13 @@ export function ChecklistDownload() {
                     <input
                       id="cl-name"
                       type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className={cn(fieldClass, errors.name && "border-red-400")}
-                      {...register("name", { required: true })}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-500">
-                        {t("required")}
+                        {errors.name}
                       </p>
                     )}
                   </div>
@@ -208,16 +240,17 @@ export function ChecklistDownload() {
                       id="cl-whatsapp"
                       type="tel"
                       dir="ltr"
+                      value={whatsapp}
+                      onChange={(e) => setWhatsapp(e.target.value)}
                       className={cn(
                         fieldClass,
                         "text-start",
                         errors.whatsapp && "border-red-400",
                       )}
-                      {...register("whatsapp", { required: true })}
                     />
                     {errors.whatsapp && (
                       <p className="mt-1 text-sm text-red-500">
-                        {t("required")}
+                        {errors.whatsapp}
                       </p>
                     )}
                   </div>
@@ -234,21 +267,17 @@ export function ChecklistDownload() {
                       id="cl-email"
                       type="email"
                       dir="ltr"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className={cn(
                         fieldClass,
                         "text-start",
                         errors.email && "border-red-400",
                       )}
-                      {...register("email", {
-                        validate: (v) =>
-                          !v ||
-                          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ||
-                          "invalid",
-                      })}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-500">
-                        {t("invalidEmail")}
+                        {errors.email}
                       </p>
                     )}
                   </div>
@@ -265,8 +294,9 @@ export function ChecklistDownload() {
                       id="cl-activity"
                       type="text"
                       placeholder={t("activityPlaceholder")}
+                      value={activity}
+                      onChange={(e) => setActivity(e.target.value)}
                       className={fieldClass}
-                      {...register("activity")}
                     />
                   </div>
 
