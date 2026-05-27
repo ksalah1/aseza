@@ -10,6 +10,7 @@ import {
   Pricing,
   FAQ,
   AudiencePaths,
+  TrustAndTransparency,
 } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
 import { siteConfig, firmName } from "@/lib/site";
@@ -78,6 +79,7 @@ export default async function HomePage({
       <Hero />
       <InvestorPositioning />
       <AudiencePaths />
+      <TrustAndTransparency />
       <Included />
       <Process />
       <OperatingPermits />
