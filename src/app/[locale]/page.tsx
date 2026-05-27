@@ -6,7 +6,6 @@ import {
   OperatingPermits,
   SuitableFor,
   AboutAttorney,
-  ContactForm,
   Pricing,
   FAQ,
 } from "@/components/sections";
@@ -80,7 +79,7 @@ export default async function HomePage({
       <OperatingPermits />
       <SuitableFor />
       <AboutAttorney />
-      <ContactForm />
+      <section id="contact" />
       <Pricing />
       <FAQ />
       <JsonLd data={legalServiceSchema} />
