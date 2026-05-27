@@ -874,7 +874,9 @@
           "url": "https://eservices.aqabazone.com/"
         }
       ]
-    }
+    },
+    "taxTitle": "Tax notes",
+    "customsTitle": "Customs notes"
   },
   "registerGuide": {
     "meta": {

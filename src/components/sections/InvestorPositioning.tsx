@@ -116,7 +116,7 @@ export function InvestorPositioning() {
       <Section width="wide">
         <div className="grid gap-8 lg:grid-cols-2">
           <Card>
-            <h3 className="text-xl font-bold text-primary">ملاحظات ضريبية</h3>
+            <h3 className="text-xl font-bold text-primary">{t.has("taxTitle") ? t("taxTitle") : "Tax notes"}</h3>
             <p className="mt-3 leading-relaxed text-primary-600">
               {t.has("taxNote")
                 ? t("taxNote")
@@ -124,7 +124,7 @@ export function InvestorPositioning() {
             </p>
           </Card>
           <Card>
-            <h3 className="text-xl font-bold text-primary">ملاحظات جمركية</h3>
+            <h3 className="text-xl font-bold text-primary">{t.has("customsTitle") ? t("customsTitle") : "Customs notes"}</h3>
             <p className="mt-3 leading-relaxed text-primary-600">
               {t.has("customsNote")
                 ? t("customsNote")
