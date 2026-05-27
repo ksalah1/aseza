@@ -172,6 +172,42 @@
       {
         "question": "Do you offer post-formation services?",
         "answer": "Yes. We support bank account opening, professional licensing, and accounting services as needed."
+      },
+      {
+        "question": "Do I need an existing company before registering in ASEZA?",
+        "answer": "Not always. We review your case and clarify what is needed by activity and legal form."
+      },
+      {
+        "question": "Can I start procedures from outside Jordan?",
+        "answer": "Often yes, subject to required documents, legalization, and legal conditions."
+      },
+      {
+        "question": "Can an existing ASEZA company's activity be amended?",
+        "answer": "It may be possible depending on company status, activity, documents, and authority approval."
+      },
+      {
+        "question": "Can I import immediately after registration?",
+        "answer": "Not always. Customs, tax, or additional approvals may still apply based on goods type."
+      },
+      {
+        "question": "Does an industrial project need environmental approval or inspection?",
+        "answer": "It may, depending on activity and site, and is subject to authority decision."
+      },
+      {
+        "question": "Do tourism activities have different requirements from regular commercial companies?",
+        "answer": "Yes, some tourism activities require additional sector approvals before operation."
+      },
+      {
+        "question": "Is company registration enough to start a real estate project?",
+        "answer": "Usually no. Planning, building permits, and occupancy approvals may be required."
+      },
+      {
+        "question": "Is ASEZA.co the official ASEZA authority website?",
+        "answer": "No. It is a private legal service by Barakat Law Firm."
+      },
+      {
+        "question": "Can you review a client file before submission?",
+        "answer": "Yes. We review classification, documents, and requirements before filing within mandate scope."
       }
     ]
   },
