@@ -3,7 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useLocale, useTranslations } from "next-intl";
 import { Check, Clock, Info, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
-import { whatsappLink } from "@/lib/site";
+import { siteConfig, whatsappLink, phoneLink, phoneDisplay } from "@/lib/site";
+import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -52,6 +53,12 @@ function ContactContent() {
       </p>
 
       <div className="mx-auto mt-12 max-w-5xl">
+        <div className="mb-8 grid gap-4 md:hidden">
+          <div className="rounded-xl border border-primary-100 bg-white p-4"><h3 className="font-semibold text-primary">واتساب سريع</h3><p className="mt-1 text-sm text-primary-600">الأفضل لإرسال وصف مختصر للنشاط.</p><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center rounded-lg bg-[#25D366] px-4 text-sm font-semibold text-white">افتح واتساب</a></div>
+          <div className="rounded-xl border border-primary-100 bg-white p-4"><h3 className="font-semibold text-primary">نموذج مراجعة النشاط</h3><p className="mt-1 text-sm text-primary-600">أرسل معلوماتك بشكل منظم.</p><Link href="/services/activity-review" className="mt-3 inline-flex min-h-11 items-center rounded-lg border border-primary-200 px-4 text-sm font-semibold text-primary">املأ النموذج</Link></div>
+          <div className="rounded-xl border border-primary-100 bg-white p-4"><h3 className="font-semibold text-primary">طلب مكالمة</h3><p className="mt-1 text-sm text-primary-600">مناسب للمستثمرين الجادين أو الملفات المعقدة.</p><a href={whatsappLink(isAr?"أرغب بحجز مكالمة لمناقشة ملف التسجيل.":"I want to request a call for my registration case.")} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center rounded-lg border border-primary-200 px-4 text-sm font-semibold text-primary">احجز مكالمة</a></div>
+        </div>
+
         {/* Side: WhatsApp + trust signals */}
         <aside className="space-y-6">
           <div className="rounded-2xl border border-primary-100 bg-primary-50 p-6">
@@ -93,6 +100,14 @@ function ContactContent() {
               </li>
             ))}
           </ul>
+
+          <div className="rounded-xl border border-primary-100 bg-white p-4 text-sm text-primary-600">
+            <p><strong>{isAr ? "الهاتف:" : "Phone:"}</strong> <a className="underline" href={phoneLink()}>{phoneDisplay()}</a></p>
+            <p className="mt-2"><strong>{isAr ? "البريد:" : "Email:"}</strong> <a className="underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+            <p className="mt-2"><strong>{isAr ? "العنوان:" : "Address:"}</strong> {isAr ? "العقبة، الأردن" : "Aqaba, Jordan"}</p>
+            <p className="mt-2"><strong>{isAr ? "ساعات العمل:" : "Working hours:"}</strong> {isAr ? "الأحد - الخميس" : "Sun - Thu"}</p>
+            <p className="mt-2"><strong>{isAr ? "زمن الرد:" : "Response time:"}</strong> {t("responseTime")}</p>
+          </div>
         </aside>
       </div>
     </Section>

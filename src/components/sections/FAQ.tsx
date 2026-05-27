@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
@@ -12,6 +12,10 @@ type Item = { question: string; answer: string };
 export function FAQ() {
   const t = useTranslations("faq");
   const items = t.raw("items") as Item[];
+  const isAr = useLocale() === "ar";
+  const homepageItems = isAr
+    ? items.filter((it) => ["هل ASEZA.co هو الموقع الرسمي؟","هل تسجيل الشركة يعني أنني أستطيع مباشرة النشاط فوراً؟","هل يمكن للمستثمر الأجنبي التسجيل؟","هل ضريبة الدخل دائماً 5%؟","هل يمكنني الاستيراد مباشرة بعد التسجيل؟"].includes(it.question)).slice(0,5)
+    : items.slice(0,5);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -24,7 +28,7 @@ export function FAQ() {
       </div>
 
       <div className="mt-10 space-y-3">
-        {items.map((item, i) => {
+        {homepageItems.map((item, i) => {
           const isOpen = openIndex === i;
           return (
             <div
@@ -72,7 +76,7 @@ export function FAQ() {
           href="/faq"
           className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-accent"
         >
-          {t("readAll")}
+          {isAr ? "عرض جميع الأسئلة" : t("readAll")}
           <ArrowRight className="size-4 flip-rtl" aria-hidden />
         </Link>
       </div>
