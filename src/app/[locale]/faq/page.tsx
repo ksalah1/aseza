@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Accordion, Section } from "@/components/ui";
+import { Link } from "@/i18n/navigation";
 import { CTABanner } from "@/components/sections";
 import { buildMetadata } from "@/lib/seo";
 
@@ -69,6 +70,14 @@ function FaqContent() {
               <Accordion items={group.items} defaultOpen={null} />
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section width="default">
+        <div className="text-center">
+          <Link href="/register-business-in-aseza" className="inline-flex rounded-lg border border-primary px-6 py-3 font-semibold text-primary">
+            شاهد خطوات التسجيل
+          </Link>
         </div>
       </Section>
 

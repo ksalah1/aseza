@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { CheckCircle, MessageCircle, Sparkles } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
+import { Link } from "@/i18n/navigation";
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -71,12 +72,12 @@ export function Hero() {
             {t("ctaPrimary")}
           </a>
 
-          <a
-            href="#why-aqaba"
+          <Link
+            href="/register-business-in-aseza"
             className="inline-flex w-full items-center justify-center rounded-lg border border-primary-100/50 px-8 py-3.5 text-base font-semibold text-primary-100 transition-colors hover:bg-primary-100/10 sm:w-auto"
           >
             {t("ctaSecondary")}
-          </a>
+          </Link>
         </div>
 
         <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-primary-300">

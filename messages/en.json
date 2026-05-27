@@ -813,5 +813,11 @@
     },
     "ctaPrimary": "Check your activity's registration viability on WhatsApp",
     "ctaSecondary": "See what the package includes"
+  },
+  "registerGuide": {
+    "meta": {
+      "title": "Register a company in ASEZ | Legal service",
+      "description": "Practical guide for registering a company or establishment in ASEZ, including registration vs licensing, required documents, steps, and restricted/prohibited activities."
+    }
   }
 }
