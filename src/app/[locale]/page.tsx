@@ -1,13 +1,9 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Hero,
-  Included,
   Process,
   OperatingPermits,
-  SuitableFor,
   InvestorPositioning,
-  AboutAttorney,
-  Pricing,
   FAQ,
   AudiencePaths,
   TrustAndTransparency,
@@ -79,14 +75,9 @@ export default async function HomePage({
       <Hero />
       <AudiencePaths />
       <InvestorPositioning />
-      <Included />
-      <TrustAndTransparency />
       <Process />
       <OperatingPermits />
-      <SuitableFor />
-      <AboutAttorney />
-      <section id="contact" />
-      <Pricing />
+      <TrustAndTransparency />
       <FAQ />
       <JsonLd data={legalServiceSchema} />
     </>

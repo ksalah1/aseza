@@ -6,44 +6,17 @@ import { siteConfig, phoneDisplay, phoneLink, whatsappLink } from "@/lib/site";
 export function Footer() {
   const locale = useLocale();
   const ar = locale === "ar";
-  const investorLinks = ar
-    ? [
-        ["المستثمر الأجنبي", "/foreign-investors"],
-        ["دليل المستثمر الأجنبي", "/foreign-investor-guide-aqaba"],
-        ["الاستيراد والتصدير", "/import-export-company-aseza"],
-        ["الضرائب والجمارك", "/tax-customs-aqaba"],
-        ["مراجعة النشاط", "/services/activity-review"],
-        ["تواصل معنا", "/contact"],
-      ]
-    : [
-        ["Foreign Investors", "/foreign-investors"],
-        ["Import/Export in Aqaba", "/import-export-company-aseza"],
-        ["Tax & Customs", "/tax-customs-aqaba"],
-        ["Activity Review", "/services/activity-review"],
-        ["Registration Checklist", "/aseza-registration-checklist"],
-        ["Contact", "/contact"],
-      ];
+  const cols = ar ? [
+    ["تسجيل الشركات", [["تسجيل شركة في ASEZA","/register-business-in-aseza"],["تسجيل فرع أجنبي","/foreign-investors"],["مراجعة النشاط","/services/activity-review"],["الترخيص بعد التسجيل","/licensing-after-registration"]]],
+    ["دليل المستثمر", [["لماذا العقبة؟","/why-aqaba"],["المستثمر الأجنبي","/foreign-investors"],["الاستيراد والتصدير","/import-export-company-aseza"],["الضرائب والجمارك","/tax-customs-aqaba"],["الأنشطة المقيدة والمحظورة","/restricted-prohibited-activities-aseza"]]],
+    ["القطاعات", [["الصناعة واللوجستيات","/industrial-logistics-investment-aqaba"],["السياحة والضيافة","/tourism-investment-aqaba"],["التطوير العقاري","/real-estate-development-aqaba"],["العمالة والتأشيرات","/labor-visas-aqaba"]]],
+    ["الوثائق والدعم", [["النماذج وقوائم الفحص","/documents-checklists"],["الأسئلة الشائعة","/faq"],["المراجع الرسمية","/blog"],["تواصل معنا","/contact"]]],
+  ] : [
+    ["Company setup", [["Register in ASEZA","/register-business-in-aseza"],["Foreign branch / investor","/foreign-investors"],["Activity review","/services/activity-review"],["Licensing after registration","/licensing-after-registration"]]],
+    ["Investor guide", [["Why Aqaba","/why-aqaba"],["Import/export","/import-export-company-aseza"],["Tax & customs","/tax-customs-aqaba"],["Restricted activities","/restricted-prohibited-activities-aseza"]]],
+    ["Sectors", [["Industrial & logistics","/industrial-logistics-investment-aqaba"],["Tourism & hospitality","/tourism-investment-aqaba"],["Real estate","/real-estate-development-aqaba"],["Labor & visas","/labor-visas-aqaba"]]],
+    ["Documents & support", [["Documents & checklists","/documents-checklists"],["FAQ","/faq"],["Official references","/blog"],["Contact","/contact"]]],
+  ];
 
-  return (
-    <footer className="bg-primary text-primary-100">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-3">
-        <div>
-          <h2 className="font-semibold text-background">ASEZA.co</h2>
-          <p className="mt-3 text-sm">{ar ? "خدمة قانونية خاصة من شركة البركات للمحاماة. ليست موقعاً حكومياً رسمياً." : "A private legal service by Al Barakat Law Firm. Not an official government website."}</p>
-        </div>
-        <div>
-          <h2 className="font-semibold text-background">{ar ? "روابط المستثمر" : "Investor links"}</h2>
-          <ul className="mt-3 space-y-2 text-sm">{investorLinks.map(([label, href]) => <li key={String(href)}><Link href={String(href)}>{String(label)}</Link></li>)}</ul>
-        </div>
-        <div>
-          <h2 className="font-semibold text-background">{ar ? "التواصل" : "Contact"}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li className="flex items-center gap-2"><Phone className="size-4" /><a href={phoneLink()}>{phoneDisplay()}</a></li>
-            <li className="flex items-center gap-2"><Mail className="size-4" /><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
-            <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  );
+  return <footer className="bg-primary text-primary-100"><div className="mx-auto max-w-7xl px-6 py-12"><p className="text-sm">{ar ? "خدمة قانونية خاصة من شركة البركات للمحاماة. ليست موقعاً حكومياً رسمياً." : "A private legal service by Al Barakat Law Firm. Not an official government website."}</p><div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-4">{cols.map(([title,links])=><div key={String(title)}><h2 className="font-semibold text-background">{String(title)}</h2><ul className="mt-3 space-y-2 text-sm">{(links as string[][]).map(([label,href])=><li key={href}><Link href={href}>{label}</Link></li>)}</ul></div>)}</div><div className="mt-8 border-t border-primary-700 pt-6 text-sm"><div className="flex flex-wrap gap-4"><a className="inline-flex items-center gap-2" href={phoneLink()}><Phone className="size-4"/>{phoneDisplay()}</a><a className="inline-flex items-center gap-2" href={`mailto:${siteConfig.email}`}><Mail className="size-4"/>{siteConfig.email}</a><a href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div></div></footer>;
 }

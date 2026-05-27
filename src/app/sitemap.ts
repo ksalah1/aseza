@@ -20,6 +20,12 @@ const STATIC_PATHS: { path: string; priority: number }[] = [
   { path: "/tax-customs-aqaba", priority: 0.8 },
   { path: "/restricted-prohibited-activities-aseza", priority: 0.8 },
   { path: "/existing-aseza-companies", priority: 0.8 },
+  { path: "/licensing-after-registration", priority: 0.8 },
+  { path: "/industrial-logistics-investment-aqaba", priority: 0.7 },
+  { path: "/tourism-investment-aqaba", priority: 0.7 },
+  { path: "/real-estate-development-aqaba", priority: 0.7 },
+  { path: "/labor-visas-aqaba", priority: 0.7 },
+  { path: "/documents-checklists", priority: 0.8 },
 ];
 
 /** hreflang alternates for a given path across all locales. */
