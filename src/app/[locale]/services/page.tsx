@@ -345,6 +345,14 @@ function ServicesContent() {
         <Accordion items={faqs} className="mt-10" />
       </Section>
 
+      <Section width="default">
+        <div className="text-center">
+          <Link href="/register-business-in-aseza" className="inline-flex rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-background">
+            اسأل عن الوثائق المطلوبة
+          </Link>
+        </div>
+      </Section>
+
       <CTABanner />
     </>
   );
