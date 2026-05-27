@@ -4,6 +4,7 @@ import { Card, Section } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
 
+
 export function InvestorPositioning() {
   const t = useTranslations("investor");
   const benefitsRaw = t.raw("benefits.cards");
@@ -74,22 +75,6 @@ export function InvestorPositioning() {
         </div>
       </Section>
 
-      <Section width="wide">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-primary md:text-4xl">{t("comparison.title")}</h2>
-        </div>
-        <div className="mx-auto mt-10 grid max-w-6xl gap-4 lg:grid-cols-3">
-          {comparison.map((option) => (
-            <Card key={option.title}>
-              <h3 className="text-lg font-semibold text-primary">{option.title}</h3>
-              <p className="mt-4 text-sm text-primary-500">{t("comparison.bestForLabel")}</p>
-              <p className="mt-1 leading-relaxed text-primary-700">{option.bestFor}</p>
-              <p className="mt-4 text-sm text-primary-500">{t("comparison.limitationLabel")}</p>
-              <p className="mt-1 leading-relaxed text-primary-700">{option.limitation}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
 
 
       <Section width="wide" background="muted">
@@ -134,24 +119,6 @@ export function InvestorPositioning() {
         </div>
       </Section>
 
-      <Section width="wide" background="muted">
-        <Card>
-          <h2 className="text-2xl font-bold text-primary md:text-3xl">
-            {t.has("officialRefs.title") ? t("officialRefs.title") : "Official references"}
-          </h2>
-          <p className="mt-3 text-primary-500">
-            {t.has("officialRefs.intro") ? t("officialRefs.intro") : "Review official laws and portals for current rules."}
-          </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {officialRefs.map((ref) => (
-              <a key={ref.title} href={ref.url} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-primary-100 bg-primary-50 p-4 hover:bg-primary-100/40">
-                <h3 className="font-semibold text-primary">{ref.title}</h3>
-                <p className="mt-2 text-sm text-primary-600">{ref.description}</p>
-              </a>
-            ))}
-          </div>
-        </Card>
-      </Section>
 
       <Section width="wide">
         <Card>
@@ -186,8 +153,9 @@ export function InvestorPositioning() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-background transition-colors hover:bg-primary-700"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
             >
+              <MessageCircle className="size-5" aria-hidden />
               {t("ctaPrimary")}
             </a>
             <Link

@@ -1,7 +1,6 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
 
 export function MobileStickyCTA() {
@@ -16,14 +15,8 @@ export function MobileStickyCTA() {
           rel="noopener noreferrer"
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white"
         >
-          {isAr ? "افحص نشاطك عبر واتساب" : "Check Activity on WhatsApp"}
+          {isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"}
         </a>
-        <Link
-          href="/services/activity-review"
-          className="inline-flex min-h-11 items-center justify-center rounded-lg border border-primary-200 px-3 py-2.5 text-sm font-semibold text-primary"
-        >
-          {isAr ? "نموذج المراجعة" : "Review Form"}
-        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { MessageCircle } from "lucide-react";
 import { Card, Section } from "@/components/ui";
+import { whatsappLink } from "@/lib/site";
 
 function ItemList({ items }: { items: string[] }) {
   return (
@@ -51,12 +52,15 @@ export function SuitableFor() {
 
       <div className="mx-auto mt-10 max-w-2xl text-center">
         <p className="leading-relaxed text-primary-600">{t("closing")}</p>
-        <Link
-          href="/contact"
-          className="mt-5 inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-background"
+        <a
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
         >
+          <MessageCircle className="size-4" aria-hidden />
           {t("closingCta")}
-        </Link>
+        </a>
       </div>
     </Section>
   );

@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 
 export function CTABanner() {
@@ -36,13 +35,6 @@ export function CTABanner() {
             <MessageCircle className="size-5" aria-hidden />
             {t("whatsapp")}
           </a>
-          <Link
-            href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-lg font-semibold text-primary transition-colors hover:bg-accent-300 sm:w-auto"
-          >
-            {t("button")}
-            <ArrowRight className="size-5 flip-rtl" aria-hidden />
-          </Link>
         </div>
       </div>
     </section>

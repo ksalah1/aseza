@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { Accordion } from "@/components/ui/Accordion";
 import { buildMetadata } from "@/lib/seo";
+import { whatsappLink } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -88,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <section className="bg-primary-50"><div className="mx-auto max-w-7xl px-6 py-16"><h2 className="text-2xl font-bold">{ar?"أسئلة شائعة للمستثمر الأجنبي":"Foreign investor FAQs"}</h2><div className="mt-6"><Accordion items={faq} defaultOpen={0} /></div></div></section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16"><h2 className="text-2xl font-bold">{ar?"ابدأ من خارج الأردن":"Start from outside Jordan"}</h2><p className="mt-3 text-primary-600">{ar?"يمكنك البدء بإرسال وصف مختصر للنشاط. لا ترسل وثائق حساسة قبل أن نؤكد لك ما هو مطلوب.":"You can start by sending a short activity description. Do not send sensitive documents until we confirm what is needed."}</p><div className="mt-5 flex flex-wrap gap-3"><a href="https://wa.me/962790000000" className="rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white">WhatsApp</a><Link href="/contact" className="rounded-lg border border-primary-200 px-4 py-2 font-semibold">{ar?"طلب مكالمة فيديو":"Request a Video Call"}</Link><a href="mailto:info@aseza.co" className="rounded-lg border border-primary-200 px-4 py-2 font-semibold">Email</a></div></section>
+      <section className="mx-auto max-w-7xl px-6 py-16"><h2 className="text-2xl font-bold">{ar?"ابدأ من خارج الأردن":"Start from outside Jordan"}</h2><p className="mt-3 text-primary-600">{ar?"يمكنك البدء بإرسال وصف مختصر للنشاط. لا ترسل وثائق حساسة قبل أن نؤكد لك ما هو مطلوب.":"You can start by sending a short activity description. Do not send sensitive documents until we confirm what is needed."}</p><div className="mt-5 flex flex-wrap gap-3"><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white">{ar?"تواصل معنا عبر واتساب":"Contact us via WhatsApp"}</a></div></section>
 
       <JsonLd data={{"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{ "@type":"ListItem", position:1,name:ar?"الرئيسية":"Home",item:`https://aseza.co/${locale}`},{"@type":"ListItem",position:2,name:ar?"المستثمر الأجنبي":"Foreign Investors",item:`https://aseza.co/${locale}/foreign-investors`}]}} />
       <JsonLd data={{"@context":"https://schema.org","@type":"FAQPage",mainEntity:faq.map((i)=>({"@type":"Question",name:i.question,acceptedAnswer:{"@type":"Answer",text:i.answer}}))}} />
