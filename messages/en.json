@@ -26,8 +26,7 @@
     "subtitle": "We help investors review their business activity, prepare documents, submit the registration application, and understand any licensing or post-registration requirements.",
     "valueTitle": "Fixed, transparent fees",
     "valueSubtitle": "We share the full quote before any work begins.",
-    "ctaPrimary": "Check Your Activity Before Registration",
-    "contactLink": "Or fill out the contact form",
+    "ctaPrimary": "Contact us via WhatsApp",
     "trust": "Built for investors, entrepreneurs, import/export businesses, and companies registering in Aqaba",
     "reassurance": "Clear fees before we begin, with an initial review to confirm whether your activity is suitable for registration.",
     "ctaSecondary": "View Registration Steps",
@@ -140,13 +139,14 @@
     "title": "Clear, all-in-one incorporation package",
     "subtitle": "One known fee — no surprises and no hidden costs.",
     "planName": "Complete Formation Package",
-    "price": "950",
+    "price": "",
     "currency": "JOD",
-    "period": "one all-inclusive fee",
+    "period": "",
+    "pricingContact": "Contact us via WhatsApp to ask about pricing.",
     "includedTitle": "What's included",
-    "includedRef": "The package covers everything listed in “What you get” above.",
+    "includedRef": "The package covers everything listed in the 'What you get' section above.",
     "notIncludedTitle": "Not included",
-    "cta": "Get Started",
+    "cta": "Contact us via WhatsApp",
     "note": "Official government fees are charged separately and vary by activity type and capital.",
     "detailsCta": "Full package details"
   },
@@ -343,7 +343,7 @@
         "items": [
           {
             "question": "How much does the service cost?",
-            "answer": "One clear fee of 950 JOD covering consultation, document preparation, application submission, and follow-up until you receive your license."
+            "answer": "Contact us via WhatsApp to ask about our fees. The fee covers consultation, document preparation, application submission, and follow-up until you receive your license."
           },
           {
             "question": "What government fees should I expect?",
@@ -466,14 +466,14 @@
   "servicesPage": {
     "meta": {
       "title": "Company Registration Service in Aqaba",
-      "description": "A complete company registration service in the Aqaba Special Economic Zone for a clear fee of 950 JOD — covering consultation, document preparation, and follow-up until your license is in hand."
+      "description": "A complete company registration service in the Aqaba Special Economic Zone — covering consultation, document preparation, and follow-up until your license is in hand. Contact us via WhatsApp for pricing."
     },
     "hero": {
       "title": "Company Registration Service in the Aqaba Special Economic Zone",
       "subtitle": "We handle the entire formation of your Aqaba company end to end — with a clear, transparent fee and precise follow-up until you receive your license."
     },
     "pricing": {
-      "title": "What Does the 950 JOD Package Include?",
+      "title": "What Does the Formation Package Include?",
       "subtitle": "One all-inclusive fee for our services, with a full breakdown of what you get.",
       "includedTitle": "Included in the fee",
       "included": [
@@ -849,7 +849,7 @@
       "body": "If you are considering establishing a company in Jordan, Aqaba may be a suitable option when your activity is linked to trade, distribution, logistics, tourism, industry, or regional expansion. We help you understand legal form, activity viability, and required documents before starting.",
       "cta": "Start your activity review"
     },
-    "ctaPrimary": "Check your activity's registration viability on WhatsApp",
+    "ctaPrimary": "Contact us via WhatsApp",
     "ctaSecondary": "See what the package includes",
     "taxNote": "Not all companies are automatically required to register for sales tax. Obligations depend on activity type, goods or services, place of sale or consumption, sales volume, and applicable tax instructions. Sales-tax treatment may differ by goods/services and consumption location, so registration in the zone should not be treated as a blanket sales-tax exemption.",
     "customsNote": "Goods imported into the Aqaba Special Economic Zone may receive special customs treatment under the law. However, moving goods to the rest of Jordan, selling outside the zone, or dealing with vehicles/special goods may trigger customs duties, taxes, or additional requirements depending on the case.",

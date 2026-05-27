@@ -3,11 +3,11 @@ import type { ComponentPropsWithoutRef } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, Clock, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, firmName } from "@/lib/site";
+import { siteConfig, firmName, whatsappLink } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 import {
   getPostBySlug,
@@ -198,12 +198,15 @@ export default async function PostPage({
             <p className="mt-2 text-sm text-primary-100">
               {t("sidebar.description")}
             </p>
-            <Link
-              href="/contact"
-              className="mt-5 block rounded-lg bg-accent px-5 py-3 text-center font-semibold text-primary transition-colors hover:bg-accent-300"
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-[#1DA851]"
             >
+              <MessageCircle className="size-4" aria-hidden />
               {t("sidebar.button")}
-            </Link>
+            </a>
           </div>
         </aside>
       </div>

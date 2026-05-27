@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
 import { whatsappLink } from "@/lib/site";
 
+
 export function Pricing() {
   const t = useTranslations("pricing");
 
@@ -21,13 +22,7 @@ export function Pricing() {
           {t("planName")}
         </p>
 
-        <div className="mt-4 flex items-baseline justify-center gap-2">
-          <span className="text-7xl font-bold text-accent">{t("price")}</span>
-          <span className="text-xl font-medium text-primary-500">
-            {t("currency")}
-          </span>
-        </div>
-        <p className="text-center text-sm text-primary-400">{t("period")}</p>
+        <p className="mt-4 text-center text-base text-primary-500">{t("pricingContact")}</p>
 
         <p className="mt-8 text-sm font-semibold text-primary">
           {t("includedTitle")}

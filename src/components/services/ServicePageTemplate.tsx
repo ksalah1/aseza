@@ -1,5 +1,6 @@
+import { MessageCircle } from "lucide-react";
 import { Card, Section } from "@/components/ui";
-import { Link } from "@/i18n/navigation";
+import { whatsappLink } from "@/lib/site";
 
 export type ServicePageContent = {
   title: string;
@@ -58,7 +59,7 @@ export function ServicePageTemplate({ content }: { content: ServicePageContent }
         <Card>
           <h2 className="text-2xl font-semibold text-primary">قبل أن تبدأ، حضّر هذه المعلومات</h2>
           <ul className="mt-4 grid gap-2 md:grid-cols-2 text-primary-600">{checklist.map((i)=><li key={i}>• {i}</li>)}</ul>
-          <Link href="/contact" className="mt-4 inline-block text-accent font-semibold">أرسل وصف نشاطك للمراجعة</Link>
+          <a href={whatsappLink("أرغب في إرسال وصف نشاطي للمراجعة.")} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-accent font-semibold"><MessageCircle className="size-4" aria-hidden />أرسل وصف نشاطك للمراجعة</a>
         </Card>
       </Section>
 
@@ -67,8 +68,7 @@ export function ServicePageTemplate({ content }: { content: ServicePageContent }
           <h2 className="text-2xl font-semibold text-primary">غير متأكد إن كانت هذه الخدمة مناسبة لحالتك؟</h2>
           <p className="mt-3 text-primary-600">أرسل وصفاً مختصراً للنشاط أو وضع الشركة، وسنساعدك على تحديد الخدمة الأقرب وما يجب تحضيره قبل التقديم.</p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-lg bg-primary px-4 py-2 text-background">افحص نشاطك عبر واتساب</Link>
-            <Link href="/contact" className="rounded-lg border border-primary px-4 py-2 text-primary">املأ نموذج مراجعة النشاط</Link>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white"><MessageCircle className="size-4" aria-hidden />تواصل معنا عبر واتساب</a>
           </div>
         </Card>
       </Section>

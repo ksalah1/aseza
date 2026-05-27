@@ -42,11 +42,10 @@ async function buildLegalServiceSchema(locale: string) {
     },
     offers: {
       "@type": "Offer",
-      price: 950,
       priceCurrency: "JOD",
       description: isAr
-        ? "باقة تأسيس شاملة برسوم ثابتة قدرها 950 ديناراً أردنياً."
-        : "All-inclusive incorporation package for a fixed fee of 950 JOD.",
+        ? "باقة تأسيس شاملة. تواصل معنا عبر واتساب للاستفسار عن الأسعار."
+        : "All-inclusive incorporation package. Contact us via WhatsApp for pricing.",
     },
     telephone: siteConfig.phoneTel,
     address: {

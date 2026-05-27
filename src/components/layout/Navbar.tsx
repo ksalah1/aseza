@@ -16,7 +16,6 @@ const NAV_LINKS = [
   { key: "importExport", href: "/import-export-company-aseza" },
   { key: "services", href: "/services" },
   { key: "faq", href: "/faq" },
-  { key: "contact", href: "/contact" },
 ] as const;
 
 function Logo() {
@@ -134,7 +133,7 @@ export function Navbar() {
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
-          <WhatsAppButton label="WhatsApp" />
+          <WhatsAppButton label={isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"} />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -181,7 +180,7 @@ export function Navbar() {
         </ul>
         <div className="flex items-center justify-between gap-3 border-t border-primary-100 px-4 py-4">
           <LanguageSwitcher onNavigate={() => setOpen(false)} />
-          <WhatsAppButton label="WhatsApp" />
+          <WhatsAppButton label={isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"} />
         </div>
       </div>
     </header>
