@@ -26,6 +26,10 @@ export function Hero() {
           {t("subtitle")}
         </p>
 
+        <p className="mx-auto mt-4 max-w-2xl text-pretty text-base font-medium text-primary-100/95 md:text-lg">
+          {t("reassurance")}
+        </p>
+
         {/* Value framing — the figure itself lives in the Pricing section */}
         <div className="mt-10 inline-flex flex-col items-center rounded-2xl border border-accent/40 bg-accent/10 px-8 py-5">
           <span className="text-2xl font-bold text-accent md:text-3xl">
@@ -41,11 +45,22 @@ export function Hero() {
           {t("trust")}
         </p>
 
+        <div className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-center gap-2.5 text-xs text-primary-100 md:text-sm">
+          {(t.raw("trustSignals") as string[]).map((signal) => (
+            <span
+              key={signal}
+              className="rounded-full border border-primary-200/30 bg-primary-900/20 px-3 py-1"
+            >
+              {signal}
+            </span>
+          ))}
+        </div>
+
         <p className="mx-auto mt-3 max-w-xl text-xs italic leading-relaxed text-primary-300">
           {td("short")}
         </p>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href={whatsappLink()}
             target="_blank"
@@ -55,7 +70,18 @@ export function Hero() {
             <MessageCircle className="size-5" aria-hidden />
             {t("ctaPrimary")}
           </a>
+
+          <a
+            href="#services"
+            className="inline-flex w-full items-center justify-center rounded-lg border border-primary-100/50 px-8 py-3.5 text-base font-semibold text-primary-100 transition-colors hover:bg-primary-100/10 sm:w-auto"
+          >
+            {t("ctaSecondary")}
+          </a>
         </div>
+
+        <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-primary-300">
+          {td("long")}
+        </p>
 
         <p className="mt-4">
           <a

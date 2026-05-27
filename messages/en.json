@@ -5,7 +5,7 @@
   },
   "disclaimer": {
     "short": "A private legal service by Barakat Law Firm — not the official website of the Aqaba Special Economic Zone Authority.",
-    "long": "aseza.co is a private legal service provided by Barakat Law Firm, and is not the official website of the Aqaba Special Economic Zone Authority."
+    "long": "ASEZA.co is a private legal service by Barakat Law Firm and is not the official website of the Aqaba Special Economic Zone Authority."
   },
   "nav": {
     "home": "Home",
@@ -19,14 +19,22 @@
     "cta": "Start Registration"
   },
   "hero": {
-    "badge": "Company formation experts in the Aqaba zone",
-    "title": "Incorporate your company in Aqaba in 5–10 business days",
-    "subtitle": "We handle the entire process of forming your company in the Aqaba Special Economic Zone, through to your license.",
+    "badge": "Private legal service for company registration in the Aqaba Special Economic Zone",
+    "title": "Set up your company in Aqaba with confidence and clarity",
+    "subtitle": "We help investors and entrepreneurs register companies in the Aqaba Special Economic Zone, from activity review and document preparation to procedural follow-up and delivery of official documents.",
     "valueTitle": "Fixed, transparent fees",
     "valueSubtitle": "We share the full quote before any work begins.",
-    "ctaPrimary": "Contact via WhatsApp",
+    "ctaPrimary": "Check your activity's registration viability on WhatsApp",
     "contactLink": "Or fill out the contact form",
-    "trust": "Licensed attorney, Jordanian Bar Association No. 16872 — over 15 years of practice"
+    "trust": "Built for investors, entrepreneurs, import/export businesses, and companies registering in Aqaba",
+    "reassurance": "Clear fees before we begin — plus an initial review to confirm whether your activity is permitted or needs additional approvals.",
+    "ctaSecondary": "See what the package includes",
+    "trustSignals": [
+      "Licensed attorney",
+      "Clear fees",
+      "Procedure follow-up",
+      "Activity review before starting"
+    ]
   },
   "included": {
     "title": "What you get in the package",
