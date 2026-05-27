@@ -78,6 +78,8 @@ export function Navbar() {
   const t = useTranslations("nav");
   const td = useTranslations("disclaimer");
   const pathname = usePathname();
+  const locale = useLocale();
+  const isAr = locale === "ar";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -109,7 +111,7 @@ export function Navbar() {
         </p>
       </div>
 
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6">
+      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
         <Logo />
 
         {/* Desktop links */}
@@ -135,33 +137,37 @@ export function Navbar() {
           <WhatsAppButton label="WhatsApp" />
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          className="rounded-lg p-2 text-primary lg:hidden"
-        >
-          {open ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex size-10 items-center justify-center rounded-lg bg-[#25D366] text-white" aria-label="WhatsApp">
+            <MessageCircle className="size-5" aria-hidden />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={isAr ? "فتح القائمة" : "Open menu"}
+            aria-expanded={open}
+            className="rounded-lg p-2 text-primary"
+          >
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile slide-down drawer */}
       <div
         className={cn(
           "overflow-hidden border-t border-primary-100 bg-background transition-[max-height] duration-300 ease-in-out lg:hidden",
-          open ? "max-h-[28rem]" : "max-h-0 border-t-0",
+          open ? "max-h-[34rem]" : "max-h-0 border-t-0",
         )}
       >
-        <ul className="space-y-1 px-6 py-4">
+        <ul className="space-y-1 px-4 py-4">
           {NAV_LINKS.map(({ key, href }) => (
             <li key={key}>
               <Link
                 href={href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "block rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-primary-50",
+                  "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
                   isActive(href) ? "text-accent" : "text-primary-600",
                 )}
               >
@@ -169,8 +175,11 @@ export function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <div className="px-3 pt-2 text-sm text-primary-500">{isAr ? "اللغة" : "Language"}</div>
+          </li>
         </ul>
-        <div className="flex items-center justify-between gap-3 border-t border-primary-100 px-6 py-4">
+        <div className="flex items-center justify-between gap-3 border-t border-primary-100 px-4 py-4">
           <LanguageSwitcher onNavigate={() => setOpen(false)} />
           <WhatsAppButton label="WhatsApp" />
         </div>

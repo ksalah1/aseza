@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { useLocale } from "next-intl";
 import { MessageCircle, ExternalLink } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -7,6 +10,7 @@ import { siteConfig, whatsappLink } from "@/lib/site";
 type AudienceCard = { title: string; text: string; cta: string; href: string; external?: boolean };
 
 export function AudiencePaths() {
+  const [showAllMobile, setShowAllMobile] = useState(false);
   const locale = useLocale();
   const isAr = locale === "ar";
 
@@ -34,6 +38,9 @@ export function AudiencePaths() {
         { title: "Consultant or Lawyer", text: "For professionals assisting clients with file review, activity classification, and legal references.", cta: "Request client file review", href: "/investor-paths#consultants" },
       ];
 
+  const featured = cards.slice(0, 4);
+  const extra = cards.slice(4);
+
   return (
     <Section width="wide">
       <div className="text-center">
@@ -41,7 +48,7 @@ export function AudiencePaths() {
         <p className="mx-auto mt-4 max-w-3xl text-lg text-primary-500">{isAr ? "اختر المسار الأقرب لحالتك حتى تعرف ما الذي تحتاجه قبل تسجيل الشركة أو المؤسسة في منطقة العقبة الاقتصادية الخاصة." : "Choose the path closest to your case to understand what you may need before registering a business in ASEZA."}</p>
       </div>
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {cards.map((card) => (
+        {featured.map((card) => (
           <Card key={card.title} className="flex h-full flex-col justify-between">
             <div>
               <h3 className="text-lg font-semibold text-primary">{card.title}</h3>
@@ -56,6 +63,26 @@ export function AudiencePaths() {
             )}
           </Card>
         ))}
+        {extra.map((card) => (
+          <Card key={card.title} className={showAllMobile ? "flex h-full flex-col justify-between" : "hidden h-full flex-col justify-between lg:flex"}>
+            <div>
+              <h3 className="text-lg font-semibold text-primary">{card.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-primary-500">{card.text}</p>
+            </div>
+            {card.external ? (
+              <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<ExternalLink className="size-4" /></a>
+            ) : card.href.startsWith("http") ? (
+              <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<MessageCircle className="size-4" /></a>
+            ) : (
+              <Link href={card.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}</Link>
+            )}
+          </Card>
+        ))}
+      </div>
+      <div className="mt-5 text-center lg:hidden">
+        <button type="button" className="text-sm font-semibold text-primary underline" onClick={() => setShowAllMobile((v) => !v)}>
+          {showAllMobile ? (isAr ? "إخفاء بعض المسارات" : "Show fewer paths") : (isAr ? "عرض باقي المسارات" : "Show more paths")}
+        </button>
       </div>
     </Section>
   );

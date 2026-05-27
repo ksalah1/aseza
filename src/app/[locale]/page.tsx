@@ -77,10 +77,10 @@ export default async function HomePage({
   return (
     <>
       <Hero />
-      <InvestorPositioning />
       <AudiencePaths />
-      <TrustAndTransparency />
+      <InvestorPositioning />
       <Included />
+      <TrustAndTransparency />
       <Process />
       <OperatingPermits />
       <SuitableFor />

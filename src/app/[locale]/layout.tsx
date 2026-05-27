@@ -10,6 +10,7 @@ import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
 import { Analytics } from "@/components/Analytics";
 import { siteConfig, firmName } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
@@ -130,8 +131,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-24 md:pb-0">{children}</main>
             <Footer />
+            <MobileStickyCTA />
           </div>
         </NextIntlClientProvider>
 
