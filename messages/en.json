@@ -28,7 +28,7 @@
     "contactLink": "Or fill out the contact form",
     "trust": "Built for investors, entrepreneurs, import/export businesses, and companies registering in Aqaba",
     "reassurance": "Clear fees before we begin — plus an initial review to confirm whether your activity is permitted or needs additional approvals.",
-    "ctaSecondary": "See what the package includes",
+    "ctaSecondary": "Why invest in Aqaba?",
     "trustSignals": [
       "Licensed attorney",
       "Clear fees",
@@ -727,5 +727,91 @@
         }
       ]
     }
+  },
+  "investor": {
+    "benefits": {
+      "title": "Why do investors choose Aqaba?",
+      "subtitle": "ASEZ offers a practical environment for companies seeking a regional base, clearer cost structures, and direct market access by sea, land, and air.",
+      "cards": [
+        {
+          "title": "Tax advantages",
+          "text": "Registered entities may benefit from a special tax framework inside the zone, depending on activity and applicable legal conditions."
+        },
+        {
+          "title": "Customs treatment",
+          "text": "The zone has special customs treatment that may support import, export, storage, and re-export models under applicable rules."
+        },
+        {
+          "title": "Port and airport",
+          "text": "Aqaba connects Jordan to regional and international markets through a seaport, an international airport, and road corridors."
+        },
+        {
+          "title": "Strategic location",
+          "text": "Located on the Red Sea, Aqaba serves as a key connection point between Jordan and surrounding regional markets."
+        },
+        {
+          "title": "Promising sectors",
+          "text": "Suitable opportunities across trade, import/export, logistics, storage, light industry, tourism, and services."
+        },
+        {
+          "title": "Clearer procedures",
+          "text": "A dedicated registration and licensing framework helps investors understand requirements before operations begin."
+        }
+      ]
+    },
+    "suitable": {
+      "title": "Is Aqaba suitable for your activity?",
+      "sectors": [
+        "Import and export",
+        "General trade and distribution",
+        "Logistics and warehousing",
+        "Light industry and packaging",
+        "Tourism and hospitality",
+        "Real-estate development and service projects",
+        "Foreign companies seeking an entry point to Jordan or nearby markets"
+      ],
+      "note": "Some activities may be restricted or require additional approvals, so we always begin with activity review."
+    },
+    "snapshot": {
+      "title": "Aqaba investor advantages at a glance",
+      "items": [
+        "Special income-tax treatment for some registered entities under legal conditions",
+        "Special customs treatment within the zone",
+        "Seaport and international airport",
+        "Red Sea location",
+        "Opportunities in trade, logistics, tourism, and industry",
+        "Potential to serve Jordanian and nearby regional markets"
+      ],
+      "note": "Income tax for some registered entities may reach 5%, depending on activity and legal exceptions."
+    },
+    "comparison": {
+      "title": "Aqaba vs. Amman vs. Free Zone",
+      "bestForLabel": "Best for",
+      "limitationLabel": "Limitation",
+      "options": [
+        {
+          "title": "Regular company in Amman",
+          "bestFor": "Local services or activity focused on the Jordanian market without special-zone benefits.",
+          "limitation": "Typically does not benefit from ASEZ-specific advantages."
+        },
+        {
+          "title": "Company in ASEZ",
+          "bestFor": "Import/export, distribution, logistics, foreign investors, and some industrial/tourism activities.",
+          "limitation": "Some activities may require additional approvals or certificates."
+        },
+        {
+          "title": "Free-zone or storage-only model",
+          "bestFor": "Storage or re-export in specific cases.",
+          "limitation": "May not fit every operational model or commercial activity."
+        }
+      ]
+    },
+    "international": {
+      "title": "For investors from outside Jordan",
+      "body": "If you are considering establishing a company in Jordan, Aqaba may be a suitable option when your activity is linked to trade, distribution, logistics, tourism, industry, or regional expansion. We help you understand legal form, activity viability, and required documents before starting.",
+      "cta": "Start your activity review"
+    },
+    "ctaPrimary": "Check your activity's registration viability on WhatsApp",
+    "ctaSecondary": "See what the package includes"
   }
 }
