@@ -10,13 +10,15 @@
   "nav": {
     "home": "Home",
     "services": "Services",
-    "process": "Company Registration",
+    "process": "Register a Business",
     "benefits": "Why Aqaba",
     "pricing": "Pricing",
     "faq": "FAQ",
     "blog": "Knowledge Center",
     "contact": "Contact",
-    "cta": "Start Registration"
+    "cta": "Start Registration",
+    "foreignInvestors": "Foreign Investors",
+    "importExport": "Import/Export"
   },
   "hero": {
     "badge": "Private legal service for company registration in the Aqaba Special Economic Zone",

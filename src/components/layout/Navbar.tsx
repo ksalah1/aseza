@@ -10,11 +10,13 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
+  { key: "benefits", href: "/why-aqaba" },
+  { key: "process", href: "/register-business-in-aseza" },
+  { key: "foreignInvestors", href: "/foreign-investors" },
+  { key: "importExport", href: "/import-export-company-aseza" },
   { key: "services", href: "/services" },
-  { key: "process", href: "/#process" },
-  { key: "blog", href: "/blog" },
-  { key: "faq", href: "/#faq" },
-  { key: "contact", href: "/#contact" },
+  { key: "faq", href: "/faq" },
+  { key: "contact", href: "/contact" },
 ] as const;
 
 function Logo() {
