@@ -6,7 +6,6 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -18,20 +17,6 @@ import { cn } from "@/lib/utils";
 import "../globals.css";
 
 const SITE_URL = siteConfig.url;
-
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-arabic",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-latin",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#0F2A4A",
@@ -71,18 +56,13 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  // Validate the incoming locale segment.
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  if (!hasLocale(routing.locales, locale)) notFound();
 
-  // Enable static rendering for this locale.
   setRequestLocale(locale as Locale);
 
   const messages = await getMessages();
   const dir = locale === "ar" ? "rtl" : "ltr";
 
-  // JSON-LD Organization schema for rich search results.
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -96,7 +76,6 @@ export default async function LocaleLayout({
     sameAs: [siteConfig.firm.parentUrl],
   };
 
-  // JSON-LD LocalBusiness schema.
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -122,11 +101,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html
-      lang={locale}
-      dir={dir}
-      className={cn(ibmPlexSansArabic.variable, inter.variable)}
-    >
+    <html lang={locale} dir={dir} className={cn("font-aseza-ar", "font-aseza-latin")}>
       <body className={locale === "ar" ? "font-arabic" : "font-latin"}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
@@ -137,7 +112,6 @@ export default async function LocaleLayout({
           </div>
         </NextIntlClientProvider>
 
-        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
