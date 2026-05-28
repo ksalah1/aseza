@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -73,6 +74,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "لماذا العقبة", href: "/why-aqaba" }, { label: "المراجع القانونية الرسمية" }]} />
+      </div>
       <Section width="wide">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-bold text-primary md:text-4xl">

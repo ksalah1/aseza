@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { Accordion } from "@/components/ui/Accordion";
@@ -43,6 +44,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <main className="bg-background text-primary">
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "تسجيل شركة", href: "/register-business-in-aseza" }, { label: "مستثمر أجنبي" }]} />
+      </div>
       <section className="bg-primary text-background">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <p className="text-sm font-semibold text-accent">{ar ? "خدمة قانونية خاصة للمستثمرين من خارج الأردن" : "Private legal service for foreign investors"}</p>

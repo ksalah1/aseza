@@ -26,6 +26,15 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Allow MDX files to be treated as pages/content for the blog.
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  async redirects() {
+    return [
+      {
+        source: "/ar/blog",
+        destination: "/ar/legal-references",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

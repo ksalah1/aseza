@@ -1,21 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, X } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const NAV_LINKS = [
-  { key: "home", href: "/" },
-  { key: "benefits", href: "/why-aqaba" },
-  { key: "process", href: "/register-business-in-aseza" },
-  { key: "foreignInvestors", href: "/foreign-investors" },
-  { key: "importExport", href: "/import-export-company-aseza" },
-  { key: "services", href: "/services" },
-  { key: "faq", href: "/faq" },
+const WHY_AQABA_ITEMS = [
+  { label: "مزايا الاستثمار (الضرائب والجمارك والموقع)", href: "/tax-customs-aqaba" },
+  { label: "القطاعات المناسبة", href: "/why-aqaba" },
+  { label: "الأنشطة: مسموحة / مقيدة / محظورة", href: "/restricted-prohibited-activities-aseza" },
+  { label: "المراجع القانونية الرسمية", href: "/legal-references" },
+] as const;
+
+const REGISTER_ITEMS = [
+  { label: "مستثمر أردني", href: "/register-business-in-aseza" },
+  { label: "مستثمر أجنبي / فرع شركة", href: "/foreign-investors" },
+  { label: "شركة استيراد وتصدير", href: "/import-export-company-aseza" },
+  { label: "تعديل أو تجديد شركة مسجلة", href: "/existing-aseza-companies" },
+  { label: "قائمة الوثائق المطلوبة", href: "/aseza-registration-checklist" },
 ] as const;
 
 function Logo() {
@@ -33,7 +38,6 @@ function LanguageSwitcher({ onNavigate }: { onNavigate?: () => void }) {
 
   function switchTo(locale: string) {
     onNavigate?.();
-    // Keep the current path, swap the locale prefix.
     router.replace(pathname, { locale });
   }
 
@@ -59,30 +63,44 @@ function LanguageSwitcher({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-function WhatsAppButton({ label }: { label: string }) {
+interface DropdownPanelProps {
+  items: readonly { label: string; href: string }[];
+  onClose: () => void;
+}
+
+function DropdownPanel({ items, onClose }: DropdownPanelProps) {
+  const pathname = usePathname();
   return (
-    <a
-      href={whatsappLink()}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1DA851]"
-    >
-      <MessageCircle className="size-4" aria-hidden />
-      {label}
-    </a>
+    <ul className="min-w-[260px] overflow-hidden rounded-xl border border-primary-700 bg-primary py-1 shadow-xl">
+      {items.map(({ label, href }) => (
+        <li key={href}>
+          <Link
+            href={href}
+            onClick={onClose}
+            className={cn(
+              "block px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/20 hover:text-accent",
+              pathname.startsWith(href) ? "text-accent" : "",
+            )}
+          >
+            {label}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export function Navbar() {
-  const t = useTranslations("nav");
   const td = useTranslations("disclaimer");
   const pathname = usePathname();
-  const locale = useLocale();
-  const isAr = locale === "ar";
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Add a subtle shadow once the user scrolls away from the top.
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState<"why" | "register" | null>(null);
+  const [desktopDropdown, setDesktopDropdown] = useState<"why" | "register" | null>(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -90,20 +108,70 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Highlight only non-anchor links (Home, Blog) based on the path.
-  function isActive(href: string) {
-    if (href.includes("#")) return false;
-    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setDesktopDropdown(null);
+        setMobileOpen(false);
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    if (!desktopDropdown) return;
+    function onClickOutside(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setDesktopDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [desktopDropdown]);
+
+  useEffect(() => {
+    return () => {
+      if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
+    };
+  }, []);
+
+  function openDropdown(name: "why" | "register") {
+    if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
+    setDesktopDropdown(name);
   }
+
+  function scheduleCloseDropdown() {
+    dropdownTimer.current = setTimeout(() => setDesktopDropdown(null), 150);
+  }
+
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
+
+  const whyActive =
+    isActive("/why-aqaba") ||
+    isActive("/tax-customs-aqaba") ||
+    isActive("/restricted-prohibited-activities-aseza") ||
+    isActive("/legal-references");
+
+  const registerActive =
+    isActive("/register-business-in-aseza") ||
+    isActive("/foreign-investors") ||
+    isActive("/import-export-company-aseza") ||
+    isActive("/existing-aseza-companies") ||
+    isActive("/aseza-registration-checklist");
 
   return (
     <header
+      ref={headerRef}
       className={cn(
         "sticky top-0 z-50 bg-background/90 backdrop-blur transition-shadow",
         scrolled ? "shadow-md" : "shadow-none",
       )}
     >
-      {/* Persistent non-official disclaimer — visible on every page/viewport. */}
+      {/* Persistent disclaimer banner */}
       <div className="bg-primary">
         <p className="mx-auto max-w-7xl px-6 py-1.5 text-center text-[11px] leading-tight text-accent-100 sm:text-xs">
           {td("short")}
@@ -114,73 +182,321 @@ export function Navbar() {
         <Logo />
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map(({ key, href }) => (
-            <li key={key}>
-              <Link
-                href={href}
+        <ul className="hidden items-center gap-5 lg:flex">
+          {/* الرئيسية */}
+          <li>
+            <Link
+              href="/"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-accent",
+                isActive("/") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              الرئيسية
+            </Link>
+          </li>
+
+          {/* لماذا العقبة dropdown */}
+          <li
+            className="relative"
+            onMouseEnter={() => openDropdown("why")}
+            onMouseLeave={scheduleCloseDropdown}
+          >
+            <button
+              type="button"
+              onClick={() => setDesktopDropdown((d) => (d === "why" ? null : "why"))}
+              className={cn(
+                "flex items-center gap-1 text-sm font-medium transition-colors hover:text-accent",
+                whyActive ? "text-accent" : "text-primary-600",
+              )}
+              aria-expanded={desktopDropdown === "why"}
+              aria-haspopup="true"
+            >
+              لماذا العقبة
+              <ChevronDown
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-accent",
-                  isActive(href) ? "text-accent" : "text-primary-600",
+                  "size-4 transition-transform",
+                  desktopDropdown === "why" && "rotate-180",
                 )}
+                aria-hidden
+              />
+            </button>
+            {desktopDropdown === "why" && (
+              <div
+                className="absolute start-0 top-full z-50 mt-1"
+                onMouseEnter={() => openDropdown("why")}
+                onMouseLeave={scheduleCloseDropdown}
               >
-                {t(key)}
-              </Link>
-            </li>
-          ))}
+                <DropdownPanel
+                  items={WHY_AQABA_ITEMS}
+                  onClose={() => setDesktopDropdown(null)}
+                />
+              </div>
+            )}
+          </li>
+
+          {/* تسجيل شركة dropdown */}
+          <li
+            className="relative"
+            onMouseEnter={() => openDropdown("register")}
+            onMouseLeave={scheduleCloseDropdown}
+          >
+            <button
+              type="button"
+              onClick={() => setDesktopDropdown((d) => (d === "register" ? null : "register"))}
+              className={cn(
+                "flex items-center gap-1 text-sm font-medium transition-colors hover:text-accent",
+                registerActive ? "text-accent" : "text-primary-600",
+              )}
+              aria-expanded={desktopDropdown === "register"}
+              aria-haspopup="true"
+            >
+              تسجيل شركة
+              <ChevronDown
+                className={cn(
+                  "size-4 transition-transform",
+                  desktopDropdown === "register" && "rotate-180",
+                )}
+                aria-hidden
+              />
+            </button>
+            {desktopDropdown === "register" && (
+              <div
+                className="absolute start-0 top-full z-50 mt-1"
+                onMouseEnter={() => openDropdown("register")}
+                onMouseLeave={scheduleCloseDropdown}
+              >
+                <DropdownPanel
+                  items={REGISTER_ITEMS}
+                  onClose={() => setDesktopDropdown(null)}
+                />
+              </div>
+            )}
+          </li>
+
+          {/* خدماتنا */}
+          <li>
+            <Link
+              href="/services"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-accent",
+                isActive("/services") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              خدماتنا
+            </Link>
+          </li>
+
+          {/* الأسئلة الشائعة */}
+          <li>
+            <Link
+              href="/faq"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-accent",
+                isActive("/faq") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              الأسئلة الشائعة
+            </Link>
+          </li>
         </ul>
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            href="/about"
+            className={cn(
+              "text-xs font-medium transition-colors hover:text-accent",
+              isActive("/about") ? "text-accent" : "text-primary-500",
+            )}
+          >
+            من نحن
+          </Link>
           <LanguageSwitcher />
-          <WhatsAppButton label={isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"} />
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
+          >
+            <MessageCircle className="size-4" aria-hidden />
+            تواصل واتساب
+          </a>
         </div>
 
+        {/* Mobile controls */}
         <div className="flex items-center gap-2 lg:hidden">
-          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex size-10 items-center justify-center rounded-lg bg-[#25D366] text-white" aria-label="WhatsApp">
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
+            aria-label="WhatsApp"
+          >
             <MessageCircle className="size-5" aria-hidden />
           </a>
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={isAr ? "فتح القائمة" : "Open menu"}
-            aria-expanded={open}
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="فتح القائمة"
+            aria-expanded={mobileOpen}
             className="rounded-lg p-2 text-primary"
           >
-            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+            {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile slide-down drawer */}
+      {/* Mobile drawer */}
       <div
         className={cn(
           "overflow-hidden border-t border-primary-100 bg-background transition-[max-height] duration-300 ease-in-out lg:hidden",
-          open ? "max-h-[34rem]" : "max-h-0 border-t-0",
+          mobileOpen ? "max-h-[44rem]" : "max-h-0 border-t-0",
         )}
       >
         <ul className="space-y-1 px-4 py-4">
-          {NAV_LINKS.map(({ key, href }) => (
-            <li key={key}>
-              <Link
-                href={href}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
-                  isActive(href) ? "text-accent" : "text-primary-600",
-                )}
-              >
-                {t(key)}
-              </Link>
-            </li>
-          ))}
           <li>
-            <div className="px-3 pt-2 text-sm text-primary-500">{isAr ? "اللغة" : "Language"}</div>
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                isActive("/") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              الرئيسية
+            </Link>
+          </li>
+
+          {/* لماذا العقبة */}
+          <li>
+            <button
+              type="button"
+              onClick={() => setMobileDropdown((d) => (d === "why" ? null : "why"))}
+              className={cn(
+                "flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                whyActive ? "text-accent" : "text-primary-600",
+              )}
+            >
+              لماذا العقبة
+              <ChevronDown
+                className={cn(
+                  "size-5 transition-transform",
+                  mobileDropdown === "why" && "rotate-180",
+                )}
+                aria-hidden
+              />
+            </button>
+            {mobileDropdown === "why" && (
+              <ul className="mt-1 space-y-1 rounded-xl bg-primary px-2 py-2">
+                {WHY_AQABA_ITEMS.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setMobileDropdown(null);
+                      }}
+                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/20 hover:text-accent"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          {/* تسجيل شركة */}
+          <li>
+            <button
+              type="button"
+              onClick={() => setMobileDropdown((d) => (d === "register" ? null : "register"))}
+              className={cn(
+                "flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                registerActive ? "text-accent" : "text-primary-600",
+              )}
+            >
+              تسجيل شركة
+              <ChevronDown
+                className={cn(
+                  "size-5 transition-transform",
+                  mobileDropdown === "register" && "rotate-180",
+                )}
+                aria-hidden
+              />
+            </button>
+            {mobileDropdown === "register" && (
+              <ul className="mt-1 space-y-1 rounded-xl bg-primary px-2 py-2">
+                {REGISTER_ITEMS.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setMobileDropdown(null);
+                      }}
+                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/20 hover:text-accent"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <Link
+              href="/services"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                isActive("/services") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              خدماتنا
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/faq"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                isActive("/faq") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              الأسئلة الشائعة
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/about"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
+                isActive("/about") ? "text-accent" : "text-primary-600",
+              )}
+            >
+              من نحن
+            </Link>
           </li>
         </ul>
+
         <div className="flex items-center justify-between gap-3 border-t border-primary-100 px-4 py-4">
-          <LanguageSwitcher onNavigate={() => setOpen(false)} />
-          <WhatsAppButton label={isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"} />
+          <LanguageSwitcher onNavigate={() => setMobileOpen(false)} />
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
+          >
+            <MessageCircle className="size-4" aria-hidden />
+            تواصل واتساب
+          </a>
         </div>
       </div>
     </header>

@@ -10,6 +10,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
+import { CitizenBanner } from "@/components/layout/CitizenBanner";
 import { Analytics } from "@/components/Analytics";
 import { siteConfig, firmName } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
@@ -105,6 +106,7 @@ export default async function LocaleLayout({
       <body className={locale === "ar" ? "font-arabic" : "font-latin"}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
+            <CitizenBanner />
             <Navbar />
             <main className="flex-1 pb-24 md:pb-0">{children}</main>
             <Footer />

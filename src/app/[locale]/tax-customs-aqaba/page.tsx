@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
@@ -22,6 +23,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "لماذا العقبة", href: "/why-aqaba" }, { label: "الضرائب والجمارك" }]} />
+      </div>
       <Section width="narrow">
         <h1 className="text-center text-4xl font-bold text-primary">
           الضرائب والجمارك في منطقة العقبة الاقتصادية الخاصة

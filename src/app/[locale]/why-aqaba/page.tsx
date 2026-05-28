@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 
@@ -21,6 +22,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "لماذا العقبة" }]} />
+      </div>
       <Section width="wide">
         <h1 className="text-4xl font-bold text-primary">لماذا الاستثمار في العقبة؟</h1>
 
