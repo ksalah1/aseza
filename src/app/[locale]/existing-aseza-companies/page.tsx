@@ -99,7 +99,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           التجديد السنوي — موعد مهم
         </h2>
         <div className="mt-5 max-w-3xl rounded-2xl border border-primary-100 border-s-4 border-s-primary bg-primary-50 p-6">
-          <p className="font-semibold text-primary">⚠️ التجديد السنوي مطلوب للحفاظ على صفة "المؤسسة المسجلة" في ASEZA.</p>
+          <p className="font-semibold text-primary">⚠️ التجديد السنوي مطلوب للحفاظ على صفة «المؤسسة المسجلة» في ASEZA.</p>
           <ul className="mt-4 space-y-2 text-sm text-primary-700">
             <li className="flex items-start gap-2">
               <span className="shrink-0 font-bold text-accent">الموعد:</span>

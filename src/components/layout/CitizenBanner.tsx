@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site";
 
@@ -8,19 +8,16 @@ const SESSION_KEY = "citizen-banner-dismissed";
 
 export function CitizenBanner() {
   const pathname = usePathname();
-  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return Boolean(sessionStorage.getItem(SESSION_KEY));
+  });
 
-  useEffect(() => {
-    if (pathname !== "/") return;
-    const dismissed = sessionStorage.getItem(SESSION_KEY);
-    if (!dismissed) setVisible(true);
-  }, [pathname]);
-
-  if (!visible || pathname !== "/") return null;
+  if (pathname !== "/" || dismissed) return null;
 
   function dismiss() {
     sessionStorage.setItem(SESSION_KEY, "1");
-    setVisible(false);
+    setDismissed(true);
   }
 
   return (
