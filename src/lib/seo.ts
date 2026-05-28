@@ -3,7 +3,7 @@ import { siteConfig, firmName } from "@/lib/site";
 
 const SITE_URL = siteConfig.url;
 // Placeholder social-share image (1200×630). Replace with a real asset.
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE = `${SITE_URL}/og-image.webp`;
 
 export interface PageMetaOptions {
   locale: string;
