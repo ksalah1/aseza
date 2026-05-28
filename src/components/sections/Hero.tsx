@@ -14,12 +14,7 @@ import { Button } from "@/components/ui";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const td = useTranslations("disclaimer");
   const isAr = useLocale() === "ar";
-
-  const trustBadges = isAr
-    ? ["محامية مرخّصة", "أتعاب واضحة", "مراجعة النشاط قبل البدء", "ليست جهة حكومية"]
-    : (t.raw("trustSignals") as string[]);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-800 to-teal-900 text-background">
@@ -28,44 +23,74 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-2 md:items-center md:py-24">
         <div className="text-start">
-          <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-4 py-2 text-xs font-semibold text-accent-50 md:text-sm">
-            <Sparkles className="size-4" aria-hidden />
-            {isAr ? "بوابة قانونية خاصة للمستثمرين في العقبة" : t("badge")}
-          </span>
+          {isAr ? (
+            <span className="inline-flex items-center rounded-full bg-accent/20 px-3 py-1.5 text-xs font-semibold text-accent">
+              للمستثمرين الأردنيين والأجانب · تجارة، لوجستيات، استيراد وتصدير
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-4 py-2 text-xs font-semibold text-accent-50 md:text-sm">
+              <Sparkles className="size-4" aria-hidden />
+              {t("badge")}
+            </span>
+          )}
 
           <h1 className="mt-5 max-w-xl text-balance text-3xl font-bold leading-tight md:text-5xl">
-            {t("title")}
+            {isAr
+              ? "سجّل شركتك في منطقة العقبة الاقتصادية الخاصة — بمراجعة قانونية تسبق التقديم"
+              : t("title")}
           </h1>
+
+          {isAr && (
+            <p className="mt-2 text-xs text-primary-300">
+              خدمة من البركات للمحاماة · ليست الموقع الرسمي لسلطة العقبة
+            </p>
+          )}
 
           <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-primary-100 md:text-xl">
             {isAr
-              ? "مراجعة قانونية قبل التسجيل، توضيح للوثائق والمتطلبات، ومتابعة منظمة مع فصل واضح بين دورنا وقرار الجهة المختصة."
+              ? "نراجع نشاطك قبل التسجيل، نحضّر وثائقك، ونتابع معك حتى تستلم شهادة التأسيس — بأتعاب ثابتة وشفافية كاملة."
               : t("subtitle")}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {trustBadges.map((signal) => (
-              <span
-                key={signal}
-                className="rounded-full border border-white/20 bg-white/8 px-3 py-1 text-xs text-primary-100 md:text-sm"
+          {isAr && (
+            <div className="mt-6 flex items-center gap-3">
+              <div
+                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-900 text-xs font-bold text-accent"
+                aria-hidden
               >
-                {signal}
-              </span>
-            ))}
-          </div>
-
-          <p className="mt-6 max-w-xl text-xs italic leading-relaxed text-primary-200">
-            {td("short")}
-          </p>
+                ن.ب
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white">نور بركات</p>
+                <p className="text-xs text-primary-300">
+                  محامية مرخّصة · نقابة المحامين الأردنيين · عضوية رقم 16872
+                </p>
+              </div>
+            </div>
+          )}
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>
-                {t("ctaPrimary")}
-              </Button>
-            </a>
+            {isAr ? (
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500 md:h-12 md:text-base"
+              >
+                <MessageCircle className="size-5" aria-hidden />
+                ابدأ مراجعة نشاطك مجاناً
+              </a>
+            ) : (
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>
+                  {t("ctaPrimary")}
+                </Button>
+              </a>
+            )}
             <Link href="/register-business-in-aseza">
-              <Button variant="outline">{t("ctaSecondary")}</Button>
+              <Button variant="outline">
+                {isAr ? "اعرف خطوات التسجيل" : t("ctaSecondary")}
+              </Button>
             </Link>
           </div>
         </div>

@@ -71,22 +71,61 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         "Legal support throughout the entire formation period.",
       ];
 
-  const steps = ar
+  type TimelineStep = { num: number; title: string; body: string; badge?: string };
+  type TimelinePhase = { phase: string; steps: TimelineStep[] };
+
+  const phases: TimelinePhase[] = ar
     ? [
-        { num: "١", title: "مراجعة النشاط", desc: "نتحقق إن كان النشاط مسموحاً أو مقيداً أو يحتاج موافقات إضافية قبل أي إجراء." },
-        { num: "٢", title: "اختيار الشكل القانوني", desc: "نحدد الشكل الأنسب: شركة ذات مسؤولية محدودة، شخص واحد، فرع أجنبي، أو مؤسسة فردية." },
-        { num: "٣", title: "تجهيز الوثائق", desc: "نعدّ الوثائق حسب حالتك: عقود التأسيس، نسخ الهوية، إثبات العنوان، والتفويضات اللازمة." },
-        { num: "٤", title: "التقديم ودفع الرسوم", desc: "نقدم الملف للجهة المختصة ونتولى تسديد الرسوم الحكومية الرسمية بشكل منفصل ومفصّل." },
-        { num: "٥", title: "متابعة الموافقة", desc: "نتابع الملف مع الجهة المختصة ونعالج أي ملاحظات أو نواقص في الوثائق." },
-        { num: "٦", title: "استلام الشهادة", desc: "نستلم شهادة التسجيل ثم نزوّدك بخطة واضحة لمتطلبات التشغيل والترخيص بعد التسجيل." },
+        {
+          phase: "المرحلة الأولى — قبل التقديم",
+          steps: [
+            { num: 1, title: "مراجعة النشاط وتصنيفه", body: "نتحقق إن كان النشاط مسموحاً أو مقيداً أو محظوراً، ونحدد رمز تصنيف النشاط الاقتصادي (ISIC) المطلوب في الطلب." },
+            { num: 2, title: "اختيار الشكل القانوني المناسب", body: "شركة ذات مسؤولية محدودة، شخص واحد، فرع أجنبي، أو مؤسسة فردية — بحسب عدد الشركاء والنشاط." },
+            { num: 3, title: "تجهيز قائمة الوثائق", body: "تختلف الوثائق بحسب نوع الكيان. نزودك بقائمة مخصصة حسب حالتك." },
+          ],
+        },
+        {
+          phase: "المرحلة الثانية — التسجيل",
+          steps: [
+            { num: 4, title: "تسجيل الشركة لدى مراقب عام الشركات", body: "خطوة قانونية منفصلة قبل تسجيل المؤسسة لدى ASEZA — لها رسومها ووثائقها المستقلة." },
+            { num: 5, title: "تقديم طلب تسجيل المؤسسة لدى ASEZA", body: "نقدم الملف للمديرية المختصة. تبدأ من هذا اليوم مدة 7 أيام عمل للبت في الطلب وفق النظام." },
+            { num: 6, title: "دفع الرسوم الحكومية", body: "نزودك بتفصيل كامل للرسوم الحكومية قبل الدفع، مفصولةً عن أتعاب الخدمة." },
+            { num: 7, title: "استلام شهادة التسجيل", body: "تصدر الشهادة بعد الموافقة. إذا انقضت المدة القانونية دون رد، يُعتبر الطلب مقبولاً وفق النظام.", badge: "⚖️ حق قانوني" },
+          ],
+        },
+        {
+          phase: "المرحلة الثالثة — بعد التسجيل",
+          steps: [
+            { num: 8, title: "الموافقات والتراخيص القطاعية", body: "بعض الأنشطة تحتاج موافقات إضافية (سلامة عامة، صحة عامة، بيئة، تصريح مباشرة عمل) قبل البدء الفعلي." },
+            { num: 9, title: "التجديد السنوي", body: "تسجيل المؤسسة يستلزم تجديداً سنوياً. نوضح المتطلبات والمواعيد مسبقاً." },
+          ],
+        },
       ]
     : [
-        { num: "1", title: "Activity Review", desc: "We verify whether the activity is permitted, restricted, or requires additional approvals before any filing." },
-        { num: "2", title: "Legal Form Selection", desc: "We identify the right structure: LLC, one-person company, foreign branch, or sole establishment." },
-        { num: "3", title: "Document Preparation", desc: "We prepare all required documents: formation articles, ID copies, address proof, and authorizations." },
-        { num: "4", title: "Filing & Fee Payment", desc: "We submit the application and handle official government fees separately with a full breakdown." },
-        { num: "5", title: "Approval Follow-up", desc: "We track the file with the authority and resolve any comments or document gaps." },
-        { num: "6", title: "Certificate Delivery", desc: "We collect the registration certificate, then provide a clear plan for licensing and post-registration approvals." },
+        {
+          phase: "Phase 1 — Before Applying",
+          steps: [
+            { num: 1, title: "Activity Review & Classification", body: "We verify whether the activity is permitted, restricted, or prohibited and identify the required ISIC code." },
+            { num: 2, title: "Choosing the Right Legal Form", body: "LLC, one-person company, foreign branch, or sole establishment — based on partners and activity." },
+            { num: 3, title: "Document Checklist Preparation", body: "Documents vary by entity type. We provide a tailored list for your situation." },
+          ],
+        },
+        {
+          phase: "Phase 2 — Registration",
+          steps: [
+            { num: 4, title: "Company Registration with Companies Controller", body: "A separate legal step before ASEZA institution registration — with its own fees and documents." },
+            { num: 5, title: "Filing the Institution Registration with ASEZA", body: "We submit the file to the relevant directorate. The 7-business-day statutory period starts from this date." },
+            { num: 6, title: "Payment of Government Fees", body: "We provide a full breakdown of government fees before payment, separated from service fees." },
+            { num: 7, title: "Receiving the Registration Certificate", body: "The certificate is issued after approval. If the statutory period lapses without a response, the application is deemed approved.", badge: "⚖️ Legal Right" },
+          ],
+        },
+        {
+          phase: "Phase 3 — Post-Registration",
+          steps: [
+            { num: 8, title: "Sectoral Approvals & Licenses", body: "Some activities need additional approvals (public safety, public health, environment, work commencement permit) before actual operations." },
+            { num: 9, title: "Annual Renewal", body: "Institution registration requires annual renewal. We clarify requirements and deadlines in advance." },
+          ],
+        },
       ];
 
   type ApprovalCard = { Icon: typeof Shield; title: string; desc: string };
@@ -265,11 +304,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         </div>
       </Section>
 
-      {/* 3 — Steps */}
+      {/* 3 — Timeline */}
       <Section width="wide">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-primary md:text-4xl">
-            {ar ? "الوثائق والرسوم والخطوات" : "Documents, Fees, and Steps"}
+            {ar ? "مسار التسجيل خطوة بخطوة" : "Step-by-Step Registration Path"}
           </h2>
           <p className="mt-4 text-lg text-primary-500">
             {ar
@@ -277,18 +316,162 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               : "We always separate official government fees from legal service fees, providing two distinct estimates before any work begins."}
           </p>
         </div>
-        <div className="mx-auto mt-10 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step) => (
-            <Card key={step.num} hoverable>
-              <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-accent/15 text-lg font-bold text-accent">
-                {step.num}
+        <div className="mx-auto mt-10 max-w-3xl">
+          {phases.map((phase, pi) => (
+            <div key={pi} className="mb-8">
+              <span className="mb-6 inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-background">
+                {phase.phase}
+              </span>
+              <div className="mt-4 space-y-1">
+                {phase.steps.map((step, si) => {
+                  const isLast = pi === phases.length - 1 && si === phase.steps.length - 1;
+                  return (
+                    <div key={step.num} className="flex gap-4">
+                      <div className="flex flex-col items-center">
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-accent">
+                          {step.num}
+                        </div>
+                        {!isLast && <div className="mt-1 w-px grow bg-primary-100" aria-hidden />}
+                      </div>
+                      <div className="pb-5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="font-semibold text-primary">{step.title}</h3>
+                          {step.badge && (
+                            <span className="rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                              {step.badge}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-sm leading-relaxed text-primary-600">{step.body}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <h3 className="font-semibold text-primary">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-primary-600">{step.desc}</p>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
+
+      {/* 3b — Documents checklist */}
+      <Section width="wide" background="muted">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-primary md:text-4xl">
+            {ar ? "قائمة الوثائق المطلوبة" : "Required Documents List"}
+          </h2>
+        </div>
+        <div className="mx-auto mt-10 max-w-4xl space-y-6">
+          {(ar
+            ? [
+                {
+                  label: "مستثمر أردني فرد",
+                  items: [
+                    "نسخة من الهوية الوطنية (المالك / الشركاء)",
+                    "ثلاثة أسماء مقترحة للشركة أو المؤسسة",
+                    "وصف واضح للنشاط الاقتصادي",
+                    "نسب الملكية في حالة تعدد الشركاء",
+                    "عقد إيجار أو إثبات عنوان داخل منطقة العقبة الاقتصادية الخاصة",
+                    "عقد تأسيس (يُعدّ بمساعدتنا)",
+                  ],
+                },
+                {
+                  label: "شركة أو فرع أجنبي",
+                  items: [
+                    "صورة مصدقة عن عقد تأسيس الشركة الأم ونظامها الأساسي (مصدقة خلال الأشهر الستة الأخيرة)",
+                    "وكالة موثقة إذا قُدِّم الطلب بواسطة وكيل",
+                    "شهادة من جهات الدولة الأصلية تثبت استمرار الشركة في ممارسة نشاطها",
+                    "ترجمة عربية معتمدة لجميع الوثائق الأجنبية",
+                    "إثبات عنوان داخل منطقة العقبة الاقتصادية الخاصة",
+                    "وصف النشاط المراد تسجيله في المنطقة",
+                  ],
+                },
+                {
+                  label: "شركة قائمة — تسجيل في ASEZA",
+                  items: [
+                    "شهادة التسجيل الحالية (من مراقب عام الشركات أو السجل التجاري)",
+                    "عقد التأسيس الأصلي أو النظام الأساسي",
+                    "مراجعة النشاط مع المديرية (للتحقق من الأهلية)",
+                    "ثلاثة أسماء مقترحة إذا اختلفت عن الاسم التجاري الحالي",
+                    "إثبات عنوان داخل منطقة العقبة الاقتصادية الخاصة",
+                  ],
+                },
+              ]
+            : [
+                {
+                  label: "Jordanian Individual Investor",
+                  items: [
+                    "Copy of national ID (owner / partners)",
+                    "Three proposed company or establishment names",
+                    "Clear description of the economic activity",
+                    "Ownership percentages if multiple partners",
+                    "Lease or address proof inside the Aqaba Special Economic Zone",
+                    "Articles of association (prepared with our assistance)",
+                  ],
+                },
+              ]
+          ).map((tab) => (
+            <Card key={tab.label}>
+              <h3 className="font-semibold text-primary">{tab.label}</h3>
+              <ul className="mt-4 space-y-2">
+                {tab.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-primary-600">
+                    <span className="mt-0.5 shrink-0 text-accent" aria-hidden>☐</span>
+                    <span className="text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+          <p className="text-xs text-primary-400">
+            {ar
+              ? "قائمة الوثائق تقريبية وقد تختلف حسب النشاط وقرار الجهة المختصة. يتم التأكيد بعد المراجعة الأولية."
+              : "Document list is approximate and may vary by activity and authority decision. Confirmed after initial review."}
+          </p>
+        </div>
+      </Section>
+
+      {/* 3c — Legal rights callout */}
+      {ar && (
+        <Section width="wide">
+          <div className="mx-auto max-w-3xl">
+            <div className="rounded-2xl border border-primary-100 border-s-4 border-s-primary bg-primary-50 p-6">
+              <h2 className="text-xl font-bold text-primary">⚖️ اعرف حقوقك القانونية قبل التقديم</h2>
+              <div className="mt-5 space-y-5">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0 font-bold text-accent" aria-hidden>✓</span>
+                  <div>
+                    <p className="font-semibold text-primary">مدة البت القانونية: 7 أيام عمل</p>
+                    <p className="mt-1 text-sm leading-relaxed text-primary-600">
+                      بمجرد اكتمال وثائقك، يجب على المديرية إصدار قرارها خلال 7 أيام عمل وفق نظام تسجيل المؤسسات رقم 13 لسنة 2001.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0 font-bold text-accent" aria-hidden>✓</span>
+                  <div>
+                    <p className="font-semibold text-primary">القبول الضمني: إذا لم يصدر قرار خلال المدة القانونية</p>
+                    <p className="mt-1 text-sm leading-relaxed text-primary-600">
+                      في حال انقضت المدة دون صدور قرار من المدير، يُعتبر الطلب مقبولاً وفق أحكام النظام.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0" aria-hidden>⚠️</span>
+                  <div>
+                    <p className="font-semibold text-primary">تنبيه للأنشطة المقيدة</p>
+                    <p className="mt-1 text-sm leading-relaxed text-primary-600">
+                      إذا كان نشاطك يحتاج موافقة المجلس وانقضت المدة المحددة دون قرار، يُعتبر الطلب مرفوضاً. لذلك من الضروري متابعة ملف الأنشطة المقيدة بفاعلية.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="mt-5 text-xs text-primary-400">
+                استناداً إلى نظام تسجيل المؤسسات في منطقة العقبة الاقتصادية الخاصة رقم 13 لسنة 2001 وتعديلاته حتى 2023.
+              </p>
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* 4 — After registration */}
       <Section width="wide" background="muted">
