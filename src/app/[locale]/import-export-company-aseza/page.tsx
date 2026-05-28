@@ -4,8 +4,9 @@ import { MessageCircle } from "lucide-react";
 import { Section, Card } from "@/components/ui";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/import-export-company-aseza",
     title: ar ? "تسجيل شركة استيراد وتصدير في العقبة" : "Import/Export Business Registration in Aqaba",
     description: ar
-      ? "مراجعة عملية لتسجيل شركة استيراد وتصدير في منطقة العقبة الاقتصادية الخاصة، مع التنبيه إلى متطلبات النشاط والجمارك وضريبة المبيعات."
+      ? "كيف تسجّل شركة استيراد وتصدير في العقبة؟ دليل كامل: الجمارك، الضرائب، الوثائق المطلوبة، ومعاملة الدخل في ASEZA لشركات التجارة والتوزيع."
       : "Practical guidance for import/export business setup in ASEZA, with cautions on customs and sales tax treatment by activity.",
   });
 }
@@ -217,6 +218,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </Card>
         </div>
       </Section>
+      <JsonLd data={getBreadcrumbSchema([
+        { name: "الرئيسية", url: `https://aseza.co/${locale}` },
+        { name: "تسجيل شركة", url: `https://aseza.co/${locale}/register-business-in-aseza` },
+        { name: "شركة استيراد وتصدير", url: `https://aseza.co/${locale}/import-export-company-aseza` },
+      ])} />
     </>
   );
 }

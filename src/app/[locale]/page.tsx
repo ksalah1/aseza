@@ -18,35 +18,43 @@ async function buildLegalServiceSchema(locale: string) {
 
   return {
     "@context": "https://schema.org",
-    "@type": "LegalService",
-    name: firmName(locale),
+    "@type": ["LegalService", "LocalBusiness"],
+    name: isAr ? "شركة البركات للمحاماة" : firmName(locale),
+    alternateName: isAr ? "Al-Barakat Law Firm" : "شركة البركات للمحاماة",
     legalName: siteConfig.firm.legalName,
-    description: t("description"),
-    url: `${siteConfig.url}/${locale}`,
-    inLanguage: locale,
-    serviceType: isAr
-      ? "تأسيس الشركات في منطقة العقبة الاقتصادية الخاصة"
-      : "Company incorporation in the Aqaba Special Economic Zone",
-    areaServed: [
-      { "@type": "Country", name: "Jordan" },
-      { "@type": "Place", name: "Aqaba Special Economic Zone" },
-    ],
-    provider: {
-      "@type": "Attorney",
+    description: isAr
+      ? "خدمة قانونية خاصة متخصصة في تسجيل الشركات في منطقة العقبة الاقتصادية الخاصة (ASEZA)، الأردن."
+      : t("description"),
+    url: `${siteConfig.url}/ar`,
+    inLanguage: "ar",
+    founder: {
+      "@type": "Person",
       name: isAr ? "نور بركات" : "Nour Barakat",
-      jobTitle: isAr ? "محامية" : "Attorney at Law",
+      jobTitle: isAr ? "محامية مرخصة" : "Attorney at Law",
       memberOf: {
         "@type": "Organization",
-        name: "Jordanian Bar Association",
+        name: "نقابة المحامين الأردنيين",
         identifier: "16872",
       },
     },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "JOD",
-      description: isAr
-        ? "باقة تأسيس شاملة. تواصل معنا عبر واتساب للاستفسار عن الأسعار."
-        : "All-inclusive incorporation package. Contact us via WhatsApp for pricing.",
+    serviceType: isAr
+      ? [
+          "تسجيل شركات ASEZA",
+          "تسجيل مستثمرين أجانب",
+          "تسجيل شركات استيراد وتصدير",
+          "مراجعة الأنشطة الاقتصادية",
+        ]
+      : "Company incorporation in the Aqaba Special Economic Zone",
+    areaServed: {
+      "@type": "Place",
+      name: isAr ? "منطقة العقبة الاقتصادية الخاصة، الأردن" : "Aqaba Special Economic Zone, Jordan",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.phoneTel,
+      contactType: "customer service",
+      availableLanguage: ["Arabic", "English"],
+      contactOption: "WhatsApp",
     },
     telephone: siteConfig.phoneTel,
     address: {
@@ -55,6 +63,13 @@ async function buildLegalServiceSchema(locale: string) {
       addressLocality: siteConfig.address.locality,
       addressRegion: siteConfig.address.region,
       addressCountry: siteConfig.address.country,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "JOD",
+      description: isAr
+        ? "باقة تأسيس شاملة. تواصل معنا عبر واتساب للاستفسار عن الأسعار."
+        : "All-inclusive incorporation package. Contact us via WhatsApp for pricing.",
     },
     sameAs: [siteConfig.firm.parentUrl],
   };

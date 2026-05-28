@@ -21,6 +21,7 @@ const REGISTER_ITEMS = [
   { label: "شركة استيراد وتصدير", href: "/import-export-company-aseza" },
   { label: "تعديل أو تجديد شركة مسجلة", href: "/existing-aseza-companies" },
   { label: "قائمة الوثائق المطلوبة", href: "/aseza-registration-checklist" },
+  { label: "رسوم التسجيل في ASEZA", href: "/aseza-registration-fees" },
 ] as const;
 
 function Logo() {

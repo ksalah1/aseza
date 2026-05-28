@@ -12,7 +12,8 @@ import {
 import { Section, Card, Accordion } from "@/components/ui";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import {
   CONTENT_FRESHNESS_AR,
   CONTENT_FRESHNESS_EN,
@@ -24,7 +25,7 @@ import { siteConfig, whatsappLink } from "@/lib/site";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const ar = locale === "ar";
-  return buildMetadata({ locale, path: "/register-business-in-aseza", title: ar ? "تسجيل شركة في منطقة العقبة الاقتصادية الخاصة | دليل عملي" : "Register a Company in Aqaba Special Economic Zone | Practical Guide", description: ar ? "دليل عملي لتسجيل شركة أو مؤسسة في ASEZA، يشمل الأهلية، الوثائق، الخطوات، الرسوم، المدة، ومتطلبات ما بعد التسجيل." : "Practical registration guide for setting up a company in ASEZA, including eligibility, documents, steps, fees, timeline, and post-registration licensing." });
+  return buildMetadata({ locale, path: "/register-business-in-aseza", title: ar ? "تسجيل شركة في منطقة العقبة الاقتصادية الخاصة | دليل عملي" : "Register a Company in Aqaba Special Economic Zone | Practical Guide", description: ar ? "دليل كامل لتسجيل شركة في ASEZA: خطوات التسجيل، الوثائق المطلوبة حسب نوع الكيان، الرسوم، والمدة المتوقعة. مع مراجعة قانونية للنشاط قبل التقديم." : "Practical registration guide for setting up a company in ASEZA, including eligibility, documents, steps, fees, timeline, and post-registration licensing." });
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
@@ -609,6 +610,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </div>
         </div>
       </Section>
+      <JsonLd data={getBreadcrumbSchema([
+        { name: ar ? "الرئيسية" : "Home", url: `https://aseza.co/${locale}` },
+        { name: ar ? "تسجيل شركة في ASEZA" : "Register a Company in ASEZA", url: `https://aseza.co/${locale}/register-business-in-aseza` },
+      ])} />
     </main>
   );
 }
