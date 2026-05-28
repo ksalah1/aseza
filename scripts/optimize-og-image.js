@@ -1,5 +1,6 @@
 // Run: node scripts/optimize-og-image.js
 // Requires sharp: npm install sharp --save-dev
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 const path = require("path");
 
