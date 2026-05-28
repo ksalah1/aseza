@@ -3,11 +3,12 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
 
-type Step = { title: string };
+type Step = { title: string; subtext?: string };
 
 export function Process() {
   const t = useTranslations("process");
   const steps = t.raw("steps") as Step[];
+  const subtitle = t("subtitle");
 
   return (
     <Section id="process" width="wide" background="muted">
@@ -15,7 +16,7 @@ export function Process() {
         <h2 className="text-3xl font-bold text-primary md:text-4xl">
           {t("title")}
         </h2>
-        <p className="mt-4 text-lg text-primary-500">{t("subtitle")}</p>
+        {subtitle && <p className="mt-4 text-lg text-primary-500">{subtitle}</p>}
       </div>
 
       <ol className="relative mx-auto mt-14 grid max-w-5xl gap-y-10 md:grid-cols-4 md:gap-x-4">
@@ -29,9 +30,14 @@ export function Process() {
             <span className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-base font-bold text-primary ring-4 ring-background">
               {i + 1}
             </span>
-            <h3 className="text-base font-semibold text-primary md:pe-2">
-              {step.title}
-            </h3>
+            <div>
+              <h3 className="text-base font-semibold text-primary md:pe-2">
+                {step.title}
+              </h3>
+              {step.subtext && (
+                <p className="mt-1 text-sm leading-relaxed text-primary-500 md:pe-2">{step.subtext}</p>
+              )}
+            </div>
           </li>
         ))}
       </ol>

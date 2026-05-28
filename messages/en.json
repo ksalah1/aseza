@@ -217,7 +217,8 @@
     "title": "Need to confirm if your activity can be registered?",
     "subtitle": "Send us a short activity summary. We will explain the first step, required documents, and whether additional approvals may apply.",
     "button": "Check Your Activity on WhatsApp",
-    "whatsapp": "Ask About Required Documents"
+    "whatsapp": "Ask About Required Documents",
+    "secondary": "Or read the registration steps first"
   },
   "contact": {
     "meta": {
