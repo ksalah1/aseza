@@ -4,8 +4,9 @@ import { MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: "/tax-customs-aqaba",
     title: "ضرائب وجمارك منطقة العقبة الاقتصادية الخاصة | النص القانوني والشروط الفعلية",
-    description: "شرح قانوني مفصّل لضريبة الدخل والجمارك وضريبة المبيعات في منطقة العقبة الاقتصادية الخاصة، مع الإشارة إلى النصوص القانونية وشروط التأهل الستة.",
+    description: "ضريبة الدخل في ASEZA: 5% على الدخل المؤهَّل وفق 6 شروط تشغيلية. الجمارك: لا رسوم على الواردات للمنطقة. الإطار القانوني الكامل مع المراجع الرسمية.",
   });
 }
 
@@ -177,6 +178,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </div>
         </div>
       </Section>
+      <JsonLd data={getBreadcrumbSchema([
+        { name: "الرئيسية", url: `https://aseza.co/${locale}` },
+        { name: "لماذا العقبة", url: `https://aseza.co/${locale}/why-aqaba` },
+        { name: "الضرائب والجمارك", url: `https://aseza.co/${locale}/tax-customs-aqaba` },
+      ])} />
     </>
   );
 }

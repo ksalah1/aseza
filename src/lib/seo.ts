@@ -17,6 +17,11 @@ export interface PageMetaOptions {
   publishedTime?: string;
 }
 
+export interface BreadcrumbSchemaItem {
+  name: string;
+  url: string;
+}
+
 /**
  * Build consistent per-page metadata: canonical URL, hreflang alternates,
  * Open Graph (for Meta Ads sharing), and Twitter Card tags.
@@ -41,9 +46,12 @@ export function buildMetadata({
     alternates: {
       canonical: url,
       languages: {
+        // Arabic alternate = same path in Arabic locale.
         ar: `${SITE_URL}/ar${path}`,
-        en: `${SITE_URL}/en${path}`,
-        "x-default": `${SITE_URL}/ar${path}`,
+        // English only has a homepage — always point there.
+        en: `${SITE_URL}/en`,
+        // x-default = Arabic homepage (primary language of the site).
+        "x-default": `${SITE_URL}/ar`,
       },
     },
     openGraph: {
@@ -62,5 +70,19 @@ export function buildMetadata({
       description,
       images: [OG_IMAGE],
     },
+  };
+}
+
+/** Build a schema.org BreadcrumbList object for JSON-LD. */
+export function getBreadcrumbSchema(items: BreadcrumbSchemaItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }

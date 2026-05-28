@@ -17,6 +17,7 @@ export function Footer() {
               <li><Link href="/import-export-company-aseza">شركة استيراد وتصدير</Link></li>
               <li><Link href="/aseza-registration-checklist">قائمة الوثائق</Link></li>
               <li><Link href="/services/activity-review">مراجعة النشاط</Link></li>
+              <li><Link href="/aseza-registration-fees">رسوم التسجيل</Link></li>
             </ul>
           </div>
 

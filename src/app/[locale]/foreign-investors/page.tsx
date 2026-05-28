@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "تأسيس شركة في العقبة للمستثمر الأجنبي | خدمة قانونية خاصة"
       : "Company Formation in Aqaba for Foreign Investors | ASEZA Legal Service",
     description: ar
-      ? "دليل للمستثمرين الأجانب حول تأسيس شركة أو فرع في منطقة العقبة الاقتصادية الخاصة، مع شرح الوثائق، التصديقات، الوكالات، الضرائب، الجمارك، والبداية عن بُعد."
+      ? "دليل المستثمر الأجنبي في ASEZA: الأشكال القانونية المتاحة، الوثائق المطلوبة، إمكانية الملكية 100%، والتسجيل عن بُعد. تواصل بالعربية أو الإنجليزية."
       : "Legal guidance for foreign investors setting up a company or branch in Aqaba, Jordan, including documents, ownership, remote setup, tax, customs, banking, and post-registration requirements.",
   });
 }
