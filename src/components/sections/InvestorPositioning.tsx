@@ -35,8 +35,8 @@ export function InvestorPositioning() {
                 ["4–6 أيام", "الوقت المتوقع لاستكمال إجراءات تسجيل الشركة", ""],
                 ["100%", "ملكية أجنبية مسموحة في أغلب الأنشطة المدرجة", ""],
                 ["ميناء + مطار", "البنية اللوجستية: الميناء البحري ومطار الملك الحسين الدولي", ""],
-              ].map(([value, label, note]) => (
-                <div key={value} className="flex flex-col items-center rounded-2xl border border-white/10 bg-primary-800/50 p-5 text-center">
+              ].map(([value, label, note], i) => (
+                <div key={value} className={`${i === 4 ? "col-span-2 md:col-span-1 " : ""}flex flex-col items-center rounded-2xl border border-white/10 bg-primary-800/50 p-5 text-center`}>
                   <span className="text-3xl font-bold text-accent md:text-4xl">{value}</span>
                   <span className="mt-2 text-sm leading-snug text-background/80">{label}</span>
                   {note && <span className="mt-1 text-xs text-background/50">{note}</span>}
@@ -62,11 +62,17 @@ export function InvestorPositioning() {
                 ["كندا", "🇨🇦"],
                 ["سنغافورة", "🇸🇬"],
                 ["المملكة المتحدة", "🇬🇧"],
-                ["رابطة التجارة الحرة الأوروبية (EFTA)", ""],
+                ["EFTA", ""],
               ].map(([name, flag]) => (
                 <span key={name} className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-medium text-primary shadow-sm">
                   {flag && <span aria-hidden>{flag}</span>}
-                  {name}
+                  {name === "EFTA" ? (
+                    <>
+                      <span className="hidden sm:inline">رابطة التجارة الحرة الأوروبية </span>
+                      <span className="sm:hidden">التجارة الحرة </span>
+                      EFTA
+                    </>
+                  ) : name}
                 </span>
               ))}
             </div>
@@ -90,8 +96,10 @@ export function InvestorPositioning() {
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold text-primary md:text-4xl">لماذا العقبة وليس منطقة حرة أخرى؟</h2>
             </div>
-            <div className="mx-auto mt-10 max-w-5xl overflow-x-auto rounded-2xl border border-primary-100 shadow-sm">
-              <table className="w-full text-sm">
+            <div className="relative mx-auto mt-10 max-w-5xl rounded-2xl border border-primary-100 shadow-sm">
+              <div className="absolute start-0 top-0 z-10 h-full w-8 pointer-events-none bg-gradient-to-e from-white/80 to-transparent md:hidden" />
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-primary text-background">
                     <th className="px-4 py-3 text-start font-semibold">العامل</th>
@@ -124,7 +132,11 @@ export function InvestorPositioning() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
+            <p className="mt-2 text-center text-xs text-primary-400 md:hidden">
+              ← اسحب يميناً لرؤية المقارنة كاملة →
+            </p>
             <p className="mx-auto mt-4 max-w-4xl text-center text-xs text-primary-400">
               * المقارنة تقريبية لأغراض توجيهية فقط. التحقق من التفاصيل ضروري لكل حالة.
             </p>

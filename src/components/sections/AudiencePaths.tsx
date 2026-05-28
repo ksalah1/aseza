@@ -80,7 +80,7 @@ export function AudiencePaths() {
         ))}
       </div>
       <div className="mt-5 text-center lg:hidden">
-        <button type="button" className="text-sm font-semibold text-primary underline" onClick={() => setShowAllMobile((v) => !v)}>
+        <button type="button" aria-expanded={showAllMobile} className="text-sm font-semibold text-primary underline" onClick={() => setShowAllMobile((v) => !v)}>
           {showAllMobile ? (isAr ? "إخفاء بعض المسارات" : "Show fewer paths") : (isAr ? "عرض باقي المسارات" : "Show more paths")}
         </button>
       </div>

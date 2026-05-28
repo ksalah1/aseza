@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   CheckCircle,
@@ -15,13 +18,14 @@ import { Button } from "@/components/ui";
 export function Hero() {
   const t = useTranslations("hero");
   const isAr = useLocale() === "ar";
+  const [trustOpen, setTrustOpen] = useState(false);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-800 to-teal-900 text-background">
       <div className="hero-pattern absolute inset-0" aria-hidden />
       <div className="hero-glow absolute inset-0" aria-hidden />
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-2 md:items-center md:py-24">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
         <div className="text-start">
           {isAr ? (
             <span className="inline-flex items-center rounded-full bg-accent/20 px-3 py-1.5 text-xs font-semibold text-accent">
@@ -96,7 +100,28 @@ export function Hero() {
         </div>
 
         <div className="rounded-3xl border border-white/15 bg-white/8 p-6 shadow-2xl backdrop-blur-sm">
-          <p className="text-sm font-semibold text-accent-100">{isAr ? "خارطة الطريق" : "Investor path"}</p>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between md:cursor-default"
+            onClick={() => setTrustOpen(!trustOpen)}
+            aria-expanded={trustOpen}
+          >
+            <p className="text-sm font-semibold text-accent-100">{isAr ? "خارطة الطريق" : "Investor path"}</p>
+            <svg
+              className={`size-4 text-accent transition-transform md:hidden${trustOpen ? " rotate-180" : ""}`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div className={`${trustOpen ? "block" : "hidden"} md:block`}>
           <div className="mt-4 space-y-3 text-sm text-primary-100">
             {[
               [MapPinned, isAr ? "محامية مرخّصة · عضو نقابة المحامين رقم 16872" : "Aqaba → Red Sea → regional trade"],
@@ -115,6 +140,7 @@ export function Hero() {
             <CheckCircle className="mt-0.5 size-4 text-accent" aria-hidden />
             {t("reassurance")}
           </p>
+          </div>
         </div>
       </div>
     </section>
