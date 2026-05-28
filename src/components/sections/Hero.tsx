@@ -42,13 +42,13 @@ export function Hero() {
 
           {isAr && (
             <p className="mt-2 text-xs text-primary-300">
-              خدمة من البركات للمحاماة · ليست الموقع الرسمي لسلطة العقبة
+              ⬦ خدمة البركات للمحاماة · ليست الموقع الرسمي لسلطة العقبة
             </p>
           )}
 
           <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-primary-100 md:text-xl">
             {isAr
-              ? "نراجع نشاطك قبل التسجيل، نحضّر وثائقك، ونتابع معك حتى تستلم شهادة التأسيس — بأتعاب ثابتة وشفافية كاملة."
+              ? "نتحقق من نشاطك، نجهّز وثائقك، ونتابع ملفك مع سلطة العقبة حتى تستلم شهادة التسجيل — بأتعاب ثابتة وشفافة."
               : t("subtitle")}
           </p>
 
@@ -78,7 +78,7 @@ export function Hero() {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500 md:h-12 md:text-base"
               >
                 <MessageCircle className="size-5" aria-hidden />
-                ابدأ مراجعة نشاطك مجاناً
+                ابدأ مراجعة نشاطك — مجاناً
               </a>
             ) : (
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
@@ -89,7 +89,7 @@ export function Hero() {
             )}
             <Link href="/register-business-in-aseza">
               <Button variant="outline">
-                {isAr ? "اعرف خطوات التسجيل" : t("ctaSecondary")}
+                {isAr ? "اعرف خطوات التسجيل من البداية" : t("ctaSecondary")}
               </Button>
             </Link>
           </div>
@@ -99,10 +99,10 @@ export function Hero() {
           <p className="text-sm font-semibold text-accent-100">{isAr ? "خارطة الطريق" : "Investor path"}</p>
           <div className="mt-4 space-y-3 text-sm text-primary-100">
             {[
-              [MapPinned, isAr ? "العقبة ← البحر الأحمر ← الأسواق الإقليمية" : "Aqaba → Red Sea → regional trade"],
-              [FileCheck2, isAr ? "مراجعة النشاط والوثائق قبل أي تقديم" : "Activity and documents review before filing"],
-              [Ship, isAr ? "تركيز على قطاعات اللوجستيات والتجارة والسياحة" : "Logistics, trade, and tourism-focused guidance"],
-              [Scale, isAr ? "خدمة قانونية خاصة دون تمثيل حكومي" : "Private legal service, not a government authority"],
+              [MapPinned, isAr ? "محامية مرخّصة · عضو نقابة المحامين رقم 16872" : "Aqaba → Red Sea → regional trade"],
+              [FileCheck2, isAr ? "أتعاب ثابتة قبل البدء — لا مفاجآت" : "Activity and documents review before filing"],
+              [Ship, isAr ? "نراجع نشاطك مجاناً — قبل أي رسوم حكومية" : "Logistics, trade, and tourism-focused guidance"],
+              [Scale, isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service, not a government authority"],
             ].map(([Icon, label]) => (
               <div key={label as string} className="flex items-center gap-3 rounded-xl border border-white/15 bg-primary-900/30 p-3">
                 <Icon className="size-4 text-accent" aria-hidden />

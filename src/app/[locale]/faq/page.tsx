@@ -80,7 +80,7 @@ function FaqContent() {
       <Section width="default">
         <div className="text-center">
           <Link href="/register-business-in-aseza" className="inline-flex rounded-lg border border-primary px-6 py-3 font-semibold text-primary">
-            شاهد خطوات التسجيل
+            اعرف خطوات التسجيل
           </Link>
         </div>
       </Section>

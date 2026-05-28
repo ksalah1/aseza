@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { MessageCircle } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
 
 export function CTABanner() {
@@ -27,7 +28,7 @@ export function CTABanner() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href={whatsappLink()}
+            href={whatsappLink("أريد مراجعة نشاط لتسجيل شركة في العقبة")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-7 py-3.5 text-lg font-semibold text-white transition-colors hover:bg-[#1DA851] sm:w-auto"
@@ -36,6 +37,12 @@ export function CTABanner() {
             {t("whatsapp")}
           </a>
         </div>
+        <Link
+          href="/register-business-in-aseza"
+          className="mt-4 inline-block text-sm text-primary-200 hover:text-white"
+        >
+          {t("secondary")} ←
+        </Link>
       </div>
     </section>
   );
