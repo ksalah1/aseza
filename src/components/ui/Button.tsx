@@ -35,7 +35,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   whatsapp:
     "bg-[#25D366] text-white shadow-sm hover:bg-[#1FA855] focus-visible:outline-[#25D366]",
   external:
-    "border border-teal-700/40 bg-teal-50 text-teal-900 hover:bg-teal-100 focus-visible:outline-teal-700",
+    "border border-accent/40 bg-teal-50 text-teal-900 hover:bg-teal-100 focus-visible:outline-teal-700",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

@@ -37,7 +37,8 @@ export function InvestorPositioning() {
                 ["ميناء + مطار", "البنية اللوجستية: الميناء البحري ومطار الملك الحسين الدولي", ""],
               ].map(([value, label, note], i) => (
                 <div key={value} className={`${i === 4 ? "col-span-2 md:col-span-1 " : ""}flex flex-col items-center rounded-2xl border border-white/10 bg-primary-800/50 p-5 text-center`}>
-                  <span className="text-3xl font-bold text-accent md:text-4xl">{value}</span>
+                  <div className="mb-3 h-0.5 w-8 rounded-full bg-accent mx-auto" aria-hidden="true" />
+                  <span className="text-4xl font-bold text-accent md:text-5xl">{value}</span>
                   <span className="mt-2 text-sm leading-snug text-background/80">{label}</span>
                   {note && <span className="mt-1 text-xs text-background/50">{note}</span>}
                 </div>
@@ -103,12 +104,12 @@ export function InvestorPositioning() {
                 <thead>
                   <tr className="bg-primary text-background">
                     <th className="px-4 py-3 text-start font-semibold">العامل</th>
-                    <th className="px-4 py-3 text-center font-semibold">العقبة / ASEZA</th>
+                    <th className="px-4 py-3 text-center font-semibold bg-accent/20 text-accent border-b-2 border-accent">العقبة / ASEZA</th>
                     <th className="px-4 py-3 text-center font-semibold">جبل علي / دبي</th>
                     <th className="px-4 py-3 text-center font-semibold">KAEC / السعودية</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-primary-100">
                   {[
                     ["ضريبة الدخل على الأنشطة المؤهَّلة", "~5% (بشروط)", "9% (ضريبة شركات الإمارات)", "20%"],
                     ["الملكية الأجنبية", "100% في أغلب الأنشطة", "100% (المنطقة الحرة)", "مرتبطة بالقطاع"],
@@ -120,7 +121,7 @@ export function InvestorPositioning() {
                     <tr key={row[0]} className={i % 2 === 0 ? "bg-white" : "bg-primary-50/60"}>
                       <td className="px-4 py-3 font-medium text-primary">{row[0]}</td>
                       {row.slice(1).map((cell, j) => (
-                        <td key={j} className="px-4 py-3 text-center text-primary-700">
+                        <td key={j} className={`px-4 py-3 text-center text-primary-700${j === 0 ? " font-semibold" : ""}`}>
                           {cell.startsWith("✅") ? (
                             <span className="font-semibold text-accent">{cell.replace("✅", "✓ ")}</span>
                           ) : cell.startsWith("❌") ? (
@@ -177,8 +178,8 @@ export function InvestorPositioning() {
           <Card>
             <h2 className="text-2xl font-bold text-primary md:text-3xl">{t("snapshot.title")}</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {facts.map((fact) => (
-                <div key={fact} className="rounded-xl border border-primary-100 bg-primary-50 p-4 text-sm font-medium text-primary-700">
+              {facts.map((fact, i) => (
+                <div key={fact} className={i === 0 ? "rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs font-normal text-amber-800" : "rounded-xl border border-primary-100 bg-primary-50 p-4 text-sm font-medium text-primary-700"}>
                   {fact}
                 </div>
               ))}
@@ -234,14 +235,14 @@ export function InvestorPositioning() {
 
 
       <Section width="wide">
-        <Card>
-          <h2 className="text-2xl font-bold text-primary md:text-3xl">
+        <Card className="bg-amber-50 border-amber-200">
+          <h2 className="text-2xl font-bold text-amber-800 md:text-3xl">
             {t.has("legalAlerts.title") ? t("legalAlerts.title") : "Important legal notices"}
           </h2>
           <ul className="mt-5 space-y-3">
             {legalAlerts.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-primary-600">
-                <span className="mt-2 size-1.5 rounded-full bg-accent" aria-hidden />
+              <li key={item} className="flex items-start gap-3 text-amber-800">
+                <span className="mt-2 size-1.5 rounded-full bg-amber-600 shrink-0" aria-hidden />
                 <span>{item}</span>
               </li>
             ))}

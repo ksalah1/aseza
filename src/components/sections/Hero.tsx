@@ -24,6 +24,12 @@ export function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-800 to-teal-900 text-background">
       <div className="hero-pattern absolute inset-0" aria-hidden />
       <div className="hero-glow absolute inset-0" aria-hidden />
+      {/* TODO: Place aerial photo of Port of Aqaba at /public/images/aqaba-port.jpg to enable this layer */}
+      {/* <div
+        className="absolute inset-0 opacity-10 mix-blend-luminosity"
+        style={{ backgroundImage: 'url(/images/aqaba-port.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+        aria-hidden="true"
+      /> */}
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
         <div className="text-start">
