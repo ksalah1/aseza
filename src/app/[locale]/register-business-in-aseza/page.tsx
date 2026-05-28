@@ -10,6 +10,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Section, Card, Accordion } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 import {
@@ -229,6 +230,9 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <main>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "تسجيل شركة" }]} />
+      </div>
       {/* 1 — Hero */}
       <Section width="wide">
         <div className="mx-auto max-w-3xl text-center">

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useLocale } from "next-intl";
 import { Clock, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { whatsappLink } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -35,7 +36,11 @@ function ContactContent() {
   const isAr = useLocale() === "ar";
 
   return (
-    <Section width="narrow">
+    <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "تواصل معنا" }]} />
+      </div>
+      <Section width="narrow">
       <div className="mx-auto max-w-xl text-center">
         <h1 className="text-4xl font-bold text-primary md:text-5xl">
           {isAr ? "تواصل معنا" : "Contact Us"}
@@ -62,5 +67,6 @@ function ContactContent() {
         </p>
       </div>
     </Section>
+    </>
   );
 }

@@ -14,3 +14,4 @@ export {
 } from "./Accordion";
 export { Section, type SectionProps } from "./Section";
 export { Divider, type DividerProps } from "./Divider";
+export { Breadcrumb, type BreadcrumbItem } from "./Breadcrumb";

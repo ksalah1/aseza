@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { CalendarClock, Check, FileText } from "lucide-react";
 import { Accordion, Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { CTABanner } from "@/components/sections";
 import { ChecklistDownload } from "@/components/process/ChecklistDownload";
 import { buildMetadata } from "@/lib/seo";
@@ -47,6 +48,9 @@ function ProcessContent() {
 
   return (
     <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "تسجيل شركة", href: "/register-business-in-aseza" }, { label: "خطوات التسجيل" }]} />
+      </div>
       {/* Hero */}
       <section className="bg-primary text-background">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center md:py-24">

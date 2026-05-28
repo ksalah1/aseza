@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Accordion, Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { CTABanner } from "@/components/sections";
 import { buildMetadata } from "@/lib/seo";
@@ -53,6 +54,9 @@ function FaqContent() {
 
   return (
     <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "الأسئلة الشائعة" }]} />
+      </div>
       <Section width="narrow">
         <header className="text-center">
           <h1 className="text-4xl font-bold text-primary md:text-5xl">

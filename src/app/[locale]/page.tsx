@@ -9,6 +9,7 @@ import {
   TrustAndTransparency,
 } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
+import { EnLanding } from "@/components/sections/EnLanding";
 import { siteConfig, firmName } from "@/lib/site";
 
 async function buildLegalServiceSchema(locale: string) {
@@ -66,6 +67,10 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  if (locale !== "ar") {
+    return <EnLanding />;
+  }
 
   const legalServiceSchema = await buildLegalServiceSchema(locale);
 
