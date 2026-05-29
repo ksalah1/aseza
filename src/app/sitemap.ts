@@ -28,6 +28,9 @@ const STATIC_PATHS: { path: string; priority: number; arOnly?: boolean }[] = [
   { path: "/tourism-investment-aqaba", priority: 0.7, arOnly: true },
   { path: "/real-estate-development-aqaba", priority: 0.7, arOnly: true },
   { path: "/labor-visas-aqaba", priority: 0.7, arOnly: true },
+  { path: "/permitted-activities-list", priority: 0.8, arOnly: true },
+  { path: "/labor-work-permits-aseza", priority: 0.8, arOnly: true },
+  { path: "/annual-renewal-aseza", priority: 0.8, arOnly: true },
 ];
 
 /** hreflang alternates for a given path across all locales. */

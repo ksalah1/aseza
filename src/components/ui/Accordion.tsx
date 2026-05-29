@@ -30,7 +30,7 @@ export function Accordion({
         return (
           <div
             key={item.question}
-            className="overflow-hidden rounded-xl border border-primary-100 bg-white"
+            className={cn("overflow-hidden rounded-xl border bg-white transition-all", isOpen ? "border-accent/40 border-s-4 border-s-accent" : "border-primary-100")}
           >
             <button
               type="button"

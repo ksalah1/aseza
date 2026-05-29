@@ -18,7 +18,7 @@ export default function middleware(request: NextRequest) {
   // resolves to the default locale rather than negotiating via headers.
   const url = request.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, { status: 301 });
 }
 
 export const config = {

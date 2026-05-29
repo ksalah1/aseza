@@ -28,6 +28,8 @@ export function Footer() {
               <li><Link href="/why-aqaba">لماذا الاستثمار في العقبة؟</Link></li>
               <li><Link href="/tax-customs-aqaba">الضرائب والجمارك: الإطار القانوني</Link></li>
               <li><Link href="/restricted-prohibited-activities-aseza">هل نشاطك مسموح؟</Link></li>
+              <li><Link href="/permitted-activities-list">قائمة الأنشطة المسموحة</Link></li>
+              <li><Link href="/labor-work-permits-aseza">تصاريح العمل والإقامة</Link></li>
               <li><Link href="/legal-references">المراجع القانونية الرسمية</Link></li>
             </ul>
           </div>
@@ -37,6 +39,7 @@ export function Footer() {
             <h2 className="font-semibold text-background">بعد التسجيل</h2>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/licensing-after-registration">الترخيص والموافقات القطاعية</Link></li>
+              <li><Link href="/annual-renewal-aseza">التجديد السنوي لـ ASEZA</Link></li>
               <li><Link href="/services/amend-existing-company">تعديل بيانات الشركة المسجلة</Link></li>
               <li><Link href="/services/renew-registration">التجديد السنوي</Link></li>
               <li><Link href="/faq">الأسئلة الشائعة</Link></li>
@@ -88,7 +91,7 @@ export function Footer() {
             >
               زيارة الموقع الرسمي لسلطة العقبة: aseza.jo ↗
             </a>
-            <p className="whitespace-nowrap">© 2025 البركات للمحاماة</p>
+            <p className="whitespace-nowrap">© 2026 البركات للمحاماة</p>
           </div>
         </div>
       </div>
