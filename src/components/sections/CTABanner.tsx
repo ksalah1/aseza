@@ -1,7 +1,10 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function CTABanner() {
   const t = useTranslations("cta");
@@ -32,6 +35,7 @@ export function CTABanner() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-7 py-3.5 text-lg font-semibold text-white transition-colors hover:bg-[#1DA851] sm:w-auto"
+            onClick={() => trackWhatsAppClick({ location: 'section_cta_banner', ctaText: t("whatsapp"), hasPrefill: true })}
           >
             <MessageCircle className="size-5" aria-hidden />
             {t("whatsapp")}

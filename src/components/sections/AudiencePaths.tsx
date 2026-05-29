@@ -6,8 +6,9 @@ import { MessageCircle, ExternalLink } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section, Card } from "@/components/ui";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
-type AudienceCard = { title: string; text: string; cta: string; href: string; external?: boolean };
+type AudienceCard = { title: string; text: string; cta: string; href: string; external?: boolean; isWhatsApp?: boolean };
 
 export function AudiencePaths() {
   const [showAllMobile, setShowAllMobile] = useState(false);
@@ -16,7 +17,7 @@ export function AudiencePaths() {
 
   const cards: AudienceCard[] = isAr
     ? [
-        { title: "مستثمر أردني", text: "لمن يريد تأسيس شركة جديدة أو نقل نشاطه إلى العقبة والاستفادة من بيئة المنطقة الخاصة.", cta: "افحص نشاطك قبل التسجيل", href: whatsappLink("أرغب بمراجعة نشاطي قبل تسجيل شركة في العقبة.") },
+        { title: "مستثمر أردني", text: "لمن يريد تأسيس شركة جديدة أو نقل نشاطه إلى العقبة والاستفادة من بيئة المنطقة الخاصة.", cta: "افحص نشاطك قبل التسجيل", href: whatsappLink("أرغب بمراجعة نشاطي قبل تسجيل شركة في العقبة."), isWhatsApp: true },
         { title: "مستثمر أجنبي", text: "لمن يريد تأسيس شركة من خارج الأردن أو تسجيل فرع أو فهم الوثائق والتفويضات المطلوبة.", cta: "ابدأ مراجعة نشاطك من خارج الأردن", href: "/foreign-investors" },
         { title: "شركة مسجلة حالياً في ASEZA", text: "لمن يحتاج تعديل بيانات، تجديد، إضافة نشاط، تغيير مفوضين، أو فهم التزامات ما بعد التسجيل.", cta: "اطلب خدمة تعديل أو تجديد", href: "/existing-aseza-companies" },
         { title: "استيراد وتصدير", text: "لشركات التجارة، التوزيع، التخزين، إعادة التصدير، أو إدخال البضائع إلى المنطقة.", cta: "راجع نشاط الاستيراد والتصدير", href: "/import-export-company-aseza" },
@@ -27,7 +28,7 @@ export function AudiencePaths() {
         { title: "مستشار أو محامٍ", text: "لمن يساعد عميلاً ويحتاج مراجعة ملف، نشاط، وثائق، أو مراجع قانونية قبل التقديم.", cta: "اطلب مراجعة ملف عميلك", href: "/investor-paths#consultants" },
       ]
     : [
-        { title: "Local Jordanian Investor", text: "For founders starting a new company or relocating activity to Aqaba's special zone.", cta: "Check your activity before registration", href: whatsappLink("I want to review my activity before registering a company in Aqaba.") },
+        { title: "Local Jordanian Investor", text: "For founders starting a new company or relocating activity to Aqaba's special zone.", cta: "Check your activity before registration", href: whatsappLink("I want to review my activity before registering a company in Aqaba."), isWhatsApp: true },
         { title: "Foreign Investor", text: "For investors registering from abroad, opening a branch, or checking foreign documentation.", cta: "Start your review from outside Jordan", href: "/foreign-investors" },
         { title: "Existing ASEZA Company", text: "For amendments, renewals, adding activities, authorized signatory updates, and post-registration obligations.", cta: "Request amendment or renewal support", href: "/existing-aseza-companies" },
         { title: "Import/Export Business", text: "For trading, distribution, storage, re-export, or goods entry into the zone.", cta: "Review import/export activity", href: "/import-export-company-aseza" },
@@ -56,6 +57,8 @@ export function AudiencePaths() {
             </div>
             {card.external ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<ExternalLink className="size-4" /></a>
+            ) : card.isWhatsApp ? (
+              <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent" onClick={() => trackWhatsAppClick({ location: 'audience_card', ctaText: card.cta, hasPrefill: true, locale })}>{card.cta}<MessageCircle className="size-4" /></a>
             ) : card.href.startsWith("http") ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<MessageCircle className="size-4" /></a>
             ) : (
@@ -71,6 +74,8 @@ export function AudiencePaths() {
             </div>
             {card.external ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<ExternalLink className="size-4" /></a>
+            ) : card.isWhatsApp ? (
+              <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent" onClick={() => trackWhatsAppClick({ location: 'audience_card', ctaText: card.cta, hasPrefill: true, locale })}>{card.cta}<MessageCircle className="size-4" /></a>
             ) : card.href.startsWith("http") ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">{card.cta}<MessageCircle className="size-4" /></a>
             ) : (

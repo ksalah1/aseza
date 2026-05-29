@@ -1,3 +1,5 @@
+"use client";
+
 import { useLocale } from "next-intl";
 import {
   BadgeCheck,
@@ -10,6 +12,7 @@ import {
 import { Card, Section, Button } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const officialReferences = [
   {
@@ -97,7 +100,7 @@ export function TrustAndTransparency() {
           <Card className="bg-primary text-primary-50">
             <h3 className="text-2xl font-bold text-white">{isAr ? "افصل بين دورنا ودور الجهة المختصة" : "Scope boundaries"}</h3>
             <p className="mt-3 text-primary-100">{isAr ? "نساعد في التقديم والمتابعة القانونية، لكن القرار النهائي يبقى للجهة المختصة." : "We handle legal preparation and follow-up; authority decisions remain official."}</p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'راجع نشاطك قبل البدء' : 'Review your activity', hasPrefill: false })}>
               <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>{isAr ? "راجع نشاطك قبل البدء" : "Review your activity"}</Button>
             </a>
           </Card>
@@ -131,7 +134,7 @@ export function TrustAndTransparency() {
           <p className="mt-4 text-primary-600">{isAr ? "نوضح الوثائق، التصديقات، والخيارات الممكنة عن بُعد بحسب الحالة دون وعود غير واقعية." : "We clarify documents, legalization, and remote-ready options based on your case."}</p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/aseza-registration-checklist"><Button variant="outline">{isAr ? "قائمة الوثائق الأولية" : "Checklist"}</Button></Link>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"><Button variant="primary" icon={<Gavel className="size-4" />}>{isAr ? "ابدأ المراجعة" : "Start review"}</Button></a>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'ابدأ المراجعة' : 'Start review', hasPrefill: false })}><Button variant="primary" icon={<Gavel className="size-4" />}>{isAr ? "ابدأ المراجعة" : "Start review"}</Button></a>
           </div>
         </Card>
       </Section>

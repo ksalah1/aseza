@@ -1,8 +1,11 @@
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Card, Section } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 
 export function InvestorPositioning() {
@@ -86,6 +89,7 @@ export function InvestorPositioning() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
+                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'اعرف كيف يؤثر ذلك على نشاطك', hasPrefill: false })}
               >
                 <MessageCircle className="size-5" aria-hidden />
                 اعرف كيف يؤثر ذلك على نشاطك
@@ -258,6 +262,7 @@ export function InvestorPositioning() {
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
+            onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: t("international.cta"), hasPrefill: false })}
           >
             <MessageCircle className="size-5" aria-hidden />
             {t("international.cta")}
@@ -268,6 +273,7 @@ export function InvestorPositioning() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
+              onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: t("ctaPrimary"), hasPrefill: false })}
             >
               <MessageCircle className="size-5" aria-hidden />
               {t("ctaPrimary")}

@@ -6,6 +6,7 @@ import { ChevronDown, Menu, MessageCircle, X } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick, trackLanguageSwitch } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const WHY_AQABA_ITEMS = [
@@ -39,6 +40,7 @@ function LanguageSwitcher({ onNavigate }: { onNavigate?: () => void }) {
 
   function switchTo(locale: string) {
     onNavigate?.();
+    trackLanguageSwitch(activeLocale, locale);
     router.replace(pathname, { locale });
   }
 
@@ -319,6 +321,7 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
+            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: 'تواصل واتساب', hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
             تواصل واتساب
@@ -333,6 +336,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
             aria-label="WhatsApp"
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'WhatsApp', hasPrefill: false })}
           >
             <MessageCircle className="size-5" aria-hidden />
           </a>
@@ -494,6 +498,7 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل واتساب', hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
             تواصل واتساب
