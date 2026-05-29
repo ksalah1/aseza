@@ -39,6 +39,9 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     manifest: "/manifest.json",
+    verification: {
+      google: "RsKZVBHTHc8EzG1Vuu2ljxetSBQCFr2cgHBqYGTQEqQ",
+    },
     ...buildMetadata({
       locale,
       path: "",
