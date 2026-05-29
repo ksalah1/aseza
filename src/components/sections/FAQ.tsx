@@ -14,9 +14,23 @@ export function FAQ() {
   const t = useTranslations("faq");
   const items = t.raw("items") as Item[];
   const isAr = useLocale() === "ar";
+  const AR_HOME_QUESTIONS = [
+    "هل تسجيل الشركة يعني أنني أستطيع مباشرة النشاط فوراً؟",
+    "هل ضريبة الدخل دائماً 5%؟",
+    "هل يمكنني الاستيراد مباشرة بعد التسجيل؟",
+    "كم تبلغ تكلفة الخدمة؟",
+    "هل يمكنني بدء الإجراءات من خارج الأردن؟",
+  ];
+  const EN_HOME_QUESTIONS = [
+    "Does registering the company mean I can immediately start the activity?",
+    "Is the income tax always 5%?",
+    "Can I import immediately after registration?",
+    "What is the service cost?",
+    "Can I start procedures from outside Jordan?",
+  ];
   const homepageItems = isAr
-    ? items.filter((it) => ["هل ASEZA.co هو الموقع الرسمي؟","هل تسجيل الشركة يعني أنني أستطيع مباشرة النشاط فوراً؟","هل يمكن للمستثمر الأجنبي التسجيل؟","هل ضريبة الدخل دائماً 5%؟","هل يمكنني الاستيراد مباشرة بعد التسجيل؟"].includes(it.question)).slice(0,5)
-    : items.slice(0,5);
+    ? items.filter((it) => AR_HOME_QUESTIONS.includes(it.question)).slice(0, 5)
+    : items.filter((it) => EN_HOME_QUESTIONS.includes(it.question)).slice(0, 5);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

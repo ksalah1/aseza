@@ -212,6 +212,18 @@
       {
         "question": "Can you review a client file before submission?",
         "answer": "Yes. We review classification, documents, and requirements before filing within mandate scope."
+      },
+      {
+        "question": "Does registering the company mean I can immediately start the activity?",
+        "answer": "Not always. The registration certificate is an essential first step, but some activities require additional approvals — such as a public-safety certificate, public-health certificate, environmental approval, or work-commencement permit — before operations can begin."
+      },
+      {
+        "question": "Is the income tax always 5%?",
+        "answer": "This cannot be treated as a blanket rule. Some registered establishments may benefit from a special income tax rate depending on the activity, income source, and applicable legal exemptions and conditions."
+      },
+      {
+        "question": "What is the service cost?",
+        "answer": "Contact us via WhatsApp to ask about our fees. The fee covers consultation, document preparation, application submission, and follow-up according to the mandate, with a full explanation of any post-registration requirements."
       }
     ]
   },
@@ -221,6 +233,12 @@
     "button": "Check Your Activity on WhatsApp",
     "whatsapp": "Ask About Required Documents",
     "secondary": "Or read the registration steps first"
+  },
+  "finalCta": {
+    "title": "Your First Step Is Free",
+    "subtitle": "Send us a brief description of your activity — we will review it and respond within one business day.",
+    "button": "Start on WhatsApp Now",
+    "disclaimer": "Private legal service by Al-Barakat Law Firm — not the official website of the Aqaba Special Economic Zone Authority."
   },
   "contact": {
     "meta": {
@@ -481,7 +499,18 @@
     "verifyLink": "Learn about the firm ←",
     "bottomDisclaimer": "Private legal service by Al-Barakat Law Firm — not the official website of the Aqaba Special Economic Zone Authority",
     "bottomOfficialSite": "Visit the official ASEZA site: aseza.jo ↗",
-    "bottomCopyright": "© 2026 Al-Barakat Law Firm"
+    "bottomCopyright": "© 2026 Al-Barakat Law Firm",
+    "legalNotices": {
+      "summary": "Important Legal Notices ←",
+      "items": [
+        "This site is a private legal service, not the official website of the Aqaba Special Economic Zone Authority.",
+        "Published information is for informational purposes and does not replace reviewing official legislation.",
+        "We do not guarantee approval of any application or activity.",
+        "An entity registration certificate does not necessarily mean all activity licenses are complete.",
+        "Tax and customs rules are subject to the nature of the activity, income source, and applicable regulations.",
+        "Government fees may change and are confirmed before payment."
+      ]
+    }
   },
   "blog": {
     "title": "Blog",
