@@ -29,12 +29,12 @@ export function InvestorPositioning() {
         <>
           <Section id="why-aqaba" background="primary" width="wide" className="scroll-mt-24">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold md:text-4xl">مزايا العقبة بالأرقام</h2>
+              <h2 className="text-3xl font-bold md:text-4xl">العقبة في أرقام</h2>
             </div>
             <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-5">
               {[
                 ["5%", "ضريبة دخل على الدخل المؤهَّل (بشروط تشغيلية محددة)", ""],
-                ["12+", "اتفاقية تجارة حرة يستفيد منها المستثمر عبر الأردن", "(US, EU, Arab League, EFTA, Turkey, Canada, Singapore)"],
+                ["+12", "اتفاقية تجارة حرة يستفيد منها المستثمر عبر الأردن", "(US, EU, Arab League, EFTA, Turkey, Canada, Singapore)"],
                 ["4–6 أيام", "الوقت المتوقع لاستكمال إجراءات تسجيل الشركة", ""],
                 ["100%", "ملكية أجنبية مسموحة في أغلب الأنشطة المدرجة", ""],
                 ["ميناء + مطار", "البنية اللوجستية: الميناء البحري ومطار الملك الحسين الدولي", ""],
@@ -89,10 +89,10 @@ export function InvestorPositioning() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
-                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'اعرف كيف يؤثر ذلك على نشاطك', hasPrefill: false })}
+                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'استشارة مجانية — اعرف ما يعنيه هذا لنشاطك', hasPrefill: false })}
               >
                 <MessageCircle className="size-5" aria-hidden />
-                اعرف كيف يؤثر ذلك على نشاطك
+                استشارة مجانية — اعرف ما يعنيه هذا لنشاطك
               </a>
             </div>
           </Section>
@@ -140,7 +140,7 @@ export function InvestorPositioning() {
               </div>
             </div>
             <p className="mt-2 text-center text-xs text-primary-400 md:hidden">
-              ← اسحب يميناً لرؤية المقارنة كاملة →
+              ← اسحب يساراً لرؤية المقارنة كاملة →
             </p>
             <p className="mx-auto mt-4 max-w-4xl text-center text-xs text-primary-400">
               * المقارنة تقريبية لأغراض توجيهية فقط. التحقق من التفاصيل ضروري لكل حالة.
@@ -220,19 +220,70 @@ export function InvestorPositioning() {
         <div className="grid gap-8 lg:grid-cols-2">
           <Card>
             <h3 className="text-xl font-bold text-primary">{t.has("taxTitle") ? t("taxTitle") : "Tax notes"}</h3>
-            <p className="mt-3 leading-relaxed text-primary-600">
-              {t.has("taxNote")
-                ? t("taxNote")
-                : "Tax obligations depend on activity, transaction profile, and applicable instructions."}
-            </p>
+            {isAr ? (
+              <div className="mt-3">
+                <p className="font-medium text-primary-700 mb-2">
+                  ضريبة المبيعات — ليست تلقائية
+                </p>
+                <p className="text-primary-600 mb-3">
+                  لا تخضع كل الشركات المسجلة في العقبة لضريبة المبيعات تلقائياً.
+                  الالتزام يعتمد على:
+                </p>
+                <ul className="space-y-1 text-primary-600 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>نوع النشاط والسلع أو الخدمات المقدمة</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>مكان البيع أو الاستهلاك — داخل المنطقة أم خارجها</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>حجم المبيعات السنوي والتعليمات الضريبية النافذة</span>
+                  </li>
+                </ul>
+                <p className="mt-3 text-sm text-primary-500">
+                  التسجيل في المنطقة ليس إعفاءً عاماً من ضريبة المبيعات.
+                </p>
+              </div>
+            ) : (
+              <p className="mt-3 leading-relaxed text-primary-600">
+                {t.has("taxNote")
+                  ? t("taxNote")
+                  : "Tax obligations depend on activity, transaction profile, and applicable instructions."}
+              </p>
+            )}
           </Card>
           <Card>
             <h3 className="text-xl font-bold text-primary">{t.has("customsTitle") ? t("customsTitle") : "Customs notes"}</h3>
-            <p className="mt-3 leading-relaxed text-primary-600">
-              {t.has("customsNote")
-                ? t("customsNote")
-                : "Customs treatment depends on goods type, movement, and applicable legal requirements."}
-            </p>
+            {isAr ? (
+              <div className="mt-3">
+                <p className="font-medium text-primary-700 mb-2">
+                  الجمارك — قواعد خاصة بالمنطقة
+                </p>
+                <ul className="space-y-1 text-primary-600 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>البضائع الداخلة إلى منطقة العقبة لا تخضع لرسوم جمركية عند الإدخال — بحكم القانون</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>نقل البضائع إلى السوق الأردني خارج المنطقة قد يرتب رسوماً جمركية</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
+                    <span>السلع الخاصة أو المنظمة قد تخضع لمتطلبات إضافية بحسب الحالة</span>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <p className="mt-3 leading-relaxed text-primary-600">
+                {t.has("customsNote")
+                  ? t("customsNote")
+                  : "Customs treatment depends on goods type, movement, and applicable legal requirements."}
+              </p>
+            )}
           </Card>
         </div>
       </Section>
@@ -257,17 +308,7 @@ export function InvestorPositioning() {
         <Card className="text-center">
           <h2 className="text-2xl font-bold text-primary md:text-3xl">{t("international.title")}</h2>
           <p className="mt-4 leading-relaxed text-primary-600">{t("international.body")}</p>
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
-            onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: t("international.cta"), hasPrefill: false })}
-          >
-            <MessageCircle className="size-5" aria-hidden />
-            {t("international.cta")}
-          </a>
-          <div className="mt-4 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <a
               href={whatsappLink()}
               target="_blank"

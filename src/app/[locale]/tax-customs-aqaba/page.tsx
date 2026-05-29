@@ -87,7 +87,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       {/* Section B — Re-export */}
       <Section width="wide" background="muted">
         <h2 className="text-2xl font-bold text-primary md:text-3xl">
-          تنبيه خاص: إعادة التصدير والتجارة بنظام back-to-back
+          تنبيه خاص: إعادة التصدير والتجارة بنظام <span dir="ltr" lang="en">back-to-back</span>{" "}
+          (إعادة بيع مباشر دون تخزين)
         </h2>
         <div className="mt-5 max-w-3xl rounded-2xl border border-amber-200 bg-amber-50 p-6">
           <p className="text-sm leading-relaxed text-amber-700">
