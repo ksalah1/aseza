@@ -321,10 +321,10 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
-            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: 'تواصل واتساب', hasPrefill: false })}
+            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
-            تواصل واتساب
+            تواصل عبر واتساب
           </a>
         </div>
 
@@ -335,8 +335,8 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
-            aria-label="WhatsApp"
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'WhatsApp', hasPrefill: false })}
+            aria-label="تواصل عبر واتساب"
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
           >
             <MessageCircle className="size-5" aria-hidden />
           </a>
@@ -498,10 +498,10 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل واتساب', hasPrefill: false })}
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
-            تواصل واتساب
+            تواصل عبر واتساب
           </a>
         </div>
       </div>

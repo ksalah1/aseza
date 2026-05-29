@@ -114,7 +114,7 @@ export function Hero() {
             onClick={() => setTrustOpen(!trustOpen)}
             aria-expanded={trustOpen}
           >
-            <p className="text-sm font-semibold text-accent-100">{isAr ? "خارطة الطريق" : "Investor path"}</p>
+            <p className="text-sm font-semibold text-accent-100">{isAr ? "ما نقدمه لك" : "Investor path"}</p>
             <svg
               className={`size-4 text-accent transition-transform md:hidden${trustOpen ? " rotate-180" : ""}`}
               xmlns="http://www.w3.org/2000/svg"
