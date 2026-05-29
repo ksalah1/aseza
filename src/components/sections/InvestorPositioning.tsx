@@ -148,20 +148,136 @@ export function InvestorPositioning() {
           </Section>
         </>
       ) : (
-        <Section id="why-aqaba" width="wide" className="scroll-mt-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-primary md:text-4xl">{t("benefits.title")}</h2>
-            <p className="mt-4 text-lg text-primary-500">{t("benefits.subtitle")}</p>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((card) => (
-              <Card key={card.title} hoverable>
-                <h3 className="text-lg font-semibold text-primary">{card.title}</h3>
-                <p className="mt-3 leading-relaxed text-primary-600">{card.text}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
+        <>
+          <Section id="why-aqaba" background="primary" width="wide" className="scroll-mt-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">Aqaba in Numbers</h2>
+            </div>
+            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-5">
+              {[
+                ["5%", "Income tax on qualifying income (subject to specific operating conditions)", ""],
+                ["12+", "Free trade agreements available to investors through Jordan", "(US, EU, Arab League, EFTA, Turkey, Canada, Singapore)"],
+                ["4–6 days", "Expected time to complete company registration procedures", ""],
+                ["100%", "Foreign ownership permitted in most listed activities", ""],
+                ["Port + Airport", "Logistics infrastructure: seaport and King Hussein International Airport", ""],
+              ].map(([value, label, note], i) => (
+                <div key={value} className={`${i === 4 ? "col-span-2 md:col-span-1 " : ""}flex flex-col items-center rounded-2xl border border-white/10 bg-primary-800/50 p-5 text-center`}>
+                  <div className="mb-3 h-0.5 w-8 rounded-full bg-accent mx-auto" aria-hidden="true" />
+                  <span className="text-4xl font-bold text-accent md:text-5xl">{value}</span>
+                  <span className="mt-2 text-sm leading-snug text-background/80">{label}</span>
+                  {note && <span className="mt-1 text-xs text-background/50">{note}</span>}
+                </div>
+              ))}
+            </div>
+            <p className="mx-auto mt-8 max-w-4xl text-center text-xs text-background/50">
+              * Subject to meeting 6 operating conditions — Article 7, Income Tax Regulation No. 53/2005. Banks, insurance, and land transport are excluded.
+            </p>
+          </Section>
+
+          <Section width="wide">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold text-primary md:text-4xl">Your Aqaba investment opens access to 12+ international markets</h2>
+              <p className="mt-4 text-lg text-primary-500">Jordan is party to free trade agreements with major markets — making Aqaba a strategic re-export hub</p>
+            </div>
+            <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
+              {[
+                ["United States", "🇺🇸"],
+                ["European Union", "🇪🇺"],
+                ["Arab League", "🌍"],
+                ["Turkey", "🇹🇷"],
+                ["Canada", "🇨🇦"],
+                ["Singapore", "🇸🇬"],
+                ["United Kingdom", "🇬🇧"],
+                ["EFTA", ""],
+              ].map(([name, flag]) => (
+                <span key={name} className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-medium text-primary shadow-sm">
+                  {flag && <span aria-hidden>{flag}</span>}
+                  {name}
+                </span>
+              ))}
+            </div>
+            <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-primary-500">
+              We recommend reviewing each agreement&apos;s terms and applicability to your activity with a legal advisor.
+            </p>
+            <div className="mt-6 text-center">
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
+                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'Free consultation — find out what this means for your business', hasPrefill: false })}
+              >
+                <MessageCircle className="size-5" aria-hidden />
+                Free consultation — find out what this means for your business
+              </a>
+            </div>
+          </Section>
+
+          <Section width="wide" background="muted">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold text-primary md:text-4xl">Why Aqaba and not another free zone?</h2>
+            </div>
+            <div className="relative mx-auto mt-10 max-w-5xl rounded-2xl border border-primary-100 shadow-sm">
+              <div className="absolute start-0 top-0 z-10 h-full w-8 pointer-events-none bg-gradient-to-e from-white/80 to-transparent md:hidden" />
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-primary text-background">
+                      <th className="px-4 py-3 text-start font-semibold">Factor</th>
+                      <th className="px-4 py-3 text-center font-semibold bg-accent/20 text-accent border-b-2 border-accent">Aqaba / ASEZA</th>
+                      <th className="px-4 py-3 text-center font-semibold">Jebel Ali / Dubai</th>
+                      <th className="px-4 py-3 text-center font-semibold">KAEC / Saudi Arabia</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-primary-100">
+                    {[
+                      ["Income tax on qualifying activities", "~5% (subject to conditions)", "9% (UAE corporate tax)", "20%"],
+                      ["Foreign ownership", "100% in most activities", "100% (free zone)", "Sector-dependent"],
+                      ["Red Sea access", "✅ Direct", "❌ (Gulf of Oman)", "✅"],
+                      ["Free trade agreement with the US", "✅", "❌", "❌"],
+                      ["Free trade agreement with the EU", "✅", "❌", "❌"],
+                      ["Expected formation time", "4–6 days", "1–3 weeks", "Variable"],
+                    ].map((row, i) => (
+                      <tr key={row[0]} className={i % 2 === 0 ? "bg-white" : "bg-primary-50/60"}>
+                        <td className="px-4 py-3 font-medium text-primary">{row[0]}</td>
+                        {row.slice(1).map((cell, j) => (
+                          <td key={j} className={`px-4 py-3 text-center text-primary-700${j === 0 ? " font-semibold" : ""}`}>
+                            {cell.startsWith("✅") ? (
+                              <span className="font-semibold text-accent">{cell.replace("✅", "✓ ")}</span>
+                            ) : cell.startsWith("❌") ? (
+                              <span className="text-primary-400">{cell.replace("❌", "✗ ")}</span>
+                            ) : cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="mt-2 text-center text-xs text-primary-400 md:hidden">
+              ← Swipe left to see full comparison →
+            </p>
+            <p className="mx-auto mt-4 max-w-4xl text-center text-xs text-primary-400">
+              * Comparison is approximate for guidance only. Verification is required for each individual case.
+            </p>
+          </Section>
+
+          <Section id="why-aqaba-en" width="wide" className="scroll-mt-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold text-primary md:text-4xl">{t("benefits.title")}</h2>
+              <p className="mt-4 text-lg text-primary-500">{t("benefits.subtitle")}</p>
+            </div>
+            <div className="mx-auto mt-10 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {benefits.map((card) => (
+                <Card key={card.title} hoverable>
+                  <h3 className="text-lg font-semibold text-primary">{card.title}</h3>
+                  <p className="mt-3 leading-relaxed text-primary-600">{card.text}</p>
+                </Card>
+              ))}
+            </div>
+          </Section>
+        </>
       )}
 
       <Section width="wide" background="muted">

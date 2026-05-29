@@ -14,7 +14,7 @@ import { Link } from "@/i18n/navigation";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
-const officialReferences = [
+const AR_OFFICIAL_REFERENCES = [
   {
     title: "قانون منطقة العقبة الاقتصادية الخاصة رقم 32 لسنة 2000 وتعديلاته",
     description: "الإطار القانوني العام للمنطقة، صلاحيات السلطة، التسجيل، الجمارك، الضرائب، والأنشطة الاقتصادية.",
@@ -32,17 +32,46 @@ const officialReferences = [
   },
 ];
 
+const EN_OFFICIAL_REFERENCES = [
+  {
+    title: "ASEZ Law No. 32 of 2000 (as amended)",
+    description: "General legal framework for the zone, authority powers, registration, customs, taxes, and economic activities.",
+    url: "https://www.aseza.jo/AR/List/%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA",
+  },
+  {
+    title: "ASEZ Establishments Registration Regulation No. 13 of 2001 (as amended)",
+    description: "Registration eligibility, prohibited/restricted activities, registration procedures, obligations, and renewals.",
+    url: "https://www.aseza.jo/AR/List/%D8%A7%D9%84%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA",
+  },
+  {
+    title: "Official e-Services Portal",
+    description: "Practical source for e-services, procedures, and official updates.",
+    url: siteConfig.officialAsezaUrl,
+  },
+];
+
 export function TrustAndTransparency() {
   const isAr = useLocale() === "ar";
 
-  const trustCards = [
-    ["ملفك يراجعه محامية — لا موظف أو وسيط", "نور بركات، عضو نقابة المحامين الأردنيين رقم 16872، تراجع كل ملف مباشرة."],
-    ["لن تبدأ بملف غلط", "نتحقق من أن نشاطك مسموح وأن وثائقك مكتملة — قبل أن تدفع أي رسوم حكومية."],
-    ["رقمان واضحان قبل أن نبدأ", "أتعاب خدمتنا ثابتة. الرسوم الحكومية مفصولة ومفصّلة. لا مفاجآت."],
-    ["كل معلومة بمصدرها الرسمي", "ما نخبرك به مستند لنص قانوني محدد. نزودك بالمرجع حتى تقرر بثقة."],
-    ["نوضح ما نستطيع وما لا نستطيع", "القرار النهائي بالقبول أو الرفض لسلطة العقبة. نحن نضمن ملفاً مكتملاً وصحيحاً — لا نضمن النتيجة."],
-    ["تبدأ من أي مكان في العالم", "كثير من خطوات التسجيل تتم عن بُعد عبر واتساب أو مكالمة. نحدد معك ما يحتاج حضوراً فعلياً."],
-  ];
+  const officialReferences = isAr ? AR_OFFICIAL_REFERENCES : EN_OFFICIAL_REFERENCES;
+
+  const trustCards = isAr
+    ? [
+        ["ملفك يراجعه محامية — لا موظف أو وسيط", "نور بركات، عضو نقابة المحامين الأردنيين رقم 16872، تراجع كل ملف مباشرة."],
+        ["لن تبدأ بملف غلط", "نتحقق من أن نشاطك مسموح وأن وثائقك مكتملة — قبل أن تدفع أي رسوم حكومية."],
+        ["رقمان واضحان قبل أن نبدأ", "أتعاب خدمتنا ثابتة. الرسوم الحكومية مفصولة ومفصّلة. لا مفاجآت."],
+        ["كل معلومة بمصدرها الرسمي", "ما نخبرك به مستند لنص قانوني محدد. نزودك بالمرجع حتى تقرر بثقة."],
+        ["نوضح ما نستطيع وما لا نستطيع", "القرار النهائي بالقبول أو الرفض لسلطة العقبة. نحن نضمن ملفاً مكتملاً وصحيحاً — لا نضمن النتيجة."],
+        ["تبدأ من أي مكان في العالم", "كثير من خطوات التسجيل تتم عن بُعد عبر واتساب أو مكالمة. نحدد معك ما يحتاج حضوراً فعلياً."],
+      ]
+    : [
+        ["Your file is reviewed by an attorney — not a clerk or agent", "Nour Barakat, Member of the Jordan Bar Association No. 16872, reviews every file directly."],
+        ["You won't start with the wrong file", "We confirm your activity is permitted and your documents are complete — before you pay any government fees."],
+        ["Two clear numbers before we begin", "Our service fee is fixed. Government fees are separate and itemised. No surprises."],
+        ["Every piece of information cites its official source", "What we tell you is based on specific legal text. We provide the reference so you can decide with confidence."],
+        ["We state what we can and cannot do", "The final acceptance or rejection decision rests with the Aqaba Authority. We guarantee a complete, correct file — not the outcome."],
+        ["You can start from anywhere in the world", "Many registration steps can be done remotely via WhatsApp or a call. We clarify what requires physical presence."],
+      ];
 
   return (
     <>
@@ -70,22 +99,22 @@ export function TrustAndTransparency() {
                 ن.ب
               </div>
               <div>
-                <p className="text-lg font-bold text-primary">نور بركات</p>
-                <p className="text-sm text-primary-500">محامية مرخّصة · شركة البركات للمحاماة</p>
+                <p className="text-lg font-bold text-primary">{isAr ? "نور بركات" : "Nour Barakat"}</p>
+                <p className="text-sm text-primary-500">{isAr ? "محامية مرخّصة · شركة البركات للمحاماة" : "Licensed Attorney · Al-Barakat Law Firm"}</p>
               </div>
             </div>
             <ul className="mt-5 space-y-2">
               <li className="flex items-center gap-2 text-sm text-primary-700">
                 <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                عضو نقابة المحامين الأردنيين
+                {isAr ? "عضو نقابة المحامين الأردنيين" : "Member, Jordan Bar Association"}
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-700">
                 <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                رقم العضوية: 16872
+                {isAr ? "رقم العضوية: 16872" : "Bar No.: 16872"}
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-700">
                 <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                خدمة قانونية خاصة — ليست جهة حكومية
+                {isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service — not a government body"}
               </li>
             </ul>
             <a
@@ -94,7 +123,7 @@ export function TrustAndTransparency() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#876c29] hover:underline"
             >
-              تحقق من عضوية المحامية مباشرة ←
+              {isAr ? "تحقق من عضوية المحامية مباشرة ←" : "Verify attorney membership directly ←"}
             </a>
           </div>
           <Card className="bg-primary text-primary-50">
@@ -109,8 +138,8 @@ export function TrustAndTransparency() {
 
       <Section width="wide">
         <Card className="bg-[#fcfdfd]">
-          <h2 className="text-2xl font-bold text-primary">المستندات والمراجع الرسمية</h2>
-          <p className="mt-2 text-primary-600">مكتبة مرجعية مختصرة مع روابط خارجية رسمية.</p>
+          <h2 className="text-2xl font-bold text-primary">{isAr ? "المستندات والمراجع الرسمية" : "Official Documents & References"}</h2>
+          <p className="mt-2 text-primary-600">{isAr ? "مكتبة مرجعية مختصرة مع روابط خارجية رسمية." : "A concise reference library with official external links."}</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {officialReferences.map((ref) => (
               <div key={ref.title} className="rounded-xl border border-primary-100 bg-white p-4">
@@ -118,9 +147,9 @@ export function TrustAndTransparency() {
                 <h3 className="mt-2 font-semibold text-primary">{ref.title}</h3>
                 <p className="mt-2 text-sm text-primary-600">{ref.description}</p>
                 <a href={ref.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#876c29]">
-                  عرض المرجع الرسمي <ExternalLink className="size-4" />
+                  {isAr ? "عرض المرجع الرسمي" : "View official reference"} <ExternalLink className="size-4" />
                 </a>
-                <p className="mt-1 text-xs text-primary-500">يفتح في صفحة خارجية</p>
+                <p className="mt-1 text-xs text-primary-500">{isAr ? "يفتح في صفحة خارجية" : "Opens in new tab"}</p>
               </div>
             ))}
           </div>

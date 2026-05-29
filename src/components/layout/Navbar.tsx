@@ -9,21 +9,6 @@ import { whatsappLink } from "@/lib/site";
 import { trackWhatsAppClick, trackLanguageSwitch } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-const WHY_AQABA_ITEMS = [
-  { label: "مزايا الاستثمار (الضرائب والجمارك والموقع)", href: "/tax-customs-aqaba" },
-  { label: "القطاعات المناسبة", href: "/why-aqaba" },
-  { label: "الأنشطة: مسموحة / مقيدة / محظورة", href: "/restricted-prohibited-activities-aseza" },
-  { label: "المراجع القانونية الرسمية", href: "/legal-references" },
-] as const;
-
-const REGISTER_ITEMS = [
-  { label: "مستثمر أردني", href: "/register-business-in-aseza" },
-  { label: "مستثمر أجنبي / فرع شركة", href: "/foreign-investors" },
-  { label: "شركة استيراد وتصدير", href: "/import-export-company-aseza" },
-  { label: "تعديل أو تجديد شركة مسجلة", href: "/existing-aseza-companies" },
-  { label: "قائمة الوثائق المطلوبة", href: "/aseza-registration-checklist" },
-  { label: "رسوم التسجيل في ASEZA", href: "/aseza-registration-fees" },
-] as const;
 
 function Logo() {
   return (
@@ -95,7 +80,42 @@ function DropdownPanel({ items, onClose }: DropdownPanelProps) {
 
 export function Navbar() {
   const td = useTranslations("disclaimer");
+  const tnav = useTranslations("nav");
+  const locale = useLocale();
+  const isAr = locale === "ar";
   const pathname = usePathname();
+
+  const WHY_AQABA_ITEMS = isAr
+    ? [
+        { label: "مزايا الاستثمار (الضرائب والجمارك والموقع)", href: "/tax-customs-aqaba" },
+        { label: "القطاعات المناسبة", href: "/why-aqaba" },
+        { label: "الأنشطة: مسموحة / مقيدة / محظورة", href: "/restricted-prohibited-activities-aseza" },
+        { label: "المراجع القانونية الرسمية", href: "/legal-references" },
+      ]
+    : [
+        { label: "Tax & Customs Benefits", href: "/tax-customs-aqaba" },
+        { label: "Suitable Sectors", href: "/why-aqaba" },
+        { label: "Activities: Permitted / Restricted / Prohibited", href: "/restricted-prohibited-activities-aseza" },
+        { label: "Official Legal References", href: "/legal-references" },
+      ];
+
+  const REGISTER_ITEMS = isAr
+    ? [
+        { label: "مستثمر أردني", href: "/register-business-in-aseza" },
+        { label: "مستثمر أجنبي / فرع شركة", href: "/foreign-investors" },
+        { label: "شركة استيراد وتصدير", href: "/import-export-company-aseza" },
+        { label: "تعديل أو تجديد شركة مسجلة", href: "/existing-aseza-companies" },
+        { label: "قائمة الوثائق المطلوبة", href: "/aseza-registration-checklist" },
+        { label: "رسوم التسجيل في ASEZA", href: "/aseza-registration-fees" },
+      ]
+    : [
+        { label: "Jordanian Investor", href: "/register-business-in-aseza" },
+        { label: "Foreign Investor / Branch", href: "/foreign-investors" },
+        { label: "Import & Export Company", href: "/import-export-company-aseza" },
+        { label: "Amend or Renew Registered Company", href: "/existing-aseza-companies" },
+        { label: "Required Documents Checklist", href: "/aseza-registration-checklist" },
+        { label: "ASEZA Registration Fees", href: "/aseza-registration-fees" },
+      ];
   const headerRef = useRef<HTMLElement>(null);
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -186,7 +206,7 @@ export function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-5 lg:flex">
-          {/* الرئيسية */}
+          {/* Home */}
           <li>
             <Link
               href="/"
@@ -195,11 +215,11 @@ export function Navbar() {
                 isActive("/") ? "text-accent" : "text-primary-600",
               )}
             >
-              الرئيسية
+              {tnav("home")}
             </Link>
           </li>
 
-          {/* لماذا العقبة dropdown */}
+          {/* Why Aqaba dropdown */}
           <li
             className="relative"
             onMouseEnter={() => openDropdown("why")}
@@ -215,7 +235,7 @@ export function Navbar() {
               aria-expanded={desktopDropdown === "why"}
               aria-haspopup="true"
             >
-              لماذا العقبة
+              {tnav("benefits")}
               <ChevronDown
                 className={cn(
                   "size-4 transition-transform",
@@ -238,7 +258,7 @@ export function Navbar() {
             )}
           </li>
 
-          {/* تسجيل شركة dropdown */}
+          {/* Register dropdown */}
           <li
             className="relative"
             onMouseEnter={() => openDropdown("register")}
@@ -254,7 +274,7 @@ export function Navbar() {
               aria-expanded={desktopDropdown === "register"}
               aria-haspopup="true"
             >
-              تسجيل شركة
+              {tnav("process")}
               <ChevronDown
                 className={cn(
                   "size-4 transition-transform",
@@ -277,7 +297,7 @@ export function Navbar() {
             )}
           </li>
 
-          {/* خدماتنا */}
+          {/* Services */}
           <li>
             <Link
               href="/services"
@@ -286,11 +306,11 @@ export function Navbar() {
                 isActive("/services") ? "text-accent" : "text-primary-600",
               )}
             >
-              خدماتنا
+              {tnav("services")}
             </Link>
           </li>
 
-          {/* الأسئلة الشائعة */}
+          {/* FAQ */}
           <li>
             <Link
               href="/faq"
@@ -299,7 +319,7 @@ export function Navbar() {
                 isActive("/faq") ? "text-accent" : "text-primary-600",
               )}
             >
-              الأسئلة الشائعة
+              {tnav("faq")}
             </Link>
           </li>
         </ul>
@@ -313,7 +333,7 @@ export function Navbar() {
               isActive("/about") ? "text-accent" : "text-primary-500",
             )}
           >
-            من نحن
+            {tnav("about")}
           </Link>
           <LanguageSwitcher />
           <a
@@ -321,10 +341,10 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
-            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
+            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: tnav("whatsapp"), hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
-            تواصل عبر واتساب
+            {tnav("whatsapp")}
           </a>
         </div>
 
@@ -335,8 +355,8 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
-            aria-label="تواصل عبر واتساب"
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
+            aria-label={tnav("whatsapp")}
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: tnav("whatsapp"), hasPrefill: false })}
           >
             <MessageCircle className="size-5" aria-hidden />
           </a>
@@ -369,11 +389,11 @@ export function Navbar() {
                 isActive("/") ? "text-accent" : "text-primary-600",
               )}
             >
-              الرئيسية
+              {tnav("home")}
             </Link>
           </li>
 
-          {/* لماذا العقبة */}
+          {/* Why Aqaba */}
           <li>
             <button
               type="button"
@@ -383,7 +403,7 @@ export function Navbar() {
                 whyActive ? "text-accent" : "text-primary-600",
               )}
             >
-              لماذا العقبة
+              {tnav("benefits")}
               <ChevronDown
                 className={cn(
                   "size-5 transition-transform",
@@ -412,7 +432,7 @@ export function Navbar() {
             )}
           </li>
 
-          {/* تسجيل شركة */}
+          {/* Register */}
           <li>
             <button
               type="button"
@@ -422,7 +442,7 @@ export function Navbar() {
                 registerActive ? "text-accent" : "text-primary-600",
               )}
             >
-              تسجيل شركة
+              {tnav("process")}
               <ChevronDown
                 className={cn(
                   "size-5 transition-transform",
@@ -460,7 +480,7 @@ export function Navbar() {
                 isActive("/services") ? "text-accent" : "text-primary-600",
               )}
             >
-              خدماتنا
+              {tnav("services")}
             </Link>
           </li>
 
@@ -473,7 +493,7 @@ export function Navbar() {
                 isActive("/faq") ? "text-accent" : "text-primary-600",
               )}
             >
-              الأسئلة الشائعة
+              {tnav("faq")}
             </Link>
           </li>
 
@@ -486,7 +506,7 @@ export function Navbar() {
                 isActive("/about") ? "text-accent" : "text-primary-600",
               )}
             >
-              من نحن
+              {tnav("about")}
             </Link>
           </li>
         </ul>
@@ -498,10 +518,10 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: 'تواصل عبر واتساب', hasPrefill: false })}
+            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: tnav("whatsapp"), hasPrefill: false })}
           >
             <MessageCircle className="size-4" aria-hidden />
-            تواصل عبر واتساب
+            {tnav("whatsapp")}
           </a>
         </div>
       </div>

@@ -18,7 +18,9 @@
     "contact": "Contact",
     "cta": "Start Registration",
     "foreignInvestors": "Foreign Investors",
-    "importExport": "Import/Export"
+    "importExport": "Import/Export",
+    "about": "About",
+    "whatsapp": "Contact on WhatsApp"
   },
   "hero": {
     "badge": "Private legal service for company registration in the Aqaba Special Economic Zone",
@@ -440,7 +442,46 @@
       "privacy": "Privacy Policy",
       "terms": "Terms & Conditions"
     },
-    "rights": "© 2026 ASEZA.co — All rights reserved."
+    "rights": "© 2026 ASEZA.co — All rights reserved.",
+    "sections": {
+      "registration": "Company Registration",
+      "investorGuide": "Investor Guide",
+      "afterRegistration": "After Registration",
+      "about": "About the Firm"
+    },
+    "col1": {
+      "jordanian": "Jordanian Investor",
+      "foreign": "Foreign Investor / Branch",
+      "importExport": "Import & Export Company",
+      "checklist": "Document Checklist",
+      "activityReview": "Activity Review",
+      "fees": "Registration Fees"
+    },
+    "col2": {
+      "whyAqaba": "Why Invest in Aqaba?",
+      "taxCustoms": "Tax & Customs: Legal Framework",
+      "permitted": "Is Your Activity Permitted?",
+      "permittedList": "List of Permitted Activities",
+      "workPermits": "Work Permits and Residency",
+      "legalRefs": "Official Legal References"
+    },
+    "col3": {
+      "licensing": "Licensing and Sector Approvals",
+      "renewal": "ASEZA Annual Renewal",
+      "amend": "Amend Registered Company Data",
+      "renewReg": "Annual Renewal",
+      "faq": "FAQ"
+    },
+    "attorney": {
+      "name": "Nour Barakat",
+      "title": "Licensed Attorney · Al-Barakat Law Firm",
+      "member": "Member, Jordan Bar Association",
+      "memberNo": "Membership No. 16872"
+    },
+    "verifyLink": "Learn about the firm ←",
+    "bottomDisclaimer": "Private legal service by Al-Barakat Law Firm — not the official website of the Aqaba Special Economic Zone Authority",
+    "bottomOfficialSite": "Visit the official ASEZA site: aseza.jo ↗",
+    "bottomCopyright": "© 2026 Al-Barakat Law Firm"
   },
   "blog": {
     "title": "Blog",
