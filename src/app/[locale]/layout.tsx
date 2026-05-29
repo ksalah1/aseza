@@ -11,7 +11,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
 import { CitizenBanner } from "@/components/layout/CitizenBanner";
-import { Analytics } from "@/components/Analytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteConfig, firmName } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -39,6 +39,9 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     manifest: "/manifest.json",
+    verification: {
+      google: "RsKZVBHTHc8EzG1Vuu2ljxetSBQCFr2cgHBqYGTQEqQ",
+    },
     ...buildMetadata({
       locale,
       path: "",
@@ -127,8 +130,8 @@ export default async function LocaleLayout({
           }}
         />
 
-        <Analytics />
       </body>
+      <GoogleAnalytics gaId="G-CN8C2GT6PE" />
     </html>
   );
 }

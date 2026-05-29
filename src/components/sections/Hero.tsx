@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui";
 
@@ -86,12 +87,13 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500 md:h-12 md:text-base"
+                onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: 'ابدأ مراجعة نشاطك — مجاناً', hasPrefill: false, locale: 'ar' })}
               >
                 <MessageCircle className="size-5" aria-hidden />
                 ابدأ مراجعة نشاطك — مجاناً
               </a>
             ) : (
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: t("ctaPrimary"), hasPrefill: false, locale: 'en' })}>
                 <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>
                   {t("ctaPrimary")}
                 </Button>

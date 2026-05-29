@@ -6,6 +6,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { trackFaqExpanded } from "@/lib/analytics";
 
 type Item = { question: string; answer: string };
 
@@ -37,7 +38,10 @@ export function FAQ() {
             >
               <button
                 type="button"
-                onClick={() => setOpenIndex(isOpen ? null : i)}
+                onClick={() => {
+                  if (!isOpen) trackFaqExpanded(item.question, i);
+                  setOpenIndex(isOpen ? null : i);
+                }}
                 aria-expanded={isOpen}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-start"
               >
