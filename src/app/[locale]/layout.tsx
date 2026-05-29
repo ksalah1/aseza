@@ -15,7 +15,6 @@ import { Analytics } from "@/components/Analytics";
 import { siteConfig, firmName } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
-import { ibmPlexArabic, inter } from "../fonts";
 import "../globals.css";
 
 const SITE_URL = siteConfig.url;
@@ -103,7 +102,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} dir={dir} className={cn(ibmPlexArabic.variable, inter.variable)}>
+    <html lang={locale} dir={dir} className={cn("font-aseza-ar", "font-aseza-latin")}>
       <body className={locale === "ar" ? "font-arabic" : "font-latin"}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">

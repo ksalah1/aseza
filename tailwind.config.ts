@@ -34,8 +34,8 @@ export default {
         background: "#FAFAF8", // warm white
       },
       fontFamily: {
-        arabic: ["var(--font-ibm-arabic)", "IBM Plex Sans Arabic", "Tajawal", "Noto Sans Arabic", "Arial", "sans-serif"],
-        latin: ["var(--font-inter)", "Inter", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        arabic: ["IBM Plex Sans Arabic", "Tajawal", "Noto Sans Arabic", "Arial", "sans-serif"],
+        latin: ["Inter", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
     },
   },
