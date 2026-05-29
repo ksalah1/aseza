@@ -80,6 +80,21 @@ export async function Footer() {
           </div>
         </div>
 
+        {/* Collapsible legal notices */}
+        <details className="mt-6 border-t border-primary-700 pt-4">
+          <summary className="cursor-pointer text-xs font-semibold text-accent">
+            {tf("legalNotices.summary")}
+          </summary>
+          <ul className="mt-3 space-y-2 text-xs text-primary-300">
+            {(tf.raw("legalNotices.items") as string[]).map((item: string, i: number) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="mt-1.5 size-1 rounded-full bg-primary-300 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
+
         {/* Bottom bar */}
         <div className="mt-8 border-t border-primary-700 pt-6">
           <div className="flex flex-col items-center gap-3 text-center text-xs text-primary-300 sm:flex-row sm:justify-between sm:text-start">

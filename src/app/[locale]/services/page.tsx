@@ -5,6 +5,7 @@ import { Card, Section } from "@/components/ui";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
 import { siteConfig, whatsappLink } from "@/lib/site";
+import { TrustAndTransparency } from "@/components/sections";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -27,5 +28,5 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   <div className="mt-10 grid gap-5 md:grid-cols-2">{services.map((s)=><Card key={s[0]}><h2 className="text-xl font-semibold text-primary">{s[0]}</h2><p className="mt-2 text-primary-600 text-sm">{s[1]}</p><p className="mt-2 text-sm text-primary-500"><b>لمن:</b> {s[2]}</p><p className="mt-2 text-sm text-primary-500"><b>الخطوة التالية:</b> {s[3]}</p><Link href={s[4]} className="mt-3 inline-block text-accent font-semibold">عرض تفاصيل الخدمة</Link></Card>)}</div>
   <div className="mt-12 overflow-x-auto"><h2 className="text-2xl font-semibold text-primary mb-4">اختر الخدمة المناسبة لحالتك</h2><table className="w-full bg-white border border-primary-100"><thead><tr className="text-start"><th className="p-3">الحالة</th><th className="p-3">الخدمة المناسبة</th><th className="p-3">ما يجب فعله أولاً</th><th className="p-3">رابط الخدمة</th></tr></thead><tbody>{services.map((s)=><tr key={s[0]} className="border-t"><td className="p-3">{s[1]}</td><td className="p-3">{s[0]}</td><td className="p-3">{s[3]}</td><td className="p-3"><Link href={s[4]} className="text-accent">فتح</Link></td></tr>)}</tbody></table></div>
   <Card className="mt-10"><h2 className="text-2xl font-semibold text-primary">الخدمات الإلكترونية والبوابة الرسمية</h2><p className="mt-3 text-primary-600">بعض خدمات سلطة منطقة العقبة الاقتصادية الخاصة قد تكون متاحة عبر البوابة الرسمية أو من خلال حساب المستخدم أو سند، بينما قد تتطلب بعض المعاملات وثائق أصلية أو توقيعاً أو وكالة أو مراجعة حسب الحالة.</p><p className="mt-2 text-sm text-primary-500">البوابة الرسمية لسلطة منطقة العقبة الاقتصادية الخاصة</p><div className="mt-4 flex gap-3"><a href={siteConfig.officialAsezaUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-primary px-4 py-2 text-background">زيارة البوابة الرسمية</a><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white"><MessageCircle className="size-4" aria-hidden />تواصل معنا عبر واتساب</a></div></Card>
-  </Section></>;
+  </Section><TrustAndTransparency /></>;
 }

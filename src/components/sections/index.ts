@@ -12,3 +12,7 @@ export { InvestorPositioning } from "./InvestorPositioning";
 export { AudiencePaths } from "./AudiencePaths";
 
 export { TrustAndTransparency } from "./TrustAndTransparency";
+
+export { AqabaStats } from "./AqabaStats";
+export { AqabaComparison } from "./AqabaComparison";
+export { FinalCta } from "./FinalCta";
