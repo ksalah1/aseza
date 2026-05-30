@@ -1,12 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Hero,
-  Process,
   FAQ,
   AudiencePaths,
   TrustAndTransparency,
   AqabaStats,
-  AqabaComparison,
   FinalCta,
 } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
@@ -96,10 +94,6 @@ export default async function HomePage({
       {/* 4 */}
       <TrustAndTransparency compact />
       {/* 5 */}
-      <AqabaComparison />
-      {/* 6 */}
-      <Process />
-      {/* 7 */}
       <FAQ />
       {/* 8 */}
       <FinalCta />
