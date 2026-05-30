@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Hero,
-  FAQ,
   AudiencePaths,
   TrustAndTransparency,
   AqabaStats,
@@ -94,8 +93,6 @@ export default async function HomePage({
       {/* 4 */}
       <TrustAndTransparency compact />
       {/* 5 */}
-      <FAQ />
-      {/* 8 */}
       <FinalCta />
       <JsonLd data={legalServiceSchema} />
     </>

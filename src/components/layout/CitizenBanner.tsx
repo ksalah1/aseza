@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { usePathname } from "@/i18n/navigation";
-import { siteConfig } from "@/lib/site";
+import { useLocale } from "next-intl";
 
 const SESSION_KEY = "citizen-banner-dismissed";
 
 export function CitizenBanner() {
   const pathname = usePathname();
+  const locale = useLocale();
   const [dismissed, setDismissed] = useState(() => {
     if (typeof window === "undefined") return true;
     return Boolean(sessionStorage.getItem(SESSION_KEY));
@@ -26,21 +27,14 @@ export function CitizenBanner() {
       role="alert"
     >
       <span>
-        هل تبحث عن خدمات حكومية أو معاملات رسمية؟{" "}
-        ←{" "}
-        <a
-          href={siteConfig.officialAsezaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-primary underline hover:text-accent"
-        >
-          زر الموقع الرسمي لسلطة العقبة: aseza.jo
-        </a>
+        {locale === "ar"
+          ? "خدمة قانونية خاصة من شركة البركات للمحاماة"
+          : "Private legal service by Al-Barakat Law Firm"}
       </span>
       <button
         type="button"
         onClick={dismiss}
-        aria-label="إغلاق"
+        aria-label={locale === "ar" ? "إغلاق" : "Close"}
         className="absolute start-3 top-1/2 -translate-y-1/2 rounded p-1 text-primary-400 hover:text-primary"
       >
         ✕

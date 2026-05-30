@@ -7,7 +7,6 @@ import {
   FileCheck2,
   MapPinned,
   MessageCircle,
-  Scale,
   Ship,
   Sparkles,
 } from "lucide-react";
@@ -53,7 +52,7 @@ export function Hero() {
 
           {isAr && (
             <p className="mt-2 text-xs text-primary-300">
-              ⬦ خدمة البركات للمحاماة · ليست الموقع الرسمي لسلطة العقبة
+              ⬦ خدمة البركات للمحاماة
             </p>
           )}
 
@@ -135,7 +134,6 @@ export function Hero() {
               [MapPinned, isAr ? "محامية مرخّصة · عضو نقابة المحامين رقم 16872" : "Aqaba → Red Sea → regional trade"],
               [FileCheck2, isAr ? "أتعاب ثابتة قبل البدء — لا مفاجآت" : "Activity and documents review before filing"],
               [Ship, isAr ? "نراجع نشاطك مجاناً — قبل أي رسوم حكومية" : "Logistics, trade, and tourism-focused guidance"],
-              [Scale, isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service, not a government authority"],
             ].map(([Icon, label]) => (
               <div key={label as string} className="flex items-center gap-3 rounded-xl border border-white/15 bg-primary-900/30 p-3">
                 <Icon className="size-4 text-accent" aria-hidden />
