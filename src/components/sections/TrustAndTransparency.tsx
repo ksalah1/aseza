@@ -96,19 +96,7 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
               <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
               {isAr ? "رقم العضوية: 16872" : "Bar No.: 16872"}
             </li>
-            <li className="flex items-center gap-2 text-sm text-primary-700">
-              <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-              {isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service — not a government body"}
-            </li>
           </ul>
-          <a
-            href="https://www.nba.org.jo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#876c29] hover:underline"
-          >
-            {isAr ? "تحقق من عضوية المحامية مباشرة ←" : "Verify attorney membership directly ←"}
-          </a>
         </div>
       </Section>
     );
@@ -153,19 +141,7 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
                 <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
                 {isAr ? "رقم العضوية: 16872" : "Bar No.: 16872"}
               </li>
-              <li className="flex items-center gap-2 text-sm text-primary-700">
-                <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                {isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service — not a government body"}
-              </li>
             </ul>
-            <a
-              href="https://www.nba.org.jo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#876c29] hover:underline"
-            >
-              {isAr ? "تحقق من عضوية المحامية مباشرة ←" : "Verify attorney membership directly ←"}
-            </a>
           </div>
           <Card className="bg-primary text-primary-50">
             <h3 className="text-2xl font-bold text-white">{isAr ? "افصل بين دورنا ودور الجهة المختصة" : "Scope boundaries"}</h3>
