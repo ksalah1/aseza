@@ -76,48 +76,39 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
   if (compact) {
     return (
       <Section width="wide" background="muted">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl p-6 shadow-sm border border-s-4 border-s-accent border-primary-100 bg-white">
-            <h3 className="text-2xl font-bold text-primary">{isAr ? "من يراجع ملفك؟" : "Who reviews your file?"}</h3>
-            <div className="mt-5 flex items-center gap-4">
-              <div className="flex size-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-accent ring-4 ring-accent/20" aria-hidden="true">
-                ن.ب
-              </div>
-              <div>
-                <p className="text-lg font-bold text-primary">{isAr ? "نور بركات" : "Nour Barakat"}</p>
-                <p className="text-sm text-primary-500">{isAr ? "محامية مرخّصة · شركة البركات للمحاماة" : "Licensed Attorney · Al-Barakat Law Firm"}</p>
-              </div>
+        <div className="mx-auto max-w-2xl rounded-2xl p-6 shadow-sm border border-s-4 border-s-accent border-primary-100 bg-white">
+          <h3 className="text-2xl font-bold text-primary">{isAr ? "من يراجع ملفك؟" : "Who reviews your file?"}</h3>
+          <div className="mt-5 flex items-center gap-4">
+            <div className="flex size-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-accent ring-4 ring-accent/20" aria-hidden="true">
+              ن.ب
             </div>
-            <ul className="mt-5 space-y-2">
-              <li className="flex items-center gap-2 text-sm text-primary-700">
-                <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                {isAr ? "عضو نقابة المحامين الأردنيين" : "Member, Jordan Bar Association"}
-              </li>
-              <li className="flex items-center gap-2 text-sm text-primary-700">
-                <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                {isAr ? "رقم العضوية: 16872" : "Bar No.: 16872"}
-              </li>
-              <li className="flex items-center gap-2 text-sm text-primary-700">
-                <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
-                {isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service — not a government body"}
-              </li>
-            </ul>
-            <a
-              href="https://www.nba.org.jo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#876c29] hover:underline"
-            >
-              {isAr ? "تحقق من عضوية المحامية مباشرة ←" : "Verify attorney membership directly ←"}
-            </a>
+            <div>
+              <p className="text-lg font-bold text-primary">{isAr ? "نور بركات" : "Nour Barakat"}</p>
+              <p className="text-sm text-primary-500">{isAr ? "محامية مرخّصة · شركة البركات للمحاماة" : "Licensed Attorney · Al-Barakat Law Firm"}</p>
+            </div>
           </div>
-          <Card className="bg-primary text-primary-50">
-            <h3 className="text-2xl font-bold text-white">{isAr ? "افصل بين دورنا ودور الجهة المختصة" : "Scope boundaries"}</h3>
-            <p className="mt-3 text-primary-100">{isAr ? "نساعد في التقديم والمتابعة القانونية، لكن القرار النهائي يبقى للجهة المختصة." : "We handle legal preparation and follow-up; authority decisions remain official."}</p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'راجع نشاطك قبل البدء' : 'Review your activity', hasPrefill: false })}>
-              <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>{isAr ? "راجع نشاطك قبل البدء" : "Review your activity"}</Button>
-            </a>
-          </Card>
+          <ul className="mt-5 space-y-2">
+            <li className="flex items-center gap-2 text-sm text-primary-700">
+              <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
+              {isAr ? "عضو نقابة المحامين الأردنيين" : "Member, Jordan Bar Association"}
+            </li>
+            <li className="flex items-center gap-2 text-sm text-primary-700">
+              <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
+              {isAr ? "رقم العضوية: 16872" : "Bar No.: 16872"}
+            </li>
+            <li className="flex items-center gap-2 text-sm text-primary-700">
+              <span className="size-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
+              {isAr ? "خدمة قانونية خاصة — ليست جهة حكومية" : "Private legal service — not a government body"}
+            </li>
+          </ul>
+          <a
+            href="https://www.nba.org.jo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#876c29] hover:underline"
+          >
+            {isAr ? "تحقق من عضوية المحامية مباشرة ←" : "Verify attorney membership directly ←"}
+          </a>
         </div>
       </Section>
     );

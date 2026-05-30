@@ -47,7 +47,7 @@ export function Hero() {
 
           <h1 className="mt-5 max-w-xl text-balance text-3xl font-bold leading-tight md:text-5xl">
             {isAr
-              ? "سجّل شركتك في منطقة العقبة الاقتصادية الخاصة — بمراجعة قانونية تسبق التقديم"
+              ? "سجّل شركتك في منطقة العقبة الاقتصادية الخاصة"
               : t("title")}
           </h1>
 
