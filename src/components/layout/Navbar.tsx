@@ -9,7 +9,6 @@ import { whatsappLink } from "@/lib/site";
 import { trackWhatsAppClick, trackLanguageSwitch } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-
 function Logo() {
   return (
     <Link href="/" className="text-xl font-bold text-primary">
@@ -79,7 +78,6 @@ function DropdownPanel({ items, onClose }: DropdownPanelProps) {
 }
 
 export function Navbar() {
-  const td = useTranslations("disclaimer");
   const tnav = useTranslations("nav");
   const locale = useLocale();
   const isAr = locale === "ar";
@@ -87,15 +85,24 @@ export function Navbar() {
 
   const WHY_AQABA_ITEMS = isAr
     ? [
-        { label: "مزايا الاستثمار (الضرائب والجمارك والموقع)", href: "/tax-customs-aqaba" },
+        {
+          label: "مزايا الاستثمار (الضرائب والجمارك والموقع)",
+          href: "/tax-customs-aqaba",
+        },
         { label: "القطاعات المناسبة", href: "/why-aqaba" },
-        { label: "الأنشطة: مسموحة / مقيدة / محظورة", href: "/restricted-prohibited-activities-aseza" },
+        {
+          label: "الأنشطة: مسموحة / مقيدة / محظورة",
+          href: "/restricted-prohibited-activities-aseza",
+        },
         { label: "المراجع القانونية الرسمية", href: "/legal-references" },
       ]
     : [
         { label: "Tax & Customs Benefits", href: "/tax-customs-aqaba" },
         { label: "Suitable Sectors", href: "/why-aqaba" },
-        { label: "Activities: Permitted / Restricted / Prohibited", href: "/restricted-prohibited-activities-aseza" },
+        {
+          label: "Activities: Permitted / Restricted / Prohibited",
+          href: "/restricted-prohibited-activities-aseza",
+        },
         { label: "Official Legal References", href: "/legal-references" },
       ];
 
@@ -104,16 +111,31 @@ export function Navbar() {
         { label: "مستثمر أردني", href: "/register-business-in-aseza" },
         { label: "مستثمر أجنبي / فرع شركة", href: "/foreign-investors" },
         { label: "شركة استيراد وتصدير", href: "/import-export-company-aseza" },
-        { label: "تعديل أو تجديد شركة مسجلة", href: "/existing-aseza-companies" },
-        { label: "قائمة الوثائق المطلوبة", href: "/aseza-registration-checklist" },
+        {
+          label: "تعديل أو تجديد شركة مسجلة",
+          href: "/existing-aseza-companies",
+        },
+        {
+          label: "قائمة الوثائق المطلوبة",
+          href: "/aseza-registration-checklist",
+        },
         { label: "رسوم التسجيل في ASEZA", href: "/aseza-registration-fees" },
       ]
     : [
         { label: "Jordanian Investor", href: "/register-business-in-aseza" },
         { label: "Foreign Investor / Branch", href: "/foreign-investors" },
-        { label: "Import & Export Company", href: "/import-export-company-aseza" },
-        { label: "Amend or Renew Registered Company", href: "/existing-aseza-companies" },
-        { label: "Required Documents Checklist", href: "/aseza-registration-checklist" },
+        {
+          label: "Import & Export Company",
+          href: "/import-export-company-aseza",
+        },
+        {
+          label: "Amend or Renew Registered Company",
+          href: "/existing-aseza-companies",
+        },
+        {
+          label: "Required Documents Checklist",
+          href: "/aseza-registration-checklist",
+        },
         { label: "ASEZA Registration Fees", href: "/aseza-registration-fees" },
       ];
   const headerRef = useRef<HTMLElement>(null);
@@ -121,8 +143,12 @@ export function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState<"why" | "register" | null>(null);
-  const [desktopDropdown, setDesktopDropdown] = useState<"why" | "register" | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<
+    "why" | "register" | null
+  >(null);
+  const [desktopDropdown, setDesktopDropdown] = useState<
+    "why" | "register" | null
+  >(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -194,13 +220,6 @@ export function Navbar() {
         scrolled ? "shadow-md" : "shadow-none",
       )}
     >
-      {/* Persistent disclaimer banner */}
-      <div className="bg-primary">
-        <p className="mx-auto max-w-7xl px-6 py-1.5 text-center text-[11px] leading-tight text-accent-100 sm:text-xs">
-          {td("short")}
-        </p>
-      </div>
-
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
         <Logo />
 
@@ -227,7 +246,9 @@ export function Navbar() {
           >
             <button
               type="button"
-              onClick={() => setDesktopDropdown((d) => (d === "why" ? null : "why"))}
+              onClick={() =>
+                setDesktopDropdown((d) => (d === "why" ? null : "why"))
+              }
               className={cn(
                 "flex items-center gap-1 text-sm font-medium transition-colors hover:text-accent",
                 whyActive ? "text-accent" : "text-primary-600",
@@ -266,7 +287,11 @@ export function Navbar() {
           >
             <button
               type="button"
-              onClick={() => setDesktopDropdown((d) => (d === "register" ? null : "register"))}
+              onClick={() =>
+                setDesktopDropdown((d) =>
+                  d === "register" ? null : "register",
+                )
+              }
               className={cn(
                 "flex items-center gap-1 text-sm font-medium transition-colors hover:text-accent",
                 registerActive ? "text-accent" : "text-primary-600",
@@ -341,7 +366,13 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
-            onClick={() => trackWhatsAppClick({ location: 'nav_desktop', ctaText: tnav("whatsapp"), hasPrefill: false })}
+            onClick={() =>
+              trackWhatsAppClick({
+                location: "nav_desktop",
+                ctaText: tnav("whatsapp"),
+                hasPrefill: false,
+              })
+            }
           >
             <MessageCircle className="size-4" aria-hidden />
             {tnav("whatsapp")}
@@ -356,7 +387,13 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
             aria-label={tnav("whatsapp")}
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: tnav("whatsapp"), hasPrefill: false })}
+            onClick={() =>
+              trackWhatsAppClick({
+                location: "nav_mobile",
+                ctaText: tnav("whatsapp"),
+                hasPrefill: false,
+              })
+            }
           >
             <MessageCircle className="size-5" aria-hidden />
           </a>
@@ -367,7 +404,11 @@ export function Navbar() {
             aria-expanded={mobileOpen}
             className="rounded-lg p-2 text-primary"
           >
-            {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+            {mobileOpen ? (
+              <X className="size-6" />
+            ) : (
+              <Menu className="size-6" />
+            )}
           </button>
         </div>
       </nav>
@@ -397,7 +438,9 @@ export function Navbar() {
           <li>
             <button
               type="button"
-              onClick={() => setMobileDropdown((d) => (d === "why" ? null : "why"))}
+              onClick={() =>
+                setMobileDropdown((d) => (d === "why" ? null : "why"))
+              }
               className={cn(
                 "flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
                 whyActive ? "text-accent" : "text-primary-600",
@@ -436,7 +479,9 @@ export function Navbar() {
           <li>
             <button
               type="button"
-              onClick={() => setMobileDropdown((d) => (d === "register" ? null : "register"))}
+              onClick={() =>
+                setMobileDropdown((d) => (d === "register" ? null : "register"))
+              }
               className={cn(
                 "flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-primary-50",
                 registerActive ? "text-accent" : "text-primary-600",
@@ -518,7 +563,13 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
-            onClick={() => trackWhatsAppClick({ location: 'nav_mobile', ctaText: tnav("whatsapp"), hasPrefill: false })}
+            onClick={() =>
+              trackWhatsAppClick({
+                location: "nav_mobile",
+                ctaText: tnav("whatsapp"),
+                hasPrefill: false,
+              })
+            }
           >
             <MessageCircle className="size-4" aria-hidden />
             {tnav("whatsapp")}
