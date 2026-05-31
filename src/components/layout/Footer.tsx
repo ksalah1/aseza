@@ -1,67 +1,57 @@
-import { getLocale, getTranslations } from "next-intl/server";
-import { Phone, MessageCircle } from "lucide-react";
+import { getLocale } from "next-intl/server";
+import { MessageCircle, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { phoneDisplay, phoneLink, whatsappLink, siteConfig } from "@/lib/site";
+import { phoneDisplay, phoneLink, whatsappLink } from "@/lib/site";
+
+const arLinks = {
+  registration: [
+    ["الخدمات", "/services"],
+    ["تسجيل شركة لأول مرة", "/services/register-new-business"],
+    ["شركة أجنبية أو فرع أجنبي", "/services/register-foreign-branch"],
+    ["مراجعة النشاط", "/services/activity-review"],
+  ],
+  after: [
+    ["الترخيص بعد التسجيل", "/services/licensing-after-registration"],
+    ["تعديل بيانات الشركة", "/services/amend-existing-company"],
+    ["تجديد التسجيل", "/services/renew-registration"],
+    ["الضرائب والجمارك", "/tax-customs-aqaba"],
+  ],
+} as const;
+
+const enLinks = {
+  registration: [
+    ["Services", "/services"],
+    ["New company registration", "/services/register-new-business"],
+    ["Foreign company setup", "/services/register-foreign-branch"],
+    ["Activity review", "/services/activity-review"],
+  ],
+  after: [
+    ["Operating requirements", "/services/licensing-after-registration"],
+    ["Company amendments", "/services/amend-existing-company"],
+    ["Annual renewal", "/services/renew-registration"],
+    ["Tax and customs", "/tax-customs-aqaba"],
+  ],
+} as const;
 
 export async function Footer() {
   const locale = await getLocale();
-  const tf = await getTranslations("footer");
+  const isAr = locale === "ar";
+  const links = isAr ? arLinks : enLinks;
+  const contactMessage = isAr
+    ? "أرغب في التحدث مع ASEZA.co حول تسجيل أو تشغيل شركة في العقبة."
+    : "I would like to speak with ASEZA.co about company setup or operation in Aqaba.";
 
   return (
     <footer className="bg-primary text-primary-100">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-
-          {/* Column 1 — Company Registration */}
+      <div className="mx-auto max-w-7xl px-6 py-10">
+        <div className="grid gap-8 md:grid-cols-3">
+          <FooterColumn title={isAr ? "خدمات التسجيل" : "Registration services"} links={links.registration} />
+          <FooterColumn title={isAr ? "بعد التسجيل" : "After registration"} links={links.after} />
           <div>
-            <h2 className="font-semibold text-background">{tf("sections.registration")}</h2>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li><Link href="/register-business-in-aseza">{tf("col1.jordanian")}</Link></li>
-              <li><Link href="/foreign-investors">{tf("col1.foreign")}</Link></li>
-              <li><Link href="/import-export-company-aseza">{tf("col1.importExport")}</Link></li>
-              <li><Link href="/aseza-registration-checklist">{tf("col1.checklist")}</Link></li>
-              <li><Link href="/services/activity-review">{tf("col1.activityReview")}</Link></li>
-              <li><Link href="/aseza-registration-fees">{tf("col1.fees")}</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 2 — Investor Guide */}
-          <div>
-            <h2 className="font-semibold text-background">{tf("sections.investorGuide")}</h2>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li><Link href="/why-aqaba">{tf("col2.whyAqaba")}</Link></li>
-              <li><Link href="/tax-customs-aqaba">{tf("col2.taxCustoms")}</Link></li>
-              <li><Link href="/restricted-prohibited-activities-aseza">{tf("col2.permitted")}</Link></li>
-              <li><Link href="/permitted-activities-list">{tf("col2.permittedList")}</Link></li>
-              <li><Link href="/labor-work-permits-aseza">{tf("col2.workPermits")}</Link></li>
-              <li><Link href="/legal-references">{tf("col2.legalRefs")}</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3 — After Registration */}
-          <div>
-            <h2 className="font-semibold text-background">{tf("sections.afterRegistration")}</h2>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li><Link href="/licensing-after-registration">{tf("col3.licensing")}</Link></li>
-              <li><Link href="/annual-renewal-aseza">{tf("col3.renewal")}</Link></li>
-              <li><Link href="/services/amend-existing-company">{tf("col3.amend")}</Link></li>
-              <li><Link href="/services/renew-registration">{tf("col3.renewReg")}</Link></li>
-              <li><Link href="/faq">{tf("col3.faq")}</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4 — About the Firm */}
-          <div>
-            <h2 className="font-semibold text-background">{tf("sections.about")}</h2>
-            <div className="mt-3 space-y-1 text-sm">
-              <p className="font-semibold text-background">{tf("attorney.name")}</p>
-              <p>{tf("attorney.title")}</p>
-              <p>{tf("attorney.member")}</p>
-              <p>{tf("attorney.memberNo")}</p>
-            </div>
-            <div className="mt-4 space-y-2 text-sm">
+            <h2 className="font-semibold text-background">{isAr ? "تواصل معنا" : "Contact"}</h2>
+            <div className="mt-4 space-y-3 text-sm">
               <a
-                href={whatsappLink()}
+                href={whatsappLink(contactMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 transition-colors hover:text-accent"
@@ -73,44 +63,45 @@ export async function Footer() {
                 <Phone className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">{phoneDisplay()}</span>
               </a>
-              <Link href="/about" className="block text-accent transition-colors hover:underline">
-                {tf("verifyLink")}
+              <Link href="/contact" className="block text-accent transition-colors hover:underline">
+                {isAr ? "صفحة التواصل" : "Contact page"}
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Collapsible legal notices */}
-        <details className="mt-6 border-t border-primary-700 pt-4">
-          <summary className="cursor-pointer text-xs font-semibold text-accent">
-            {tf("legalNotices.summary")}
-          </summary>
-          <ul className="mt-3 space-y-2 text-xs text-primary-300">
-            {(tf.raw("legalNotices.items") as string[]).map((item: string, i: number) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="mt-1.5 size-1 rounded-full bg-primary-300 shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </details>
-
-        {/* Bottom bar */}
-        <div className="mt-8 border-t border-primary-700 pt-6">
-          <div className="flex flex-col items-center gap-3 text-center text-xs text-primary-300 sm:flex-row sm:justify-between sm:text-start">
-            <p>{tf("bottomDisclaimer")}</p>
-            <a
-              href={siteConfig.officialAsezaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whitespace-nowrap text-accent transition-colors hover:underline"
-            >
-              {tf("bottomOfficialSite")}
-            </a>
-            <p className="whitespace-nowrap">{tf("bottomCopyright")}</p>
-          </div>
+        <div className="mt-8 border-t border-primary-700 pt-5 text-xs leading-6 text-primary-300">
+          <p>
+            {isAr
+              ? "ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في فهم وتجهيز معاملات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة. الموقع ليس تابعاً لسلطة منطقة العقبة الاقتصادية الخاصة. المعلومات المنشورة إرشادية، والقرار النهائي والرسوم الرسمية تكون لدى الجهات المختصة."
+              : "ASEZA.co is an independent consulting service helping investors and companies understand and prepare ASEZA registration and licensing matters. It is not affiliated with the Aqaba Special Economic Zone Authority. Published information is guidance only; final decisions and official fees remain with the competent authorities."}
+          </p>
+          <p className="mt-3">© {new Date().getFullYear()} ASEZA.co</p>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly (readonly [string, string])[];
+}) {
+  return (
+    <div>
+      <h2 className="font-semibold text-background">{title}</h2>
+      <ul className="mt-3 space-y-2 text-sm">
+        {links.map(([label, href]) => (
+          <li key={href}>
+            <Link href={href} className="transition-colors hover:text-accent">
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

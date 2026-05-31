@@ -1,184 +1,166 @@
 import { MessageCircle } from "lucide-react";
 import { Card, Section } from "@/components/ui";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/site";
 
-export type ServicePageContent = {
-  title: string;
-  description: string;
-  forWho: string[];
-  result: string[];
-  beforeApply: string[];
-  documents: string[];
-  fees: { legal: string; gov: string; cert: string; extra: string };
-  steps: string[];
-  expectedTime: string;
-  delivery: string[];
-  online: string;
-  mistakes: string[];
-  after: string[];
-  startInfo?: {
-    title: string;
-    intro?: string;
-    items: string[];
-    ctaLabel: string;
-    whatsappMessage: string;
-  };
+export type ServiceRelatedLink = {
+  label: string;
+  href: string;
 };
 
-const checklist = [
-  "وصف واضح للنشاط",
-  "هل الشركة جديدة أم قائمة؟",
-  "أسماء الشركاء أو المالكين",
-  "جنسية الشركاء",
-  "المفوضون بالتوقيع",
-  "هل يوجد مقر أو موقع في العقبة؟",
-  "هل النشاط يتضمن بضائع أو مواد خاصة؟",
-  "هل النشاط يحتاج موافقة قطاعية؟",
-  "هل توجد وثائق أجنبية تحتاج تصديقاً أو ترجمة؟",
-];
+export type ServicePageContent = {
+  label: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  whatsappMessage: string;
+  secondaryCta?: { label: string; href: string };
+  whatWeDo: string[];
+  forWho: string[];
+  coreTitle: string;
+  coreIntro?: string;
+  coreItems: string[];
+  needsTitle?: string;
+  needs: string[];
+  steps: string[];
+  afterTitle?: string;
+  after?: string[];
+  related: ServiceRelatedLink[];
+};
 
 export function ServicePageTemplate({
   content,
 }: {
   content: ServicePageContent;
 }) {
-  const startInfo = content.startInfo ?? {
-    title: "قبل أن تبدأ، حضّر هذه المعلومات",
-    items: checklist,
-    ctaLabel: "أرسل وصف نشاطك للمراجعة",
-    whatsappMessage: "أرغب في إرسال وصف نشاطي للمراجعة.",
-  };
-
   return (
     <>
-      <Section width="narrow">
-        <h1 className="text-3xl font-bold text-primary md:text-4xl">
-          {content.title}
-        </h1>
-        <p className="mt-4 text-primary-600">{content.description}</p>
-        <p className="mt-3 text-sm text-primary-500">
-          ابدأ بوصف النشاط فقط، ولا ترسل وثائق حساسة في البداية. سنخبرك إذا
-          احتجنا وثائق إضافية.
-        </p>
-      </Section>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb
+          items={[
+            { label: "الرئيسية", href: "/" },
+            { label: "خدماتنا", href: "/services" },
+            { label: content.title },
+          ]}
+        />
+      </div>
 
-      <Section width="wide" background="muted" className="py-10">
-        <div className="grid gap-5 md:grid-cols-2">
-          <Block
-            title="من يمكنه الاستفادة من هذه الخدمة؟"
-            items={content.forWho}
-          />
-          <Block title="ما نتيجة الخدمة؟" items={content.result} />
-          <Block title="ماذا تجهز قبل التقديم؟" items={content.beforeApply} />
-          <Block title="الوثائق المطلوبة" items={content.documents} />
-          <Card>
-            <h2 className="text-xl font-semibold text-primary">
-              الرسوم والأتعاب
-            </h2>
-            <ul className="mt-3 space-y-2 text-primary-600 text-sm">
-              <li>
-                <b>أتعاب الخدمة القانونية:</b> {content.fees.legal}
-              </li>
-              <li>
-                <b>الرسوم الحكومية:</b> {content.fees.gov}
-              </li>
-              <li>
-                <b>رسوم التصديق أو الترجمة:</b> {content.fees.cert}
-              </li>
-              <li>
-                <b>رسوم أو موافقات إضافية حسب النشاط:</b> {content.fees.extra}
-              </li>
+      <Section width="wide" className="pb-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+          <div>
+            <p className="text-sm font-semibold text-accent">{content.label}</p>
+            <h1 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-5xl">
+              {content.title}
+            </h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-primary-600">
+              {content.description}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={whatsappLink(content.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 font-semibold text-white transition hover:bg-[#1DA851]"
+              >
+                <MessageCircle className="size-4" aria-hidden />
+                {content.ctaLabel}
+              </a>
+              {content.secondaryCta ? (
+                <a
+                  href={content.secondaryCta.href}
+                  className="inline-flex items-center rounded-lg border border-primary-200 px-5 py-3 font-semibold text-primary transition hover:border-accent hover:text-accent"
+                >
+                  {content.secondaryCta.label}
+                </a>
+              ) : null}
+            </div>
+          </div>
+
+          <Card accent className="bg-primary text-background">
+            <h2 className="text-xl font-semibold">ماذا سنفعل لك؟</h2>
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-primary-100">
+              {content.whatWeDo.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-            <p className="mt-3 text-xs text-primary-500">
-              الرسوم الرسمية قد تتغير ويجب تأكيدها قبل الدفع.
-            </p>
           </Card>
-          <Block title="خطوات الخدمة" items={content.steps} ordered />
-          <Card>
-            <h2 className="text-xl font-semibold text-primary">
-              المدة المتوقعة
-            </h2>
-            <p className="mt-3 text-primary-600">{content.expectedTime}</p>
-            <p className="mt-2 text-sm text-primary-500">
-              قد تزيد المدة عند وجود نشاط مقيد أو نقص في الوثائق أو موافقات
-              إضافية.
-            </p>
-          </Card>
-          <Block title="طريقة التقديم والاستلام" items={content.delivery} />
-          <Card>
-            <h2 className="text-xl font-semibold text-primary">
-              هل يمكن إنجازها إلكترونياً؟
-            </h2>
-            <p className="mt-3 text-primary-600">{content.online}</p>
-            <p className="mt-2 text-sm text-primary-500">
-              بعض الخطوات قد تتم إلكترونياً، وبعضها قد يحتاج توقيعاً أو وكالة.
-            </p>
-          </Card>
-          <Block
-            title="أسباب شائعة للتأخير أو الرفض"
-            items={content.mistakes}
-          />
-          <Block title="ماذا يحدث بعد ذلك؟" items={content.after} />
         </div>
       </Section>
 
-      <Section width="default">
-        <Card>
-          <h2 className="text-2xl font-semibold text-primary">
-            {startInfo.title}
-          </h2>
-          {startInfo.intro ? (
-            <p className="mt-3 text-primary-600">{startInfo.intro}</p>
-          ) : null}
-          <ul className="mt-4 grid gap-2 md:grid-cols-2 text-primary-600">
-            {startInfo.items.map((i) => (
-              <li key={i}>• {i}</li>
-            ))}
-          </ul>
-          <a
-            href={whatsappLink(startInfo.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-accent font-semibold"
-          >
-            <MessageCircle className="size-4" aria-hidden />
-            {startInfo.ctaLabel}
-          </a>
-        </Card>
+      <Section id="requirements" width="wide" background="muted" className="py-12 md:py-16">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <ListCard title="لمن هذه الخدمة؟" items={content.forWho} />
+          <ListCard
+            title={content.coreTitle}
+            intro={content.coreIntro}
+            items={content.coreItems}
+          />
+          <ListCard
+            title={content.needsTitle ?? "ماذا نحتاج منك؟"}
+            items={content.needs}
+          />
+          <ListCard title="خطوات العمل" items={content.steps} ordered />
+        </div>
       </Section>
 
-      <Section width="default" background="muted">
+      {content.after?.length ? (
+        <Section width="default" className="py-12 md:py-16">
+          <ListCard title={content.afterTitle ?? "بعد ذلك"} items={content.after} />
+        </Section>
+      ) : null}
+
+      <Section width="default" background="muted" className="py-12 md:py-16">
         <Card accent>
-          <h2 className="text-2xl font-semibold text-primary">
-            غير متأكد إن كانت هذه الخدمة مناسبة لحالتك؟
-          </h2>
-          <p className="mt-3 text-primary-600">
-            أرسل وصفاً مختصراً للنشاط أو وضع الشركة، وسنساعدك على تحديد الخدمة
-            الأقرب وما يجب تحضيره قبل التقديم.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <h2 className="text-2xl font-semibold text-primary">ابدأ بخطوة واضحة</h2>
+              <p className="mt-3 text-primary-600">
+                أرسل ملخصاً قصيراً عن وضعك الحالي، وسنحدد لك المسار والوثائق والخطوة التالية.
+              </p>
+            </div>
             <a
-              href={whatsappLink()}
+              href={whatsappLink(content.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 font-semibold text-white transition hover:bg-[#1DA851]"
             >
               <MessageCircle className="size-4" aria-hidden />
-              تواصل معنا عبر واتساب
+              {content.ctaLabel}
             </a>
           </div>
         </Card>
+      </Section>
+
+      <Section width="default" className="py-12 md:py-16">
+        <h2 className="text-2xl font-semibold text-primary">خدمات مرتبطة</h2>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {content.related.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-2xl border border-primary-100 bg-white p-5 font-semibold text-primary shadow-sm transition hover:border-accent hover:text-accent"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </Section>
     </>
   );
 }
 
-function Block({
+function ListCard({
   title,
+  intro,
   items,
   ordered,
 }: {
   title: string;
+  intro?: string;
   items: string[];
   ordered?: boolean;
 }) {
@@ -186,11 +168,14 @@ function Block({
   return (
     <Card>
       <h2 className="text-xl font-semibold text-primary">{title}</h2>
-      <Tag className="mt-3 space-y-2 text-primary-600 text-sm">
-        {items.map((item) => (
-          <li key={item}>
-            {ordered ? "" : "• "}
-            {item}
+      {intro ? <p className="mt-3 text-sm leading-7 text-primary-600">{intro}</p> : null}
+      <Tag className="mt-4 space-y-3 text-sm leading-7 text-primary-600">
+        {items.map((item, index) => (
+          <li key={item} className="flex gap-2">
+            <span className="mt-0.5 font-semibold text-accent">
+              {ordered ? `${index + 1}.` : "•"}
+            </span>
+            <span>{item}</span>
           </li>
         ))}
       </Tag>

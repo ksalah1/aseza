@@ -4,29 +4,140 @@ import { MessageCircle } from "lucide-react";
 import { Card, Section } from "@/components/ui";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, whatsappLink } from "@/lib/site";
-import { TrustAndTransparency } from "@/components/sections";
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  if (locale === "ar") return { title: "خدمات تسجيل وترخيص الشركات في ASEZA", description: "دليل خدمات عملي لتسجيل الشركات والمؤسسات في منطقة العقبة الاقتصادية الخاصة، مع الوثائق والخطوات والرسوم والمدة والمتطلبات المحتملة." };
-  return { title: "ASEZA Registration & Licensing Services", description: "Practical service directory for registration, licensing, amendments, renewals, and required documents." };
-}
+import { whatsappLink } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
 const services = [
-  ["تسجيل شركة لأول مرة", "للمستثمر الذي يريد تأسيس شركة أو مؤسسة جديدة داخل منطقة العقبة الاقتصادية الخاصة.", "أنا: مستثمر أريد تأسيس شركة لأول مرة", "ابدأ بمراجعة النشاط والشكل القانوني.", "/services/register-new-business"],
-  ["تسجيل فرع شركة أجنبية", "للشركات الأجنبية التي ترغب بفتح فرع في العقبة وفق الشروط القانونية.", "أنا: شركة أجنبية تريد فتح فرع في العقبة", "جهّز وثائق الشركة الأم والترجمة والتصديق.", "/services/register-foreign-branch"],
-  ["مراجعة النشاط", "مراجعة قانونية أولية لمعرفة إن كان النشاط مسموحاً أو مقيداً أو محظوراً.", "أنا: لست متأكداً إن كان نشاطي مسموحاً", "أرسل وصف النشاط قبل تجهيز الملف.", "/services/activity-review"],
-  ["الترخيص بعد التسجيل", "شرح متطلبات مزاولة النشاط بعد صدور التسجيل حسب النشاط.", "أنا: شركة مسجلة تريد معرفة ما يلزم للتشغيل", "تحديد الشهادات والموافقات المطلوبة للتشغيل.", "/services/licensing-after-registration"],
-  ["تعديل شركة قائمة", "تعديل نشاط، عنوان، مفوضين أو بيانات الشركة المسجلة.", "أنا: شركة مسجلة تريد تعديل بياناتها", "حدد التعديل المطلوب والوثائق الداعمة.", "/services/amend-existing-company"],
-  ["تجديد التسجيل", "متابعة التجديدات السنوية والرسوم والوثائق المطلوبة.", "أنا: شركة مسجلة تريد تجديد ترخيصها", "افحص تاريخ انتهاء الشهادة قبل الموعد.", "/services/renew-registration"],
+  {
+    title: "تسجيل شركة لأول مرة",
+    for: "مستثمر يريد تأسيس شركة جديدة في العقبة",
+    cta: "ابدأ التسجيل",
+    href: "/services/register-new-business",
+  },
+  {
+    title: "شركة أجنبية أو فرع أجنبي",
+    for: "شركة خارج الأردن تريد دخول السوق من خلال العقبة",
+    cta: "اختر المسار المناسب",
+    href: "/services/register-foreign-branch",
+  },
+  {
+    title: "مراجعة النشاط قبل التسجيل",
+    for: "من يريد التأكد من صياغة النشاط قبل بدء الملف",
+    cta: "راجع النشاط",
+    href: "/services/activity-review",
+  },
+  {
+    title: "الترخيص بعد التسجيل",
+    for: "شركة حصلت على التسجيل وتريد بدء التشغيل",
+    cta: "جهّز متطلبات التشغيل",
+    href: "/services/licensing-after-registration",
+  },
+  {
+    title: "تعديل شركة قائمة",
+    for: "شركة تريد تعديل نشاط، عنوان، مفوضين، أو بيانات",
+    cta: "عدّل بيانات الشركة",
+    href: "/services/amend-existing-company",
+  },
+  {
+    title: "تجديد التسجيل",
+    for: "شركة مسجلة تريد التجديد السنوي",
+    cta: "ابدأ التجديد",
+    href: "/services/renew-registration",
+  },
 ] as const;
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params; setRequestLocale(locale);
-  return <><div className="mx-auto max-w-7xl px-6 pt-4"><Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "خدماتنا" }]} /></div><Section width="wide"><h1 className="text-3xl font-bold text-primary">{locale==="ar"?"خدمات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة":"ASEZA Registration & Licensing Services"}</h1><p className="mt-4 text-primary-600">{locale==="ar"?"أين أنت الآن في رحلتك؟ اختر حالتك وسنخبرك بالخطوة الأولى.":"Choose the service closest to your case. We help you understand eligibility, expected documents, steps, fees, and the difference between registration, licensing, permits, and post-registration approvals."}</p><p className="mt-2 text-sm text-primary-500">هذه خدمة قانونية خاصة — نتولى التحضير والمتابعة، والقرار النهائي لسلطة العقبة.</p>
-  <div className="mt-10 grid gap-5 md:grid-cols-2">{services.map((s)=><Card key={s[0]}><h2 className="text-xl font-semibold text-primary">{s[0]}</h2><p className="mt-2 text-primary-600 text-sm">{s[1]}</p><p className="mt-2 text-sm text-primary-500"><b>لمن:</b> {s[2]}</p><p className="mt-2 text-sm text-primary-500"><b>الخطوة التالية:</b> {s[3]}</p><Link href={s[4]} className="mt-3 inline-block text-accent font-semibold">عرض تفاصيل الخدمة</Link></Card>)}</div>
-  <div className="mt-12 overflow-x-auto"><h2 className="text-2xl font-semibold text-primary mb-4">اختر الخدمة المناسبة لحالتك</h2><table className="w-full bg-white border border-primary-100"><thead><tr className="text-start"><th className="p-3">الحالة</th><th className="p-3">الخدمة المناسبة</th><th className="p-3">ما يجب فعله أولاً</th><th className="p-3">رابط الخدمة</th></tr></thead><tbody>{services.map((s)=><tr key={s[0]} className="border-t"><td className="p-3">{s[1]}</td><td className="p-3">{s[0]}</td><td className="p-3">{s[3]}</td><td className="p-3"><Link href={s[4]} className="text-accent">فتح</Link></td></tr>)}</tbody></table></div>
-  <Card className="mt-10"><h2 className="text-2xl font-semibold text-primary">الخدمات الإلكترونية والبوابة الرسمية</h2><p className="mt-3 text-primary-600">بعض خدمات سلطة منطقة العقبة الاقتصادية الخاصة قد تكون متاحة عبر البوابة الرسمية أو من خلال حساب المستخدم أو سند، بينما قد تتطلب بعض المعاملات وثائق أصلية أو توقيعاً أو وكالة أو مراجعة حسب الحالة.</p><p className="mt-2 text-sm text-primary-500">البوابة الرسمية لسلطة منطقة العقبة الاقتصادية الخاصة</p><div className="mt-4 flex gap-3"><a href={siteConfig.officialAsezaUrl} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-primary px-4 py-2 text-background">زيارة البوابة الرسمية</a><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 font-semibold text-white"><MessageCircle className="size-4" aria-hidden />تواصل معنا عبر واتساب</a></div></Card>
-  </Section><TrustAndTransparency /></>;
+const selector = [
+  ["أريد تسجيل شركة جديدة", "/services/register-new-business"],
+  ["شركتي أجنبية", "/services/register-foreign-branch"],
+  ["لست متأكداً من النشاط", "/services/activity-review"],
+  ["سجلت الشركة وأريد التشغيل", "/services/licensing-after-registration"],
+  ["لدي شركة وأريد تعديل بياناتها", "/services/amend-existing-company"],
+  ["أريد التجديد السنوي", "/services/renew-registration"],
+] as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return buildMetadata({
+    locale,
+    path: "/services",
+    title: "خدمات تسجيل الشركات في ASEZA | تأسيس وترخيص وتجديد الشركات في العقبة",
+    description:
+      "خدمات استشارية لتسجيل الشركات في ASEZA، تسجيل الفروع الأجنبية، مراجعة النشاط، الترخيص بعد التسجيل، التعديل، والتجديد السنوي.",
+    includeFirmInTitle: false,
+  });
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return (
+    <>
+      <div className="mx-auto max-w-7xl px-6 pt-4">
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "خدماتنا" }]} />
+      </div>
+
+      <Section width="wide">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold text-accent">ASEZA company registration support</p>
+            <h1 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-5xl">
+              خدمات تسجيل وترخيص الشركات في ASEZA
+            </h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-primary-600">
+              اختر ما تحتاجه الآن: تسجيل شركة جديدة، تنظيم وجود شركة أجنبية، مراجعة نشاط، ترخيص بعد التسجيل، تعديل بيانات، أو تجديد سنوي. نساعدك على تحديد المسار وتجهيز الملف والمتابعة.
+            </p>
+            <a
+              href={whatsappLink("أريد تحديد خدمة ASEZA المناسبة لحالتي والبدء بخطوة واضحة.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 font-semibold text-white transition hover:bg-[#1DA851]"
+            >
+              <MessageCircle className="size-4" aria-hidden />
+              ابدأ عبر واتساب
+            </a>
+          </div>
+          <Card accent>
+            <h2 className="text-xl font-semibold text-primary">ما وضعك الآن؟</h2>
+            <div className="mt-4 grid gap-3">
+              {selector.map(([label, href]) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="rounded-xl border border-primary-100 bg-primary-50 px-4 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
+                >
+                  {label} ←
+                </Link>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </Section>
+
+      <Section width="wide" background="muted">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <Card key={service.href} hoverable>
+              <h2 className="text-xl font-semibold text-primary">{service.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-primary-600">
+                <span className="font-semibold text-primary">لمن: </span>
+                {service.for}
+              </p>
+              <Link href={service.href} className="mt-5 inline-block font-semibold text-accent hover:underline">
+                {service.cta}
+              </Link>
+            </Card>
+          ))}
+        </div>
+      </Section>
+    </>
+  );
 }
