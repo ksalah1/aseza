@@ -16,7 +16,16 @@ export function MobileStickyCTA() {
           rel="noopener noreferrer"
           aria-label={isAr ? "تواصل مع ASEZA.co عبر واتساب" : "Contact ASEZA.co via WhatsApp"}
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white"
-          onClick={() => trackWhatsAppClick({ location: 'mobile_sticky', ctaText: isAr ? 'تواصل معنا عبر واتساب' : 'Contact us via WhatsApp', hasPrefill: false, locale: isAr ? 'ar' : 'en' })}
+          onClick={() =>
+            trackWhatsAppClick({
+              location: "mobile_sticky",
+              ctaText: isAr
+                ? "تواصل معنا عبر واتساب"
+                : "Contact us via WhatsApp",
+              hasPrefill: false,
+              locale: isAr ? "ar" : "en",
+            })
+          }
         >
           {isAr ? "تواصل معنا عبر واتساب" : "Contact us via WhatsApp"}
         </a>

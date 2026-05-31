@@ -45,10 +45,18 @@ export async function Footer() {
     <footer className="bg-primary text-primary-100">
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-8 md:grid-cols-3">
-          <FooterColumn title={isAr ? "خدمات التسجيل" : "Registration services"} links={links.registration} />
-          <FooterColumn title={isAr ? "بعد التسجيل" : "After registration"} links={links.after} />
+          <FooterColumn
+            title={isAr ? "خدمات التسجيل" : "Registration services"}
+            links={links.registration}
+          />
+          <FooterColumn
+            title={isAr ? "بعد التسجيل" : "After registration"}
+            links={links.after}
+          />
           <div>
-            <h2 className="font-semibold text-background">{isAr ? "تواصل معنا" : "Contact"}</h2>
+            <h2 className="font-semibold text-background">
+              {isAr ? "تواصل معنا" : "Contact"}
+            </h2>
             <div className="mt-4 space-y-3 text-sm">
               <a
                 href={whatsappLink(contactMessage)}
@@ -59,11 +67,17 @@ export async function Footer() {
                 <MessageCircle className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">+962 78 555 9253</span>
               </a>
-              <a href={phoneLink()} className="flex items-center gap-2 transition-colors hover:text-accent">
+              <a
+                href={phoneLink()}
+                className="flex items-center gap-2 transition-colors hover:text-accent"
+              >
                 <Phone className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">{phoneDisplay()}</span>
               </a>
-              <Link href="/contact" className="block text-accent transition-colors hover:underline">
+              <Link
+                href="/contact"
+                className="block text-accent transition-colors hover:underline"
+              >
                 {isAr ? "صفحة التواصل" : "Contact page"}
               </Link>
             </div>
