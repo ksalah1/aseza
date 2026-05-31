@@ -15,6 +15,7 @@ export interface PageMetaOptions {
   type?: "website" | "article";
   /** ISO publish date — only used for articles. */
   publishedTime?: string;
+  includeFirmInTitle?: boolean;
 }
 
 export interface BreadcrumbSchemaItem {
@@ -33,12 +34,12 @@ export function buildMetadata({
   description,
   type = "website",
   publishedTime,
+  includeFirmInTitle = true,
 }: PageMetaOptions): Metadata {
   const url = `${SITE_URL}/${locale}${path}`;
-  // Surface the legal entity in every title and link preview so the snippet
-  // itself never reads as the official ASEZA authority.
+  // Most pages append the legal entity; service pages can opt out for cleaner business-focused SEO titles.
   const firm = firmName(locale);
-  const fullTitle = `${title} | ${firm}`;
+  const fullTitle = includeFirmInTitle ? `${title} | ${firm}` : title;
 
   return {
     title: fullTitle,
