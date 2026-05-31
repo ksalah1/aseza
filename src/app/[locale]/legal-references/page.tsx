@@ -83,8 +83,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <Section width="wide" background="muted">
         <h2 className="text-2xl font-bold text-primary md:text-3xl">جدول المراجع</h2>
-        <div className="mt-8 hidden overflow-x-auto rounded-2xl border border-primary-100 bg-white shadow-sm lg:block">
-          <table className="w-full text-sm">
+        <div className="mt-8 overflow-x-auto rounded-2xl border border-primary-100 bg-white shadow-sm">
+          <table className="min-w-[920px] w-full text-sm">
             <thead className="bg-primary text-background">
               <tr>
                 <th className="px-5 py-4 text-start font-semibold">المرجع</th>
@@ -116,25 +116,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div className="mt-8 space-y-4 lg:hidden">
-          {references.map((ref) => (
-            <div key={ref.title} className="rounded-2xl border border-primary-100 bg-white p-5 shadow-sm">
-              <h3 className="font-bold leading-relaxed text-primary">{ref.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-primary-600">{ref.importance}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {ref.pages.map(([label, href]) => (
-                  <Link key={href} href={href} className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary hover:text-accent">
-                    {label}
-                  </Link>
-                ))}
-              </div>
-              <a href={ref.official} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
-                الموقع الرسمي
-              </a>
-            </div>
-          ))}
         </div>
       </Section>
 
