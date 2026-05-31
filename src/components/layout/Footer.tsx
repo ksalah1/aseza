@@ -45,10 +45,18 @@ export async function Footer() {
     <footer className="bg-primary text-primary-100">
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-8 md:grid-cols-3">
-          <FooterColumn title={isAr ? "خدمات التسجيل" : "Registration services"} links={links.registration} />
-          <FooterColumn title={isAr ? "بعد التسجيل" : "After registration"} links={links.after} />
+          <FooterColumn
+            title={isAr ? "خدمات التسجيل" : "Registration services"}
+            links={links.registration}
+          />
+          <FooterColumn
+            title={isAr ? "بعد التسجيل" : "After registration"}
+            links={links.after}
+          />
           <div>
-            <h2 className="font-semibold text-background">{isAr ? "تواصل معنا" : "Contact"}</h2>
+            <h2 className="font-semibold text-background">
+              {isAr ? "تواصل معنا" : "Contact"}
+            </h2>
             <div className="mt-4 space-y-3 text-sm">
               <a
                 href={whatsappLink(contactMessage)}
@@ -59,11 +67,17 @@ export async function Footer() {
                 <MessageCircle className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">+962 78 555 9253</span>
               </a>
-              <a href={phoneLink()} className="flex items-center gap-2 transition-colors hover:text-accent">
+              <a
+                href={phoneLink()}
+                className="flex items-center gap-2 transition-colors hover:text-accent"
+              >
                 <Phone className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">{phoneDisplay()}</span>
               </a>
-              <Link href="/contact" className="block text-accent transition-colors hover:underline">
+              <Link
+                href="/contact"
+                className="block text-accent transition-colors hover:underline"
+              >
                 {isAr ? "صفحة التواصل" : "Contact page"}
               </Link>
             </div>
@@ -73,7 +87,7 @@ export async function Footer() {
         <div className="mt-8 border-t border-primary-700 pt-5 text-xs leading-6 text-primary-300">
           <p>
             {isAr
-              ? "ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في فهم وتجهيز معاملات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة. الموقع ليس تابعاً لسلطة منطقة العقبة الاقتصادية الخاصة. المعلومات المنشورة إرشادية، والقرار النهائي والرسوم الرسمية تكون لدى الجهات المختصة."
+              ? "ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في تجهيز معاملات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة. الموقع ليس تابعاً لسلطة منطقة العقبة الاقتصادية الخاصة."
               : "ASEZA.co is an independent consulting service helping investors and companies understand and prepare ASEZA registration and licensing matters. It is not affiliated with the Aqaba Special Economic Zone Authority. Published information is guidance only; final decisions and official fees remain with the competent authorities."}
           </p>
           <p className="mt-3">© {new Date().getFullYear()} ASEZA.co</p>
