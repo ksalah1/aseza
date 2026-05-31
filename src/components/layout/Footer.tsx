@@ -73,7 +73,7 @@ export async function Footer() {
         <div className="mt-8 border-t border-primary-700 pt-5 text-xs leading-6 text-primary-300">
           <p>
             {isAr
-              ? "ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في فهم وتجهيز معاملات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة. الموقع ليس تابعاً لسلطة منطقة العقبة الاقتصادية الخاصة. المعلومات المنشورة إرشادية، والقرار النهائي والرسوم الرسمية تكون لدى الجهات المختصة."
+              ? "ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في تجهيز معاملات التسجيل والترخيص في منطقة العقبة الاقتصادية الخاصة. الموقع ليس تابعاً لسلطة منطقة العقبة الاقتصادية الخاصة."
               : "ASEZA.co is an independent consulting service helping investors and companies understand and prepare ASEZA registration and licensing matters. It is not affiliated with the Aqaba Special Economic Zone Authority. Published information is guidance only; final decisions and official fees remain with the competent authorities."}
           </p>
           <p className="mt-3">© {new Date().getFullYear()} ASEZA.co</p>

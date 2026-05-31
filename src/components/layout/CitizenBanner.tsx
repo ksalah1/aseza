@@ -28,8 +28,8 @@ export function CitizenBanner() {
     >
       <span>
         {locale === "ar"
-          ? "خدمة قانونية خاصة من شركة البركات للمحاماة"
-          : "Private legal service by Al-Barakat Law Firm"}
+          ? "خدمة استشارية لتجهيز ومتابعة معاملات ASEZA"
+          : "Independent consulting support for ASEZA registration matters"}
       </span>
       <button
         type="button"
