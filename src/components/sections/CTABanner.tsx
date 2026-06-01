@@ -31,7 +31,8 @@ export function CTABanner() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href={whatsappLink("أريد مراجعة نشاط لتسجيل شركة في العقبة")}
+            href={whatsappLink(`أريد تحديد المسار المناسب لنشاط لتسجيل شركة في العقبة
+وصف النشاط:`)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-7 py-3.5 text-lg font-semibold text-white transition-colors hover:bg-[#1DA851] sm:w-auto"

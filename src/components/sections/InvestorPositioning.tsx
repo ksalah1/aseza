@@ -89,10 +89,10 @@ export function InvestorPositioning() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
-                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'استشارة مجانية — اعرف ما يعنيه هذا لنشاطك', hasPrefill: false })}
+                onClick={() => trackWhatsAppClick({ location: 'section_investor_positioning', ctaText: 'استفسار أولي — اعرف المسار المناسب لنشاطك', hasPrefill: false })}
               >
                 <MessageCircle className="size-5" aria-hidden />
-                استشارة مجانية — اعرف ما يعنيه هذا لنشاطك
+                استفسار أولي — اعرف المسار المناسب لنشاطك
               </a>
             </div>
           </Section>

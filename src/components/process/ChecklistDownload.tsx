@@ -9,7 +9,10 @@ export function ChecklistDownload() {
 
   return (
     <a
-      href={whatsappLink("أرغب في الحصول على قائمة المستندات المطلوبة للتسجيل في ASEZA.")}
+      href={whatsappLink(`مرحباً، أريد تحديد قائمة الوثائق المناسبة للتسجيل في ASEZA.
+نوع الشركة:
+النشاط:
+هل الشركة جديدة أم قائمة؟`)}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
