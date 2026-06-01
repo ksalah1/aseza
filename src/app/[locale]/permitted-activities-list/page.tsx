@@ -186,7 +186,7 @@ export default async function PermittedActivitiesListPage({
           <p className="mt-2 text-sm text-amber-700">
             كثير من الأنشطة تقع في المنطقة الرمادية بين &quot;مسموح&quot; و&quot;مقيد&quot; بسبب التفاصيل التشغيلية.
             مراجعة النشاط مع محامٍ مختص قبل تقديم الطلب توفّر عليك وقتاً وتكاليف. خدمة مراجعة النشاط
-            المقدمة من شركة البركات للمحاماة تغطي هذه الحالات بالتفصيل.
+            المقدمة من ASEZA.co تغطي هذه الحالات بالتفصيل.
           </p>
           <Link
             href="/services/activity-review"

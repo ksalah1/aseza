@@ -14,7 +14,7 @@ export async function generateMetadata({
     title: locale === "ar" ? "سياسة الخصوصية" : "Privacy Policy",
     description:
       locale === "ar"
-        ? "سياسة الخصوصية لموقع aseza.co — خدمة قانونية خاصة من شركة البركات للمحاماة"
+        ? "سياسة الخصوصية لموقع ASEZA.co — خدمة استشارية لتسجيل الشركات في العقبة"
         : "Privacy policy for aseza.co — a private legal service by Al-Barakat Law Firm",
   });
 }
@@ -52,7 +52,7 @@ export default async function PrivacyPolicyPage({
             <ul className="mr-4 mt-2 list-inside list-disc space-y-1">
               <li>اسمك والمعلومات التي تشاركها طوعاً</li>
               <li>وصف النشاط أو الاستفسار القانوني</li>
-              <li>الوثائق التي ترسلها لأغراض المراجعة</li>
+              <li>المعلومات أو الوثائق التي تطلبها الخدمة بعد الاتفاق على نطاق المتابعة</li>
             </ul>
           </div>
 

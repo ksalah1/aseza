@@ -83,6 +83,14 @@ export function Navbar() {
   const isAr = locale === "ar";
   const pathname = usePathname();
 
+  const defaultWhatsAppMessage = isAr
+    ? `مرحباً، أريد تسجيل شركة في ASEZA.
+النشاط المطلوب:
+هل الشركة جديدة أم قائمة؟
+هل يوجد شركاء أجانب؟
+هل النشاط استيراد/تصدير أو خدمات أو تصنيع؟`
+    : "Hello, I want to register a company in ASEZA. Activity: New or existing company? Foreign partners? Import/export, services, or manufacturing?";
+
   const WHY_AQABA_ITEMS = isAr
     ? [
         {
@@ -116,7 +124,7 @@ export function Navbar() {
           href: "/existing-aseza-companies",
         },
         {
-          label: "قائمة الوثائق المطلوبة",
+          label: "قائمة تجهيز التسجيل",
           href: "/aseza-registration-checklist",
         },
         { label: "رسوم التسجيل في ASEZA", href: "/aseza-registration-fees" },
@@ -362,7 +370,7 @@ export function Navbar() {
           </Link>
           <LanguageSwitcher />
           <a
-            href={whatsappLink()}
+            href={whatsappLink(defaultWhatsAppMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-accent-500"
@@ -370,7 +378,7 @@ export function Navbar() {
               trackWhatsAppClick({
                 location: "nav_desktop",
                 ctaText: tnav("whatsapp"),
-                hasPrefill: false,
+                hasPrefill: true,
               })
             }
           >
@@ -382,7 +390,7 @@ export function Navbar() {
         {/* Mobile controls */}
         <div className="flex items-center gap-2 lg:hidden">
           <a
-            href={whatsappLink()}
+            href={whatsappLink(defaultWhatsAppMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-primary"
@@ -391,7 +399,7 @@ export function Navbar() {
               trackWhatsAppClick({
                 location: "nav_mobile",
                 ctaText: tnav("whatsapp"),
-                hasPrefill: false,
+                hasPrefill: true,
               })
             }
           >
@@ -559,7 +567,7 @@ export function Navbar() {
         <div className="flex items-center justify-between gap-3 border-t border-primary-100 px-4 py-4">
           <LanguageSwitcher onNavigate={() => setMobileOpen(false)} />
           <a
-            href={whatsappLink()}
+            href={whatsappLink(defaultWhatsAppMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-primary"
@@ -567,7 +575,7 @@ export function Navbar() {
               trackWhatsAppClick({
                 location: "nav_mobile",
                 ctaText: tnav("whatsapp"),
-                hasPrefill: false,
+                hasPrefill: true,
               })
             }
           >

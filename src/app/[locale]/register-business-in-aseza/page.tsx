@@ -32,9 +32,9 @@ export default async function Page({
       locale={locale}
       badge="دعم عملي لتسجيل الشركات في العقبة"
       title="تسجيل شركة في ASEZA"
-      hero="نبدأ بفهم النشاط ونوع الشركة، ثم نحدد المسار المناسب ونوضح الوثائق المطلوبة بعد الاتفاق على نطاق الخدمة."
-      primaryCta="أرسل وصف الحالة لنحدد الخدمة المناسبة"
-      secondaryCta="اطّلع على قائمة الوثائق لاحقاً"
+      hero="نساعدك على تحديد مسار تسجيل الشركة، اختيار النشاط، معرفة المتطلبات، وتجهيز ملف التسجيل بعد الاتفاق على نطاق الخدمة."
+      primaryCta="ابدأ طلب تسجيل شركة"
+      secondaryCta="اطّلع على قائمة التجهيز"
       secondaryHref="/aseza-registration-checklist"
       whatsappMessage={`مرحباً، أريد تسجيل شركة في ASEZA.
 النشاط المطلوب:
@@ -92,11 +92,11 @@ export default async function Page({
       noteBody="التسجيل هو الخطوة الأولى. بعض الأنشطة تحتاج بعد التسجيل إلى متطلبات تشغيل مثل موقع، صحة وسلامة، بيئة، أو موافقات إضافية. نوضح لك هذه المتطلبات ضمن الخطة."
       finalCta="جاهز لبدء تسجيل شركتك؟"
       related={[
-        { href: "/aseza-registration-checklist", label: "قائمة وثائق التسجيل" },
+        { href: "/aseza-registration-checklist", label: "قائمة تجهيز التسجيل" },
         { href: "/aseza-registration-fees", label: "رسوم تسجيل شركة في ASEZA" },
         {
           href: "/services/activity-review",
-          label: "مراجعة النشاط قبل التسجيل",
+          label: "مسار النشاط قبل التسجيل",
         },
       ]}
       currentLabel="تسجيل شركة في ASEZA"

@@ -8,7 +8,7 @@ const arLinks = {
     ["الخدمات", "/services"],
     ["تسجيل شركة لأول مرة", "/services/register-new-business"],
     ["شركة أجنبية أو فرع أجنبي", "/services/register-foreign-branch"],
-    ["مراجعة النشاط", "/services/activity-review"],
+    ["مسار النشاط", "/services/activity-review"],
   ],
   after: [
     ["الترخيص بعد التسجيل", "/services/licensing-after-registration"],
@@ -46,11 +46,11 @@ export async function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-8 md:grid-cols-3">
           <FooterColumn
-            title={isAr ? "خدمات التسجيل" : "Registration services"}
+            title={isAr ? "تسجيل الشركات" : "Registration services"}
             links={links.registration}
           />
           <FooterColumn
-            title={isAr ? "بعد التسجيل" : "After registration"}
+            title={isAr ? "خدمات بعد التسجيل" : "After registration"}
             links={links.after}
           />
           <div>

@@ -129,7 +129,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
                 "بعض الأنشطة تحتاج مراجعة قبل التقديم.",
                 "الرسوم والضرائب تعتمد على النشاط.",
                 "الجمارك تختلف حسب حركة البضائع.",
-                "بعد التسجيل قد توجد متطلبات تشغيل.",
+                "بعد التسجيل توجد متطلبات تشغيل مرتبطة بالنشاط.",
               ].map((item) => (
                 <li key={item} className="flex gap-3 rounded-xl border border-primary-100 bg-white p-4 shadow-sm">
                   <span className="mt-1 size-2 rounded-full bg-accent" aria-hidden />
@@ -162,7 +162,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Section width="wide" background="primary">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-bold md:text-3xl">لا تريد قراءة النصوص؟</h2>
-          <p className="mt-3 text-primary-100">إذا كنت لا تريد قراءة النصوص، أرسل نشاطك وسنساعدك على تحديد الخطوة المناسبة.</p>
+          <p className="mt-3 text-primary-100">لا تريد قراءة النصوص؟ أرسل النشاط ونوع الشركة وسنحدد لك الخدمة المناسبة.</p>
           <a
             href={whatsappLink(whatsappMessage)}
             target="_blank"
@@ -170,7 +170,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
           >
             <MessageCircle className="size-5" aria-hidden />
-            أرسل النشاط عبر واتساب
+            أرسل النشاط ونوع الشركة
           </a>
         </div>
       </Section>

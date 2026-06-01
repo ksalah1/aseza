@@ -19,6 +19,11 @@ export function Hero() {
   const t = useTranslations("hero");
   const isAr = useLocale() === "ar";
   const [trustOpen, setTrustOpen] = useState(false);
+  const registrationMessage = `مرحباً، أريد تسجيل شركة في ASEZA.
+النشاط المطلوب:
+هل الشركة جديدة أم قائمة؟
+هل يوجد شركاء أجانب؟
+هل النشاط استيراد/تصدير أو خدمات أو تصنيع؟`;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-800 to-teal-900 text-background">
@@ -52,44 +57,33 @@ export function Hero() {
 
           {isAr && (
             <p className="mt-2 text-xs text-primary-300">
-              ⬦ خدمة البركات للمحاماة
+              ⬦ خدمة استشارية لتسجيل وتجهيز الشركات في العقبة
             </p>
           )}
 
           <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-primary-100 md:text-xl">
             {isAr
-              ? "نبدأ بفهم نشاطك ووضع الشركة، ثم نحدد المسار والخدمة المناسبة قبل طلب الوثائق — بأتعاب ثابتة وشفافة."
+              ? "خدمة استشارية لتسجيل وتجهيز الشركات في منطقة العقبة الاقتصادية الخاصة. أرسل بيانات الحالة الأساسية لنحدد المسار والخدمة المناسبة قبل طلب الوثائق."
               : t("subtitle")}
           </p>
 
           {isAr && (
-            <div className="mt-6 flex items-center gap-3">
-              <div
-                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-900 text-xs font-bold text-accent"
-                aria-hidden
-              >
-                ن.ب
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">نور بركات</p>
-                <p className="text-xs text-primary-300">
-                  محامية مرخّصة · نقابة المحامين الأردنيين · عضوية رقم 16872
-                </p>
-              </div>
+            <div className="mt-6 rounded-2xl border border-white/15 bg-primary-900/30 p-4 text-sm leading-7 text-primary-100">
+              نبدأ بالمعلومات الأساسية فقط: نوع الشركة، النشاط، وجود شركاء أجانب، وطبيعة العمل. بعد تحديد نطاق الخدمة والاتفاق على المتابعة، نوضح لك الوثائق المطلوبة.
             </div>
           )}
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             {isAr ? (
               <a
-                href={whatsappLink()}
+                href={whatsappLink(registrationMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500 md:h-12 md:text-base"
-                onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: 'أرسل وصف الحالة لنحدد الخدمة المناسبة', hasPrefill: false, locale: 'ar' })}
+                onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: 'ابدأ طلب تسجيل الشركة', hasPrefill: true, locale: 'ar' })}
               >
                 <MessageCircle className="size-5" aria-hidden />
-                أرسل وصف الحالة لنحدد الخدمة المناسبة
+                ابدأ طلب تسجيل الشركة
               </a>
             ) : (
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: t("ctaPrimary"), hasPrefill: false, locale: 'en' })}>
@@ -131,8 +125,8 @@ export function Hero() {
           <div className={`${trustOpen ? "block" : "hidden"} md:block`}>
           <div className="mt-4 space-y-3 text-sm text-primary-100">
             {[
-              [MapPinned, isAr ? "محامية مرخّصة · عضو نقابة المحامين رقم 16872" : "Aqaba → Red Sea → regional trade"],
-              [FileCheck2, isAr ? "أتعاب ثابتة قبل البدء — لا مفاجآت" : "Basic situation check before document requests"],
+              [MapPinned, isAr ? "تحديد مسار التسجيل والخدمة المناسبة" : "Aqaba → Red Sea → regional trade"],
+              [FileCheck2, isAr ? "عرض خدمة واضح قبل بدء المتابعة" : "Basic situation check before document requests"],
               [Ship, isAr ? "استفسار أولي لتحديد الخدمة المناسبة" : "Logistics, trade, and tourism-focused guidance"],
             ].map(([Icon, label]) => (
               <div key={label as string} className="flex items-center gap-3 rounded-xl border border-white/15 bg-primary-900/30 p-3">

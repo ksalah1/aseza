@@ -34,6 +34,13 @@ export default async function ContactPage({
 
 function ContactContent() {
   const isAr = useLocale() === "ar";
+  const message = isAr
+    ? `مرحباً، أريد تسجيل شركة في ASEZA.
+النشاط المطلوب:
+هل الشركة جديدة أم قائمة؟
+هل يوجد شركاء أجانب؟
+هل النشاط استيراد/تصدير أو خدمات أو تصنيع؟`
+    : "Hello, I want to register a company in ASEZA. Activity: New or existing company? Foreign partners? Import/export, services, or manufacturing?";
 
   return (
     <>
@@ -52,7 +59,7 @@ function ContactContent() {
         </p>
 
         <a
-          href={whatsappLink()}
+          href={whatsappLink(message)}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-flex items-center gap-3 rounded-xl bg-[#25D366] px-8 py-4 text-xl font-semibold text-white transition-colors hover:bg-[#1DA851]"

@@ -7,10 +7,13 @@ import { Link } from "@/i18n/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
 
-const whatsappMessage = "مرحباً، أريد معرفة هل نشاطي مناسب للتسجيل في ASEZA. النشاط المقترح: ...";
+const whatsappMessage = `مرحباً، أريد معرفة مسار نشاط في ASEZA.
+وصف النشاط ونموذج العمل:
+نوع البضائع أو الخدمات:
+هل الشركة جديدة أم قائمة؟`;
 
 const relatedLinks = [
-  ["مراجعة النشاط قبل التسجيل", "/services/activity-review"],
+  ["مسار النشاط قبل التسجيل", "/services/activity-review"],
   ["تسجيل شركة في ASEZA", "/register-business-in-aseza"],
   ["شركة استيراد وتصدير في العقبة", "/import-export-company-aseza"],
 ] as const;
@@ -20,9 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildMetadata({
     locale,
     path: "/restricted-prohibited-activities-aseza",
-    title: "هل نشاطك مسموح في ASEZA؟ | مراجعة النشاط قبل تسجيل الشركة",
+    title: "هل نشاطك مناسب للتسجيل في ASEZA؟ | تحديد مسار النشاط",
     description:
-      "دليل عملي لمراجعة النشاط قبل تسجيل شركة في ASEZA، ومعرفة ما إذا كان النشاط مباشراً، يحتاج موافقة إضافية، أو يتطلب مساراً مختلفاً.",
+      "دليل عملي لتحديد مسار النشاط قبل تسجيل شركة في ASEZA، ومعرفة ما إذا كان النشاط مباشراً، يحتاج موافقة إضافية، أو يتطلب مساراً مختلفاً.",
   });
 }
 
@@ -33,15 +36,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <div className="mx-auto max-w-7xl px-6 pt-4">
-        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "مراجعة النشاط", href: "/services/activity-review" }, { label: "هل نشاطك مسموح؟" }]} />
+        <Breadcrumb items={[{ label: "الرئيسية", href: "/" }, { label: "مسار النشاط", href: "/services/activity-review" }, { label: "هل نشاطك مسموح؟" }]} />
       </div>
 
       <Section width="wide">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold text-accent">مراجعة النشاط قبل فتح الملف</p>
+          <p className="text-sm font-semibold text-accent">تحديد مسار النشاط قبل فتح الملف</p>
           <h1 className="mt-3 text-4xl font-bold leading-tight text-primary md:text-5xl">هل نشاطك مسموح في ASEZA؟</h1>
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-primary-600">
-            قبل تسجيل الشركة، يجب صياغة النشاط بطريقة واضحة ومعرفة هل هو نشاط مباشر، يحتاج موافقة إضافية، أو لا يناسب التسجيل في المنطقة. نساعدك على مراجعة النشاط قبل فتح الملف.
+            قبل تسجيل الشركة، يجب صياغة النشاط بطريقة واضحة ومعرفة هل هو نشاط مباشر، يحتاج موافقة إضافية، أو لا يناسب التسجيل في المنطقة. نساعدك على تحديد مسار النشاط قبل فتح الملف.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -65,7 +68,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             ["نشاط مباشر", "نشاط تجاري أو خدمي واضح يمكن عادة البدء بمراجعته ضمن مسار التسجيل."],
-            ["نشاط يحتاج مراجعة أو موافقة", "نشاط مرتبط بالصحة، البيئة، الجمارك، الغذاء، النقل، الخدمات المهنية، أو أي قطاع منظم."],
+            ["نشاط يحتاج مساراً خاصاً أو موافقة", "نشاط مرتبط بالصحة، البيئة، الجمارك، الغذاء، النقل، الخدمات المهنية، أو أي قطاع منظم."],
             ["نشاط غير مناسب أو محظور", "نشاط لا يتم قبوله للتسجيل أو يحتاج مساراً مختلفاً بالكامل."],
           ].map(([title, text]) => (
             <div key={title} className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
@@ -79,7 +82,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Section width="wide">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
           <div>
-            <h2 className="text-2xl font-bold text-primary">أمثلة على أنشطة تحتاج مراجعة</h2>
+            <h2 className="text-2xl font-bold text-primary">أمثلة على أنشطة تحتاج مساراً خاصاً</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 "الأغذية والمكملات",
@@ -102,7 +105,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <div className="rounded-2xl border border-primary-100 bg-primary-50 p-6">
             <h2 className="text-2xl font-bold text-primary">لماذا لا تكفي عبارة “تجارة عامة”؟</h2>
             <p className="mt-4 leading-relaxed text-primary-600">
-              وصف النشاط بشكل عام قد يسبب تأخيراً. الأفضل تحديد ما ستبيعه أو تخزنه أو تستورده أو تصدره، وهل النشاط تجارة فقط أم يشمل تخزيناً أو توزيعاً أو تصنيعاً أو خدمات لوجستية.
+              وصف النشاط بشكل عام يسبب تأخيراً في تحديد المسار. الأفضل تحديد ما ستبيعه أو تخزنه أو تستورده أو تصدره، وهل النشاط تجارة فقط أم يشمل تخزيناً أو توزيعاً أو تصنيعاً أو خدمات لوجستية.
             </p>
           </div>
         </div>
@@ -111,7 +114,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Section width="wide" background="muted">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold text-primary">ماذا نحتاج منك لمراجعة النشاط؟</h2>
+            <h2 className="text-2xl font-bold text-primary">ماذا نحتاج منك لتحديد مسار النشاط؟</h2>
             <ul className="mt-6 space-y-3 text-primary-600">
               {[
                 "وصف النشاط الفعلي",
@@ -134,7 +137,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <ul className="mt-6 space-y-3 text-primary-600">
               {[
                 "صياغة أوضح للنشاط",
-                "تحديد إن كان يحتاج مراجعة إضافية",
+                "تحديد إن كان يحتاج مساراً إضافياً",
                 "معرفة المسار الأقرب: تسجيل، ترخيص، شركة أجنبية، أو استيراد وتصدير",
                 "تقليل احتمالات اختيار نشاط غير مناسب",
               ].map((item) => (
@@ -150,8 +153,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
       <Section width="wide" background="primary">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">أرسل النشاط قبل اختيار مسار التسجيل</h2>
-          <p className="mt-3 text-primary-100">نوضح لك إن كان النشاط مباشراً، يحتاج مراجعة إضافية، أو يحتاج مساراً مختلفاً.</p>
+          <h2 className="text-2xl font-bold md:text-3xl">اعرف مسار النشاط</h2>
+          <p className="mt-3 text-primary-100">نوضح لك إن كان النشاط مباشراً، يحتاج مساراً خاصاً، أو يحتاج مساراً مختلفاً.</p>
           <a
             href={whatsappLink(whatsappMessage)}
             target="_blank"
