@@ -57,16 +57,16 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
 
   const trustCards = isAr
     ? [
-        ["ملفك يراجعه محامية — لا موظف أو وسيط", "نور بركات، عضو نقابة المحامين الأردنيين رقم 16872، تراجع كل ملف مباشرة."],
-        ["لن تبدأ بملف غلط", "نتحقق من أن نشاطك مسموح وأن وثائقك مكتملة — قبل أن تدفع أي رسوم حكومية."],
+        ["مسارك تشرف عليه محامية — لا موظف أو وسيط", "نور بركات، عضو نقابة المحامين الأردنيين رقم 16872، تشرف على تحديد المسار ونطاق الخدمة مباشرة."],
+        ["لن تبدأ بملف غلط", "نحدد إن كان نشاطك مناسباً وما الوثائق التي ستحتاجها لاحقاً — قبل أن تدفع أي رسوم حكومية."],
         ["رقمان واضحان قبل أن نبدأ", "أتعاب خدمتنا ثابتة. الرسوم الحكومية مفصولة ومفصّلة. لا مفاجآت."],
         ["كل معلومة بمصدرها الرسمي", "ما نخبرك به مستند لنص قانوني محدد. نزودك بالمرجع حتى تقرر بثقة."],
         ["نوضح ما نستطيع وما لا نستطيع", "القرار النهائي بالقبول أو الرفض لسلطة العقبة. نحن نضمن ملفاً مكتملاً وصحيحاً — لا نضمن النتيجة."],
         ["تبدأ من أي مكان في العالم", "كثير من خطوات التسجيل تتم عن بُعد عبر واتساب أو مكالمة. نحدد معك ما يحتاج حضوراً فعلياً."],
       ]
     : [
-        ["Your file is reviewed by an attorney — not a clerk or agent", "Nour Barakat, Member of the Jordan Bar Association No. 16872, reviews every file directly."],
-        ["You won't start with the wrong file", "We confirm your activity is permitted and your documents are complete — before you pay any government fees."],
+        ["Your service path is supervised by an attorney — not a clerk or agent", "Nour Barakat, Member of the Jordan Bar Association No. 16872, directly supervises path selection and service scope."],
+        ["You won't start with the wrong file", "We identify whether your activity is suitable and what documents may be needed later — before you pay government fees."],
         ["Two clear numbers before we begin", "Our service fee is fixed. Government fees are separate and itemised. No surprises."],
         ["Every piece of information cites its official source", "What we tell you is based on specific legal text. We provide the reference so you can decide with confidence."],
         ["We state what we can and cannot do", "The final acceptance or rejection decision rests with the Aqaba Authority. We guarantee a complete, correct file — not the outcome."],
@@ -77,7 +77,7 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
     return (
       <Section width="wide" background="muted">
         <div className="mx-auto max-w-2xl rounded-2xl p-6 shadow-sm border border-s-4 border-s-accent border-primary-100 bg-white">
-          <h3 className="text-2xl font-bold text-primary">{isAr ? "من يراجع ملفك؟" : "Who reviews your file?"}</h3>
+          <h3 className="text-2xl font-bold text-primary">{isAr ? "من يشرف على مسارك؟" : "Who supervises your matter?"}</h3>
           <div className="mt-5 flex items-center gap-4">
             <div className="flex size-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-accent ring-4 ring-accent/20" aria-hidden="true">
               ن.ب
@@ -122,7 +122,7 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
       <Section width="wide" background="muted">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl p-6 shadow-sm border border-s-4 border-s-accent border-primary-100 bg-white">
-            <h3 className="text-2xl font-bold text-primary">{isAr ? "من يراجع ملفك؟" : "Who reviews your file?"}</h3>
+            <h3 className="text-2xl font-bold text-primary">{isAr ? "من يشرف على مسارك؟" : "Who supervises your matter?"}</h3>
             <div className="mt-5 flex items-center gap-4">
               <div className="flex size-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-accent ring-4 ring-accent/20" aria-hidden="true">
                 ن.ب
@@ -146,8 +146,8 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
           <Card className="bg-primary text-primary-50">
             <h3 className="text-2xl font-bold text-white">{isAr ? "افصل بين دورنا ودور الجهة المختصة" : "Scope boundaries"}</h3>
             <p className="mt-3 text-primary-100">{isAr ? "نساعد في التقديم والمتابعة القانونية، لكن القرار النهائي يبقى للجهة المختصة." : "We handle legal preparation and follow-up; authority decisions remain official."}</p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'راجع نشاطك قبل البدء' : 'Review your activity', hasPrefill: false })}>
-              <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>{isAr ? "راجع نشاطك قبل البدء" : "Review your activity"}</Button>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'حدد مسار نشاطك قبل البدء' : 'Identify your activity path', hasPrefill: false })}>
+              <Button variant="whatsapp" icon={<MessageCircle className="size-5" />}>{isAr ? "حدد مسار نشاطك قبل البدء" : "Identify your activity path"}</Button>
             </a>
           </Card>
         </div>
@@ -180,7 +180,7 @@ export function TrustAndTransparency({ compact = false }: { compact?: boolean })
           <p className="mt-4 text-primary-600">{isAr ? "نوضح الوثائق، التصديقات، والخيارات الممكنة عن بُعد بحسب الحالة دون وعود غير واقعية." : "We clarify documents, legalization, and remote-ready options based on your case."}</p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/aseza-registration-checklist"><Button variant="outline">{isAr ? "قائمة الوثائق الأولية" : "Checklist"}</Button></Link>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'ابدأ المراجعة' : 'Start review', hasPrefill: false })}><Button variant="primary" icon={<Gavel className="size-4" />}>{isAr ? "ابدأ المراجعة" : "Start review"}</Button></a>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'section_trust', ctaText: isAr ? 'ابدأ بتحديد المسار' : 'Start path check', hasPrefill: false })}><Button variant="primary" icon={<Gavel className="size-4" />}>{isAr ? "ابدأ بتحديد المسار" : "Start path check"}</Button></a>
           </div>
         </Card>
       </Section>

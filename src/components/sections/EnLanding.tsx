@@ -3,19 +3,23 @@ import { Section, Card } from "@/components/ui";
 import { whatsappLink, siteConfig } from "@/lib/site";
 
 const EN_WHATSAPP_MSG =
-  "Hello, I would like to register a company in ASEZA.";
+  `Hello, I would like to register a company in ASEZA.
+Activity:
+New or existing company?
+Any foreign partners?
+Import/export, services, or manufacturing?`;
 
 const CARDS = [
   {
     title: "New Registration",
-    body: "Starting a new company in ASEZA? We review your activity, prepare documents, and follow up until you receive your certificate.",
+    body: "Starting a new company in ASEZA? Send basic details first; we identify the right service path, quote the scope, then request documents after engagement is clear.",
     cta: "Start on WhatsApp →",
     href: whatsappLink(EN_WHATSAPP_MSG),
     external: true,
   },
   {
     title: "Foreign Investor",
-    body: "Registering from outside Jordan? We handle documents, attestations, and remote setup across the full process.",
+    body: "Registering from outside Jordan? We identify the right foreign-investor path first, then clarify parent-company documents, attestations, and remote setup after scope is agreed.",
     cta: "Foreign Investor Guide →",
     href: "/ar/foreign-investors",
     external: false,
@@ -40,7 +44,7 @@ export function EnLanding() {
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-primary-100">
             Private legal service by Al-Barakat Law Firm — licensed attorney,
-            clear fees, activity review before application.
+            clear fees, basic situation review before any document request.
           </p>
           <a
             href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(EN_WHATSAPP_MSG)}`}
@@ -86,7 +90,7 @@ export function EnLanding() {
             NB
           </div>
           <p className="text-primary-700">
-            Your file is reviewed by{" "}
+            Your matter is supervised by{" "}
             <strong className="text-primary">Nour Barakat</strong>, Licensed Attorney,
             Jordan Bar Association — Membership No. 16872
           </p>

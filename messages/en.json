@@ -25,7 +25,7 @@
   "hero": {
     "badge": "Private legal service for company registration in the Aqaba Special Economic Zone",
     "title": "Register Your Company in the Aqaba Special Economic Zone",
-    "subtitle": "We help investors review their business activity, prepare documents, submit the registration application, and understand any licensing or post-registration requirements.",
+    "subtitle": "We help investors start with basic activity and company information, identify the right service path, then prepare documents and submit the registration application after scope is agreed.",
     "valueTitle": "Fixed, transparent fees",
     "valueSubtitle": "We share the full quote before any work begins.",
     "ctaPrimary": "Contact us via WhatsApp",
@@ -99,7 +99,7 @@
       "Large industrial activities that require a detailed environmental study",
       "Restructuring or merger cases for existing companies"
     ],
-    "closing": "Not sure how your activity is classified? Get in touch before you start — the initial review is free.",
+    "closing": "Not sure how your activity is classified? Send basic details before you start so we can identify the right service path.",
     "closingCta": "Contact us"
   },
   "aboutAttorney": {
@@ -163,7 +163,7 @@
       },
       {
         "question": "Can foreigners own a company fully?",
-        "answer": "Yes. Full foreign ownership is possible for many activities within the Aqaba Special Economic Zone, but some activities are prohibited, restricted, or require special approvals. We review your activity before starting to confirm the right path."
+        "answer": "Yes. Full foreign ownership is possible for many activities within the Aqaba Special Economic Zone, but some activities are prohibited, restricted, or require special approvals. We identify the right path from basic activity information before starting."
       },
       {
         "question": "What documents are required?",
@@ -235,18 +235,18 @@
     "secondary": "Or read the registration steps first"
   },
   "finalCta": {
-    "title": "Your First Step Is Free",
-    "subtitle": "Send us a brief description of your activity — we will review it and respond within one business day.",
+    "title": "Initial inquiry to identify the right service",
+    "subtitle": "Send us a brief description of your activity and company type; we will respond with the next step within one business day.",
     "button": "Start on WhatsApp Now",
     "disclaimer": "Private legal service by Al-Barakat Law Firm."
   },
   "contact": {
     "meta": {
-      "title": "Book a Free Consultation",
-      "description": "Book a free consultation to establish your company in the Aqaba Special Economic Zone, or reach us directly on WhatsApp. We respond within 24 hours."
+      "title": "Send Initial Inquiry",
+      "description": "Send basic information to identify the right service for establishing your company in the Aqaba Special Economic Zone, or reach us directly on WhatsApp. We respond within 24 hours."
     },
-    "title": "Book a Free Consultation",
-    "subtitle": "Tell us about your project and our team will get back to you. The consultation is completely free with no commitment.",
+    "title": "Send Initial Inquiry",
+    "subtitle": "Tell us about your project and our team will get back to identify the right service, consultation, or registration package.",
     "form": {
       "name": "Full name",
       "company": "Company name (optional)",
@@ -296,7 +296,7 @@
     "or": "or",
     "responseTime": "We respond within 24 hours",
     "trust": [
-      "The consultation is completely free",
+      "Initial inquiry to identify the right service",
       "No commitment whatsoever"
     ]
   },
@@ -317,7 +317,7 @@
           },
           {
             "question": "How do I start the registration process?",
-            "answer": "Get in touch to book a free consultation, where we study your activity and determine the most suitable legal structure, then handle the rest of the procedures for you until you receive your license."
+            "answer": "Get in touch with basic information so we can determine the most suitable legal structure and offer the appropriate paid consultation or registration package before requesting documents."
           },
           {
             "question": "Can foreigners fully own the company?",
@@ -531,14 +531,14 @@
     "backToBlog": "Back to the blog",
     "sidebar": {
       "title": "Ready to Get Started?",
-      "description": "Book a free consultation and let us handle your Aqaba company registration.",
-      "button": "Book a Free Consultation"
+      "description": "Send basic information and let us identify the right Aqaba company registration service.",
+      "button": "Send Initial Inquiry"
     }
   },
   "servicesPage": {
     "meta": {
       "title": "Company Registration Service in Aqaba",
-      "description": "A complete company registration service in the Aqaba Special Economic Zone — covering consultation, document preparation, and follow-up until your license is in hand. Contact us via WhatsApp for pricing."
+      "description": "A company registration service in the Aqaba Special Economic Zone that starts with basic information, then offers the right paid consultation or registration package before documents are requested. Contact us via WhatsApp for pricing."
     },
     "hero": {
       "title": "Company Registration Service in the Aqaba Special Economic Zone",
@@ -761,7 +761,7 @@
       },
       {
         "title": "Prepare documents",
-        "description": "We draft all required legal documents precisely and in line with the zone authority's regulations, and review them with you before finalizing to ensure they're free of any errors that could delay the application.",
+        "description": "After scope and engagement are agreed, we draft the required legal documents in line with the zone authority's regulations and prepare the file for submission.",
         "documents": [
           "Articles and memorandum of association (we prepare these)",
           "Proof of the company's address in Aqaba",

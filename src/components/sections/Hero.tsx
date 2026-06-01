@@ -58,7 +58,7 @@ export function Hero() {
 
           <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-primary-100 md:text-xl">
             {isAr
-              ? "نتحقق من نشاطك، نجهّز وثائقك، ونتابع ملفك مع سلطة العقبة حتى تستلم شهادة التسجيل — بأتعاب ثابتة وشفافة."
+              ? "نبدأ بفهم نشاطك ووضع الشركة، ثم نحدد المسار والخدمة المناسبة قبل طلب الوثائق — بأتعاب ثابتة وشفافة."
               : t("subtitle")}
           </p>
 
@@ -86,10 +86,10 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-accent-500 md:h-12 md:text-base"
-                onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: 'ابدأ مراجعة نشاطك — مجاناً', hasPrefill: false, locale: 'ar' })}
+                onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: 'أرسل وصف الحالة لنحدد الخدمة المناسبة', hasPrefill: false, locale: 'ar' })}
               >
                 <MessageCircle className="size-5" aria-hidden />
-                ابدأ مراجعة نشاطك — مجاناً
+                أرسل وصف الحالة لنحدد الخدمة المناسبة
               </a>
             ) : (
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick({ location: 'hero_primary', ctaText: t("ctaPrimary"), hasPrefill: false, locale: 'en' })}>
@@ -132,8 +132,8 @@ export function Hero() {
           <div className="mt-4 space-y-3 text-sm text-primary-100">
             {[
               [MapPinned, isAr ? "محامية مرخّصة · عضو نقابة المحامين رقم 16872" : "Aqaba → Red Sea → regional trade"],
-              [FileCheck2, isAr ? "أتعاب ثابتة قبل البدء — لا مفاجآت" : "Activity and documents review before filing"],
-              [Ship, isAr ? "نراجع نشاطك مجاناً — قبل أي رسوم حكومية" : "Logistics, trade, and tourism-focused guidance"],
+              [FileCheck2, isAr ? "أتعاب ثابتة قبل البدء — لا مفاجآت" : "Basic situation check before document requests"],
+              [Ship, isAr ? "استفسار أولي لتحديد الخدمة المناسبة" : "Logistics, trade, and tourism-focused guidance"],
             ].map(([Icon, label]) => (
               <div key={label as string} className="flex items-center gap-3 rounded-xl border border-white/15 bg-primary-900/30 p-3">
                 <Icon className="size-4 text-accent" aria-hidden />

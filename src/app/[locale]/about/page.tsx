@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <div className="mt-5 space-y-4 leading-relaxed text-primary-600">
           <p>
             {isAr
-              ? "شركة البركات للمحاماة خدمة قانونية خاصة متخصصة في مساعدة المستثمرين والشركات على تأسيس وتسجيل مؤسساتهم في منطقة العقبة الاقتصادية الخاصة. نقدم مراجعة قانونية للنشاط قبل التقديم، ونتابع الملف مع الجهة المختصة حتى صدور شهادة التسجيل، ونوضح متطلبات الترخيص ومزاولة النشاط بعد التسجيل."
+              ? "شركة البركات للمحاماة خدمة قانونية خاصة متخصصة في مساعدة المستثمرين والشركات على تأسيس وتسجيل مؤسساتهم في منطقة العقبة الاقتصادية الخاصة. نبدأ بفهم النشاط ووضع الشركة، ثم نحدد الخدمة المناسبة ونتابع الملف مع الجهة المختصة بعد الاتفاق على نطاق العمل."
               : "Al-Barakat Law Firm is a private legal service specialising in helping investors and companies form and register their businesses in the Aqaba Special Economic Zone. We provide legal activity review before filing, follow the file with the relevant authority until the registration certificate is issued, and clarify licensing and post-registration requirements."}
           </p>
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <p className="mt-3 text-primary-600">
             {isAr
               ? "لمراجعة نشاطك أو البدء في إجراءات التسجيل، تواصل معنا مباشرةً عبر واتساب أو الهاتف."
-              : "To review your activity or start the registration process, reach us directly via WhatsApp or phone."}
+              : "To identify the right service path or start the registration process, reach us directly via WhatsApp or phone."}
           </p>
           <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a

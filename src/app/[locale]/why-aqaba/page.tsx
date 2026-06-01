@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <div className="rounded-3xl border border-primary-100 bg-primary-50 p-6 shadow-sm">
             <h2 className="text-xl font-bold text-primary">قبل أن تبدأ</h2>
             <p className="mt-3 leading-relaxed text-primary-600">
-              تبدأ المدة العملية بعد اكتمال الوثائق والبيانات. نساعدك على تحديد النشاط، شكل الشركة، ومتطلبات الملف قبل فتح مسار التسجيل.
+              تبدأ المدة العملية بعد اكتمال البيانات والاتفاق على نطاق الخدمة. نساعدك على تحديد النشاط، شكل الشركة، ومتطلبات الملف قبل فتح مسار التسجيل.
             </p>
             <a
               href={whatsappLink(whatsappMessage)}

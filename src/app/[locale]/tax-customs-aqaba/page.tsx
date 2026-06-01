@@ -9,7 +9,10 @@ import { whatsappLink } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 
 const whatsappMessage =
-  "مرحباً، أريد مراجعة أثر الضرائب والجمارك قبل تسجيل شركة في ASEZA. النشاط: ... نوع البضائع أو الخدمات: ...";
+  `مرحباً، أريد معرفة أثر الضرائب والجمارك على نشاط في ASEZA.
+النشاط:
+نوع البضائع أو الخدمات:
+هل يوجد استيراد أو تصدير أو بيع داخل الأردن؟`;
 
 const relatedLinks = [
   ["شركة استيراد وتصدير في العقبة", "/import-export-company-aseza"],
@@ -55,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
             >
               <MessageCircle className="size-5" aria-hidden />
-              أرسل نشاطك لمراجعة الأثر الضريبي والجمركي
+              أرسل وصف النشاط لتحديد الأثر الضريبي والجمركي
             </a>
             <Link
               href="/register-business-in-aseza"
@@ -137,7 +140,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Section width="wide">
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold text-primary">متى تحتاج مراجعة خاصة؟</h2>
+            <h2 className="text-2xl font-bold text-primary">متى تحتاج تحديداً خاصاً؟</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 "استيراد مواد غذائية",
