@@ -6,12 +6,19 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function MobileStickyCTA() {
   const isAr = useLocale() === "ar";
+  const message = isAr
+    ? `مرحباً، أريد تسجيل شركة في ASEZA.
+النشاط المطلوب:
+هل الشركة جديدة أم قائمة؟
+هل يوجد شركاء أجانب؟
+هل النشاط استيراد/تصدير أو خدمات أو تصنيع؟`
+    : "Hello, I want to register a company in ASEZA. Activity: New or existing company? Foreign partners? Import/export, services, or manufacturing?";
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-primary-100 bg-white/95 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-6px_20px_rgba(15,42,74,0.12)] backdrop-blur md:hidden">
       <div className="mx-auto flex max-w-7xl items-center gap-3">
         <a
-          href={whatsappLink()}
+          href={whatsappLink(message)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={isAr ? "تواصل مع ASEZA.co عبر واتساب" : "Contact ASEZA.co via WhatsApp"}
@@ -22,7 +29,7 @@ export function MobileStickyCTA() {
               ctaText: isAr
                 ? "تواصل معنا عبر واتساب"
                 : "Contact us via WhatsApp",
-              hasPrefill: false,
+              hasPrefill: true,
               locale: isAr ? "ar" : "en",
             })
           }

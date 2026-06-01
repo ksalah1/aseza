@@ -385,11 +385,11 @@ export function InvestorPositioning() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
-                    <span>نقل البضائع إلى السوق الأردني خارج المنطقة قد يرتب رسوماً جمركية</span>
+                    <span>نقل البضائع إلى السوق الأردني خارج المنطقة يرتبط برسوم وإجراءات جمركية</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-2 size-1.5 rounded-full bg-accent shrink-0" />
-                    <span>السلع الخاصة أو المنظمة قد تخضع لمتطلبات إضافية بحسب الحالة</span>
+                    <span>السلع الخاصة أو المنظمة لها متطلبات إضافية نحددها قبل بدء الملف</span>
                   </li>
                 </ul>
               </div>

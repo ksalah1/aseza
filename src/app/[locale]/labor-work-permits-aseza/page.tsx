@@ -161,7 +161,7 @@ export default async function LaborWorkPermitsPage({
               هل تحتاج مساعدة في استخراج تصاريح العمل أو إقامة المستثمر؟
             </p>
             <p className="mt-1 text-sm text-primary-200">
-              فريق شركة البركات للمحاماة يتولى الإجراءات نيابةً عنك
+              فريق ASEZA.co يساعدك في ترتيب الإجراءات والمتابعة
             </p>
           </div>
           <a

@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             "توفر أراضٍ صناعية وخدمية",
             "قرب من الميناء يقلل تكاليف النقل الداخلي",
             "إمكانية إدخال مواد خام وتصدير منتجات نهائية",
-            "قواعد جمركية قد تكون مناسبة لبعض أنشطة التصنيع والتجميع",
+            "قواعد جمركية مناسبة لأنشطة تصنيع وتجميع محددة",
           ] : [
             "Availability of industrial and service land",
             "Proximity to port reduces inland transport costs",

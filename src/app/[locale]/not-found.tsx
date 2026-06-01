@@ -18,7 +18,7 @@ export default async function LocaleNotFound() {
       </p>
       <p className="mt-3 text-sm text-primary-500">
         {isAr
-          ? "ASEZA.co خدمة استشارية مستقلة، والقرار النهائي لدى الجهة المختصة حسب نوع الطلب."
+          ? "ASEZA.co خدمة استشارية مستقلة لتجهيز ومتابعة معاملات ASEZA."
           : "Private legal service support for ASEZA procedures; final approvals remain with the competent authority."}
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">

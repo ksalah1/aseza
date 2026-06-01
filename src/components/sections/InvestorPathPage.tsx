@@ -2,11 +2,11 @@ import { useLocale } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Section, Card } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, whatsappLink } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 export function InvestorPathsHub() {
   const ar = useLocale() === "ar";
-  return <Section width="wide"><h1 className="text-3xl font-bold text-primary md:text-5xl">{ar?"مسارات المستثمرين في منطقة العقبة الاقتصادية الخاصة":"Investor Paths in ASEZA"}</h1><p className="mt-4 text-primary-500">{ar?"اختر المسار المناسب لتعرف ما الذي تحتاجه، وما الذي قد يتطلب موافقات إضافية، وما هي الخطوة الأكثر أماناً قبل التقديم.":"Choose your audience path to understand likely requirements, potential approvals, and the safest next step before filing."}</p><div className="mt-8 grid gap-5 md:grid-cols-2">{[
+  return <Section width="wide"><h1 className="text-3xl font-bold text-primary md:text-5xl">{ar?"مسارات المستثمرين في منطقة العقبة الاقتصادية الخاصة":"Investor Paths in ASEZA"}</h1><p className="mt-4 text-primary-500">{ar?"اختر المسار المناسب لتعرف ما الذي تحتاجه، وما الذي يتطلب موافقات إضافية، وما هي الخطوة الأكثر أماناً قبل التقديم.":"Choose your audience path to understand likely requirements, potential approvals, and the safest next step before filing."}</p><div className="mt-8 grid gap-5 md:grid-cols-2">{[
     [ar?"المستثمر الصناعي واللوجستي":"Industrial & Logistics Investors",[ar?"الموقع أو المستودع":"Site or warehouse",ar?"البيئة والسلامة والصحة العامة":"Environment, safety, and public health",ar?"الكشف على الموقع":"Site inspection",ar?"طبيعة المواد أو المنتجات":"Nature of goods/materials",ar?"الترخيص بعد التسجيل":"Post-registration operating licensing"],ar?"قيّم متطلبات مشروعك الصناعي":"Assess industrial project requirements",whatsappLink(`مرحباً، أريد تحديد متطلبات مشروع صناعي أو لوجستي في العقبة.
 نوع النشاط:
 الموقع أو المستودع إن وجد:
@@ -24,5 +24,5 @@ export function InvestorPathsHub() {
 نوع الحالة:
 النشاط:
 الخدمة المطلوبة:`:"Hello, I am a consultant/lawyer and want to identify the right path for a client. Case type: Activity: Needed service:")} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent">WhatsApp</a></div></Card>
-  <Card className="mt-6 border-primary-200 bg-primary-50"><h2 className="text-lg font-semibold text-primary">{ar?"هل تبحث عن خدمات رسمية للمواطنين؟":"Looking for official citizen services?"}</h2><p className="mt-2 text-sm text-primary-600">{ar?"ASEZA.co خدمة قانونية خاصة لمساعدة المستثمرين والشركات. إذا كنت تبحث عن معاملة حكومية مباشرة أو خدمة مواطن، يمكنك الرجوع إلى الموقع الرسمي أو بوابة الخدمات الإلكترونية لسلطة منطقة العقبة الاقتصادية الخاصة.":"ASEZA.co is a private legal service for investors and companies. For direct government citizen services, use the official ASEZA website or e-services portal."}</p><a href={siteConfig.officialAsezaUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary hover:text-accent">{ar?"زيارة البوابة الرسمية":"Visit official portal"}</a></Card></Section>;
+  <Card className="mt-6 border-primary-200 bg-primary-50"><h2 className="text-lg font-semibold text-primary">{ar?"ابدأ بالمعلومات الأساسية":"Start with basic information"}</h2><p className="mt-2 text-sm text-primary-600">{ar?"ASEZA.co خدمة استشارية مستقلة لمساعدة المستثمرين والشركات في تجهيز معاملات التسجيل والترخيص. أرسل نوع الشركة والنشاط لنحدد الخدمة المناسبة.":"ASEZA.co is an independent consulting service for investors and companies. Send the company type and activity so we can identify the right service."}</p></Card></Section>;
 }

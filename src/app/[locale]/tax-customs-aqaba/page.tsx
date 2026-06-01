@@ -16,7 +16,7 @@ const whatsappMessage =
 
 const relatedLinks = [
   ["شركة استيراد وتصدير في العقبة", "/import-export-company-aseza"],
-  ["مراجعة النشاط قبل التسجيل", "/services/activity-review"],
+  ["مسار النشاط قبل التسجيل", "/services/activity-review"],
   ["تسجيل شركة في ASEZA", "/register-business-in-aseza"],
 ] as const;
 
@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#1DA851]"
             >
               <MessageCircle className="size-5" aria-hidden />
-              أرسل وصف النشاط لتحديد الأثر الضريبي والجمركي
+              اطلب توضيح الأثر الضريبي والجمركي لنشاطك
             </a>
             <Link
               href="/register-business-in-aseza"
