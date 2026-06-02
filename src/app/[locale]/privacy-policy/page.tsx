@@ -79,8 +79,8 @@ export default async function PrivacyPolicyPage({
           <div>
             <h2 className="mb-3 text-xl font-semibold text-primary">حقوقك</h2>
             <p>
-              يحق لك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها. للتواصل:
-              راسلنا عبر واتساب أو البريد الإلكتروني info@aseza.co
+              يحق لك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها. للتواصل
+              راسلنا عبر واتساب.
             </p>
           </div>
         </section>
@@ -128,7 +128,7 @@ export default async function PrivacyPolicyPage({
             </h2>
             <p>
               You have the right to request access, correction, or deletion of
-              your data. Contact us via WhatsApp or email at info@aseza.co
+              your data. Contact us via WhatsApp.
             </p>
           </div>
         </section>

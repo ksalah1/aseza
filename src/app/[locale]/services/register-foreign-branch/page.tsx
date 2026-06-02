@@ -82,7 +82,7 @@ export default async function Page({
         related: [
           { label: "تسجيل شركة لأول مرة", href: "/services/register-new-business" },
           { label: "مراجعة النشاط", href: "/services/activity-review" },
-          { label: "قائمة تجهيز التسجيل", href: "/documents-checklists" }
+          { label: "قائمة تجهيز التسجيل", href: "/aseza-registration-checklist" }
         ],
       }}
     />
