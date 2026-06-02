@@ -91,7 +91,7 @@ export default async function LocaleLayout({
     telephone: siteConfig.phoneTel,
     email: siteConfig.email,
     serviceType: "Business Registration",
-    image: `${SITE_URL}/og-image.webp`,
+    image: `${SITE_URL}/og-image.png`,
     priceRange: "JOD",
     address: {
       "@type": "PostalAddress",

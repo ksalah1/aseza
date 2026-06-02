@@ -3,7 +3,7 @@ import { siteConfig, firmName } from "@/lib/site";
 
 const SITE_URL = siteConfig.url;
 // Placeholder social-share image (1200×630). Replace with a real asset.
-const OG_IMAGE = `${SITE_URL}/og-image.webp`;
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export interface PageMetaOptions {
   locale: string;
@@ -49,8 +49,8 @@ export function buildMetadata({
       languages: {
         // Arabic alternate = same path in Arabic locale.
         ar: `${SITE_URL}/ar${path}`,
-        // English only has a homepage — always point there.
-        en: `${SITE_URL}/en`,
+        // English alternate = same path in English locale.
+        en: `${SITE_URL}/en${path}`,
         // x-default = Arabic homepage (primary language of the site).
         "x-default": `${SITE_URL}/ar`,
       },
