@@ -60,6 +60,24 @@ const nextConfig: NextConfig = {
         destination: "/ar/legal-references",
         permanent: true,
       },
+      // Consolidate duplicate privacy route into /privacy-policy.
+      {
+        source: "/:locale(ar|en)/privacy",
+        destination: "/:locale/privacy-policy",
+        permanent: true,
+      },
+      // Removed /contact route — WhatsApp is the contact channel; send old links home.
+      {
+        source: "/:locale(ar|en)/contact",
+        destination: "/:locale",
+        permanent: true,
+      },
+      // Removed /documents-checklists — superseded by the registration checklist page.
+      {
+        source: "/:locale(ar|en)/documents-checklists",
+        destination: "/:locale/aseza-registration-checklist",
+        permanent: true,
+      },
     ];
   },
   async headers() {
