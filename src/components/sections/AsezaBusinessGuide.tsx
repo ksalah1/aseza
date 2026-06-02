@@ -42,6 +42,7 @@ type AsezaBusinessGuideProps = {
 };
 
 export function AsezaBusinessGuide({
+  locale,
   badge,
   title,
   hero,
@@ -66,15 +67,19 @@ export function AsezaBusinessGuide({
   related,
   currentLabel,
 }: AsezaBusinessGuideProps) {
+  const ar = locale === "ar";
   const safeRelated = related.slice(0, 3);
 
   return (
-    <main className="bg-background text-primary" dir="rtl">
+    <main className="bg-background text-primary" dir={ar ? "rtl" : "ltr"}>
       <div className="mx-auto max-w-7xl px-6 pt-4">
         <Breadcrumb
           items={[
-            { label: "الرئيسية", href: "/" },
-            { label: "تسجيل الشركات", href: "/register-business-in-aseza" },
+            { label: ar ? "الرئيسية" : "Home", href: "/" },
+            {
+              label: ar ? "تسجيل الشركات" : "Business registration",
+              href: "/register-business-in-aseza",
+            },
             { label: currentLabel },
           ]}
         />
@@ -204,8 +209,9 @@ export function AsezaBusinessGuide({
           <div>
             <h2 className="text-2xl font-bold md:text-3xl">{finalCta}</h2>
             <p className="mt-3 text-primary-100">
-              أرسل التفاصيل الأساسية عبر واتساب، وسنوضح لك المسار والخطوة
-              التالية بوضوح.
+              {ar
+                ? "أرسل التفاصيل الأساسية عبر واتساب، وسنوضح لك المسار والخطوة التالية بوضوح."
+                : "Send the basic details on WhatsApp and we will set out your path and next step clearly."}
             </p>
           </div>
           <a
@@ -215,13 +221,15 @@ export function AsezaBusinessGuide({
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 font-bold text-primary transition-colors hover:bg-accent-500"
           >
             <MessageCircle className="size-5" aria-hidden />
-            تواصل عبر واتساب
+            {ar ? "تواصل عبر واتساب" : "Contact via WhatsApp"}
           </a>
         </div>
       </Section>
 
       <Section width="wide" className="py-10 md:py-14">
-        <h2 className="text-xl font-bold text-primary">روابط مرتبطة</h2>
+        <h2 className="text-xl font-bold text-primary">
+          {ar ? "روابط مرتبطة" : "Related links"}
+        </h2>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
           {safeRelated.map((link) => (
             <Link

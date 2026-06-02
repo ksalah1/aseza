@@ -31,16 +31,34 @@ export type ServicePageContent = {
 
 export function ServicePageTemplate({
   content,
+  locale,
 }: {
   content: ServicePageContent;
+  locale: string;
 }) {
+  const ar = locale === "ar";
+  const ui = {
+    home: ar ? "الرئيسية" : "Home",
+    services: ar ? "خدماتنا" : "Our Services",
+    whatWeDo: ar ? "ماذا سنفعل لك؟" : "What we will do for you",
+    forWho: ar ? "لمن هذه الخدمة؟" : "Who is this service for?",
+    needs: ar ? "ماذا نحتاج منك؟" : "What we need from you",
+    steps: ar ? "خطوات العمل" : "How it works",
+    after: ar ? "بعد ذلك" : "After that",
+    ctaTitle: ar ? "ابدأ بخطوة واضحة" : "Start with a clear step",
+    ctaBody: ar
+      ? "أرسل ملخصاً قصيراً عن وضعك الحالي، وسنحدد لك المسار والخطوة التالية. نطلب الوثائق بعد تحديد نطاق الخدمة والاتفاق على المتابعة."
+      : "Send a short summary of your current situation and we will map out the path and your next step. We request documents only after the scope of work is defined and engagement is agreed.",
+    related: ar ? "خدمات مرتبطة" : "Related services",
+  };
+
   return (
     <>
       <div className="mx-auto max-w-7xl px-6 pt-4">
         <Breadcrumb
           items={[
-            { label: "الرئيسية", href: "/" },
-            { label: "خدماتنا", href: "/services" },
+            { label: ui.home, href: "/" },
+            { label: ui.services, href: "/services" },
             { label: content.title },
           ]}
         />
@@ -78,7 +96,7 @@ export function ServicePageTemplate({
           </div>
 
           <Card accent className="bg-primary text-background">
-            <h2 className="text-xl font-semibold">ماذا سنفعل لك؟</h2>
+            <h2 className="text-xl font-semibold">{ui.whatWeDo}</h2>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-primary-100">
               {content.whatWeDo.map((item) => (
                 <li key={item} className="flex gap-2">
@@ -93,23 +111,23 @@ export function ServicePageTemplate({
 
       <Section id="requirements" width="wide" background="muted" className="py-12 md:py-16">
         <div className="grid gap-5 lg:grid-cols-2">
-          <ListCard title="لمن هذه الخدمة؟" items={content.forWho} />
+          <ListCard title={ui.forWho} items={content.forWho} />
           <ListCard
             title={content.coreTitle}
             intro={content.coreIntro}
             items={content.coreItems}
           />
           <ListCard
-            title={content.needsTitle ?? "ماذا نحتاج منك؟"}
+            title={content.needsTitle ?? ui.needs}
             items={content.needs}
           />
-          <ListCard title="خطوات العمل" items={content.steps} ordered />
+          <ListCard title={ui.steps} items={content.steps} ordered />
         </div>
       </Section>
 
       {content.after?.length ? (
         <Section width="default" className="py-12 md:py-16">
-          <ListCard title={content.afterTitle ?? "بعد ذلك"} items={content.after} />
+          <ListCard title={content.afterTitle ?? ui.after} items={content.after} />
         </Section>
       ) : null}
 
@@ -117,10 +135,8 @@ export function ServicePageTemplate({
         <Card accent>
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="text-2xl font-semibold text-primary">ابدأ بخطوة واضحة</h2>
-              <p className="mt-3 text-primary-600">
-                أرسل ملخصاً قصيراً عن وضعك الحالي، وسنحدد لك المسار والخطوة التالية. نطلب الوثائق بعد تحديد نطاق الخدمة والاتفاق على المتابعة.
-              </p>
+              <h2 className="text-2xl font-semibold text-primary">{ui.ctaTitle}</h2>
+              <p className="mt-3 text-primary-600">{ui.ctaBody}</p>
             </div>
             <a
               href={whatsappLink(content.whatsappMessage)}
@@ -136,7 +152,7 @@ export function ServicePageTemplate({
       </Section>
 
       <Section width="default" className="py-12 md:py-16">
-        <h2 className="text-2xl font-semibold text-primary">خدمات مرتبطة</h2>
+        <h2 className="text-2xl font-semibold text-primary">{ui.related}</h2>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {content.related.map((link) => (
             <Link
