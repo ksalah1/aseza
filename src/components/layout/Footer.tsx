@@ -74,12 +74,6 @@ export async function Footer() {
                 <Phone className="size-4 shrink-0" aria-hidden />
                 <span dir="ltr">{phoneDisplay()}</span>
               </a>
-              <Link
-                href="/contact"
-                className="block text-accent transition-colors hover:underline"
-              >
-                {isAr ? "صفحة التواصل" : "Contact page"}
-              </Link>
             </div>
           </div>
         </div>

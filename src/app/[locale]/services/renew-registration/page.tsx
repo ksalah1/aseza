@@ -82,7 +82,7 @@ export default async function Page({
         related: [
           { label: "تعديل بيانات الشركة", href: "/services/amend-existing-company" },
           { label: "الترخيص بعد التسجيل", href: "/services/licensing-after-registration" },
-          { label: "تواصل معنا", href: "/contact" }
+          { label: "مراجعة النشاط قبل التسجيل", href: "/services/activity-review" }
         ],
       }}
     />
